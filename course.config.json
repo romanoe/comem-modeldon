@@ -1,17 +1,52 @@
 {
-  "name": "Nom du cours",
-  "slug": "comem-mon-cours",
+  "name": "Modélisation de Données",
+  "slug": "comem-modeldon",
   "subtitle": "HEIG-VD / COMEM+",
   "year": 2026,
-  "author": "Noemi Romano",
+  "author": "Noe Romano",
   "email": "noemi.romano@heig-vd.ch",
-  "github": "https://github.com/MediaComem/comem-mon-cours",
+  "github": "https://github.com/romanoe/comem-modeldon",
   "license": "CC BY 4.0",
   "decks": [
     {
-      "src": "cours/01-template.md",
-      "out": "01-template",
+      "src": "cours/01-introduction.md",
+      "out": "01-introduction",
       "title": "Introduction"
+    },
+    {
+      "src": "cours/02-modelisation.md",
+      "out": "02-modelisation",
+      "title": "Modèle entité-association"
+    },
+    {
+      "src": "cours/03-cles-relations.md",
+      "out": "03-cles-relations",
+      "title": "Clés et relations"
+    },
+    {
+      "src": "cours/04-stockage.md",
+      "out": "04-stockage",
+      "title": "Stockage local"
+    },
+    {
+      "src": "cours/05-interroger.md",
+      "out": "05-interroger",
+      "title": "Interroger les données"
+    },
+    {
+      "src": "cours/06-connecter.md",
+      "out": "06-connecter",
+      "title": "Connecter les données"
+    },
+    {
+      "src": "cours/07-analyser.md",
+      "out": "07-analyser",
+      "title": "Analyser les données"
+    },
+    {
+      "src": "cours/08-semi-structure.md",
+      "out": "08-semi-structure",
+      "title": "La donnée semi-structurée"
     }
   ]
 }

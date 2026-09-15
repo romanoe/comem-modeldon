@@ -1,11 +1,18 @@
 {
-  "name": "comem-cours-template",
+  "name": "comem-modeldon",
   "version": "1.0.0",
   "private": true,
-  "description": "Template Slidev - HEIG-VD / COMEM+",
+  "description": "Cours Modélisation de Données - HEIG-VD / COMEM+",
   "scripts": {
     "dev": "node scripts/dev.mjs",
-    "dev:01": "slidev cours/01-template.md --open",
+    "dev:01": "slidev cours/01-introduction.md --open",
+    "dev:02": "slidev cours/02-modelisation.md --open",
+    "dev:03": "slidev cours/03-cles-relations.md --open",
+    "dev:04": "slidev cours/04-stockage.md --open",
+    "dev:05": "slidev cours/05-interroger.md --open",
+    "dev:06": "slidev cours/06-connecter.md --open",
+    "dev:07": "slidev cours/07-analyser.md --open",
+    "dev:08": "slidev cours/08-semi-structure.md --open",
     "build": "node scripts/build-all.mjs",
     "build:force": "node scripts/build-all.mjs --force",
     "index": "node scripts/generate-index.mjs"
@@ -13,6 +20,26 @@
   "dependencies": {
     "@iconify-json/pixelarticons": "^1.2.6",
     "@slidev/cli": "^52.16.0",
-    "slidev-theme-pixel": "^0.3.1"
+    "slidev-theme-pixel": "^1.0.0"
+  },
+  "slidev": {
+    "colorSchema": "both",
+    "themeConfig": {
+      "primary": "black"
+    },
+    "defaults": {
+      "fonts": {
+        "sans": "Plus Jakarta Sans",
+        "serif": "Plus Jakarta Sans",
+        "mono": "Atkinson Hyperlegible Mono"
+      },
+      "transition": false,
+      "drawings": {
+        "persist": false
+      }
+    }
+  },
+  "devDependencies": {
+    "@iconify-json/logos": "^1.2.11"
   }
 }
