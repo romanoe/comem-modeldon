@@ -415,6 +415,127 @@ flowchart LR
 ```
 
 ---
+layout: two-cols
+---
+
+::title::
+# Repérage des entités
+
+::left::
+
+### Le besoin
+
+> « Je veux savoir quelles œuvres sont exposées, dans quelle salle, et qui les a peintes. »
+
+### La question
+
+Quels objets du domaine se cachent dans cette phrase ?
+
+::right::
+
+<v-click>
+
+```mermaid
+erDiagram
+  artistes {
+    varchar nom
+  }
+  oeuvres {
+    varchar titre
+  }
+  salles {
+    varchar nom
+  }
+```
+
+</v-click>
+
+<v-click>
+
+- Trois objets, trois entités
+- Un nom au singulier par objet
+- « exposées » n'est pas une entité
+
+</v-click>
+
+---
+layout: two-cols
+---
+
+::title::
+# Repérage des attributs
+
+::left::
+
+### Le besoin
+
+> « Sur le cartel, j'affiche le titre, l'année et les dimensions de l'œuvre. »
+
+### La question
+
+Qu'est-ce qui décrit l'œuvre, et rien d'autre ?
+
+::right::
+
+<v-click>
+
+```mermaid
+erDiagram
+  oeuvres {
+    varchar titre
+    integer annee
+    integer hauteur_cm
+    integer largeur_cm
+  }
+```
+
+</v-click>
+
+<v-click>
+
+- Une information par colonne
+- `dimensions` se coupe en deux
+- L'artiste décrit l'artiste, pas l'œuvre
+
+</v-click>
+
+---
+layout: two-cols
+---
+
+::title::
+# Repérage des relations
+
+::left::
+
+### Le besoin
+
+> « Une œuvre est accrochée dans une seule salle, et une salle contient plusieurs œuvres. »
+
+### La question
+
+Combien d'un côté, combien de l'autre ?
+
+::right::
+
+<v-click>
+
+```mermaid {scale: 1.1}
+flowchart LR
+  salles --- |"1 à N"| oeuvres
+```
+
+</v-click>
+
+<v-click>
+
+- Le verbe porte la relation
+- « une seule » et « plusieurs » donnent la cardinalité
+- L'artiste se relie aux œuvres de la même façon
+
+</v-click>
+
+---
 layout: default
 ---
 
