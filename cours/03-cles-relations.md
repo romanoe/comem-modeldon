@@ -1,6 +1,7 @@
 ---
 theme: pixel
-title: "03 · Clés et relations"
+number: "03"
+title: "Clés et relations"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"

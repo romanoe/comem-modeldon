@@ -1,6 +1,7 @@
 ---
 theme: pixel
-title: "09 · La donnée semi-structurée"
+number: "09"
+title: "La donnée semi-structurée"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"

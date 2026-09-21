@@ -1,6 +1,7 @@
 ---
 theme: pixel
-title: "04 · Normalisation"
+number: "04"
+title: "Normalisation"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"

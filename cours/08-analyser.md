@@ -1,6 +1,7 @@
 ---
 theme: pixel
-title: "08 · Analyser les données"
+number: "08"
+title: "Analyser les données"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"

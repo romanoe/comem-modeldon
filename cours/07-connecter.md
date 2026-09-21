@@ -1,6 +1,7 @@
 ---
 theme: pixel
-title: "07 · Connecter les données"
+number: "07"
+title: "Connecter les données"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"

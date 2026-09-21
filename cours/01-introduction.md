@@ -1,8 +1,9 @@
 ---
 theme: pixel
-title: "01 · Introduction"
+number: "01"
+title: "Introduction"
 subtitle: "Modélisation de Données"
-author: "Noe Romano"
+author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"
 github: "https://github.com/romanoe/comem-modeldon"
 breadcrumb: "Modélisation de Données"
@@ -63,7 +64,11 @@ content: center
 clicks: 2
 ---
 
-# Donnée -> information -> connaissance
+# Donnée <pixelarticons-arrow-right  class="text-3xl" /> Information <pixelarticons-arrow-right class="text-3xl" /> Connaissance
+
+
+
+
 
 <Card title="Données brutes" :at="0">
 <template #icon><pixelarticons-database /></template>
@@ -81,7 +86,7 @@ clicks: 2
 <pixelarticons-arrow-right v-click="2" class="text-3xl self-center" />
 <Card title="Connaissance" :at="2">
 <template #icon><pixelarticons-lightbulb /></template>
-Le créneau de 8h ne convainc personne : déplacer le cours à 10h15
+Le créneau de 8h ne convainc personne : déplacer le cours à 8h30
 </Card>
 
 
@@ -103,7 +108,7 @@ layout: two-cols
 - **Visibles** : toutes les données tiennent à l'écran
 - **Immédiat** : aucun outil à installer
 - **Sans formation** : tout le monde sait déjà s'en servir
-- **Limité** : quelques centaines de lignes, sur un seul poste (à part si c'est un fichier partagé en ligne..)
+- **Limité** : quelques centaines de lignes, sur un seul poste (à part si c'est un fichier partagé en ligne...)
 
 ::right::
 
@@ -121,22 +126,25 @@ layout: two-cols
 </Card>
 
 ---
-layout: image-right
-image: /images/01/excel-sheet.jpg
-backgroundSize: contain
-caption: "<em>I'm Sick of This Sheet</em>"
+layout: default
 ---
 
-# Limites du tableur
+# Limites (1/2)
 
-- `v1`, `v2_final`, `v2_FINAL_ok.xlsx`
-- "Noe Romano" vs "Noé romano" : deux entrées distinctes
-- Deux personnes éditent en même temps : conflit
-- Suppression accidentelle : irrécupérable
+### oeuvres_v2_FINAL_ok.xlsx
 
-<Card color="#e92528" tag="danger" title="Pas de filet de sécurité">
-<template #icon><pixelarticons-shield-off /></template>
-Excel n'empêche rien. N'importe qui peut écrire n'importe quoi dans n'importe quelle cellule.
+|  | A | B | C | D |
+|---|---|---|---|---|
+| **1** | Œuvre | Artiste | Année | Salle |
+| **2** | Impression, soleil levant | Claude Monet | 1872 | S1 |
+| **3** | Le Bassin aux nymphéas | claude monet | 1899 | Salle 1 |
+| **4** | La Nuit étoilée | Vincent van Gogh | 1889 | S2 |
+| **5** | La Nuit étoilée | Vincent van Gogh | 1889 | S2 |
+| **6** | La Grande Vague de Kanagawa | Katsushika Hokusai | vers 1831 |  |
+
+<Card color="#e92528" title="Repérer les anomalies">
+<template #icon><pixelarticons-zoom-in /></template>
+Combien de problèmes distincts se cachent dans ce tableur ?
 </Card>
 
 
@@ -144,15 +152,21 @@ Excel n'empêche rien. N'importe qui peut écrire n'importe quoi dans n'importe 
 layout: default
 ---
 
-# Besoins induits
+# Limites (2/2)
 
 | Dans le tableur | Ce qu'il faudrait |
 |---|---|
-| `v1`, `v2_final`, `v2_FINAL_ok.xlsx` | Une **seule** source de vérité |
-| « Fritz lang » et « Fritz Lang » | Une valeur saisie **une seule fois** |
-| N'importe quoi dans n'importe quelle cellule | Un **type** et des **contraintes** par colonne |
-| Deux personnes éditent, conflit | Des **accès simultanés** gérés |
-| Suppression irrécupérable | Des règles de **suppression** explicites |
+| `oeuvres_v2_FINAL_ok.xlsx` | Une **seule** source de vérité |
+| « Claude Monet » et « claude monet » | Une valeur saisie **une seule fois** |
+| `S1` et `Salle 1` pour la même salle | Une **référence** unique vers la salle |
+| `vers 1831`, cellule Salle vide | Un **type** et des **contraintes** par colonne |
+| Lignes 4 et 5 identiques | Une **clé** qui interdit le doublon |
+
+<Card color="#e92528" title="Pas de filet de sécurité">
+<template #icon><pixelarticons-shield-off /></template>
+Excel n'empêche rien : ni la cellule fantaisiste, ni les éditions simultanées, ni la suppression irrécupérable.
+</Card>
+
 
 ---
 layout: grid
@@ -162,29 +176,28 @@ content: center
 clicks: 3
 ---
 
-# Le passage en quatre étapes
+# Étapes de la modélisation
 
-<Card title="Séparer" :at="0">
+<Card title="Séparer" :at="0" footer="cours 02 · Modèle entité-association">
 <template #icon><pixelarticons-scissors /></template>
-Repérer les sujets distincts mêlés dans une même feuille. Chacun devient une entité.
+Repérer les entités, leurs attributs et leurs relations
 </Card>
 <pixelarticons-arrow-right v-click="1" class="text-3xl self-center" />
-<Card title="Décrire" :at="1">
+<Card title="Décrire" :at="1" footer="cours 03 · Clés et relations">
 <template #icon><pixelarticons-git-branch /></template>
-Entités, attributs et relations, dessinés dans dbdiagram.io.
+Dessiner entités, attributs et relations
 </Card>
 <pixelarticons-arrow-right v-click="2" class="text-3xl self-center" />
-<Card title="Créer" :at="2">
+<Card title="Créer" :at="2" footer="cours 05 · Stockage local">
 <template #icon><pixelarticons-table /></template>
-Le diagramme devient des <code>CREATE TABLE</code> typés.
+Le diagramme devient des <code>CREATE TABLE</code> typés
 </Card>
 <pixelarticons-arrow-right v-click="3" class="text-3xl self-center" />
-<Card title="Interroger" :at="3">
+<Card title="Interroger" :at="3" footer="cours 06 · Interroger les données">
 <template #icon><pixelarticons-search /></template>
-Les données entrent, les réponses sortent en SQL.
+Les données entrent, les réponses sortent en SQL
 </Card>
 
-Ces quatre étapes sont le plan du semestre : cours 02 à 04, puis 05, puis 06 à 08.
 
 ---
 layout: two-cols
@@ -241,7 +254,7 @@ content: center
 <Card title="Slides du cours">
 <template #icon><pixelarticons-external-link /></template>
 <a href="https://comem-modeldon.onrender.com">comem-modeldon.onrender.com</a><br>
-Tous les decks du semestre, mis à jour au fil des séances.
+Tous les cours du semestre, mis à jour au fil des séances.
 </Card>
 
 <Card title="Dépôt du cours">
@@ -318,7 +331,8 @@ Deux **types** :
 <template #icon><logos-sqlite /></template>
 Embarqué : un seul fichier, aucun serveur.
 </Card>
-<Card title="PostgreSQL">
+<Card title="PostgreSQL" footer="InfraDon · 
+semestre 2">
 <template #icon><logos-postgresql /></template>
 Client-serveur, riche et extensible.
 </Card>
@@ -362,28 +376,42 @@ Un bon modèle garantit que les données sont interrogeables, maintenables et é
 layout: section
 ---
 
-# Le diagramme entité-association
+# Le diagramme entité-association (Entity-Relation)
 
 ---
-layout: grid
-cols: 3
-content: center
+layout: two-cols
 ---
 
+::title::
 # Entités, attributs, relations
 
-<Card title="Entités">
-<template #icon><pixelarticons-archive /></template>
-Les <strong>objets</strong> du domaine : une œuvre, un artiste, une salle.
-</Card>
-<Card title="Attributs">
-<template #icon><pixelarticons-label /></template>
-Ce qu'on sait de chacun : un titre, une année, une technique.
-</Card>
-<Card title="Relations">
-<template #icon><pixelarticons-git-branch /></template>
-Les liens et leur <strong>nombre</strong> : un artiste crée plusieurs œuvres.
-</Card>
+::left::
+
+- **Entité** : un objet du domaine
+- **Attribut** : ce qu'on sait de l'objet
+- **Relation** : le lien entre deux entités
+- **Cardinalité** : combien d'un côté, combien de l'autre
+
+::right::
+
+```mermaid {scale: 0.75}
+erDiagram
+  artistes {
+    integer id PK
+    varchar nom
+  }
+  oeuvres {
+    integer id PK
+    varchar titre
+    integer annee
+    integer artiste_id FK
+  }
+```
+
+```mermaid {scale: 0.65}
+flowchart LR
+  artistes --- |"1 à N"| oeuvres
+```
 
 ---
 layout: default
@@ -391,9 +419,11 @@ layout: default
 
 # Du diagramme aux tables
 
-Chaque élément du diagramme a une traduction directe dans la base.
+Chaque élément du diagramme a une traduction directe dans la base de données : 
 
-| Dans le diagramme | Dans la base de données |
+
+
+| Dans le diagramme (Cours 2) | Dans la base de données (Cours 5)|
 |---|---|
 | Entité | Table |
 | Attribut | Colonne |
@@ -401,7 +431,7 @@ Chaque élément du diagramme a une traduction directe dans la base.
 | Relation 1:N | Clé étrangère |
 | Relation N:M | Table de liaison |
 
-Dessiner d'abord, implémenter ensuite : corriger un trait coûte moins cher que corriger une base déjà remplie.
+Dessiner d'abord, implémenter ensuite !
 
 ---
 layout: section
@@ -503,7 +533,7 @@ layout: section
 
 # Le fil rouge
 
-- Groupes de **2-3 personnes** : un·e chef·fe de projet, un ou deux devs
+- Groupes de **2-3 personnes** : un·e chef·fe de projet, un ou deux architectes de données
 - Un seul domaine, du premier au dernier cours : **un musée**
 - Aucun rendu noté : les TP préparent les deux examens
 - Chaque séance applique au musée ce qui vient d'être vu
@@ -557,17 +587,17 @@ layout: two-cols
 
 ::left::
 
-### 01 Donnée brute
+### Donnée brute
 
 ```
 1200
 ```
 
-### 02 Information
+### Information
 
 1200 billets vendus pour le dimanche.
 
-### 03 Connaissance
+### Connaissance
 
 Le dimanche sature. Ouvrir un créneau de visite guidée supplémentaire et inciter à venir en semaine par un tarif réduit.
 
@@ -608,14 +638,14 @@ layout: two-cols
 Écoute la cliente, pose les questions, puis <strong>traduit le besoin</strong> à son ou sa partenaire.
 </Card>
 
-<Card title="Dev">
-<template #icon><pixelarticons-terminal /></template>
+<Card title="Architecte de données">
+<template #icon><pixelarticons-database /></template>
 Ne connaît le besoin que par cette traduction. Note les objets et les données à stocker.
 </Card>
 
 <Card color="#6b7280" tag="note" title="Groupes de 2-3">
 <template #icon><pixelarticons-users /></template>
-Un·e chef·fe de projet, un ou deux devs. Les rôles changent à chaque séance
+Un·e chef·fe de projet, un ou deux architectes de données. Les rôles changent à chaque séance
 </Card>
 
 ---

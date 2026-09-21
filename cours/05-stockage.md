@@ -1,6 +1,7 @@
 ---
 theme: pixel
-title: "05 · Stockage local"
+number: "05"
+title: "Stockage local"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"

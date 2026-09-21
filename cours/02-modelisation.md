@@ -1,6 +1,7 @@
 ---
 theme: pixel
-title: "02 · Modèle entité-association"
+number: "02"
+title: "Modèle entité-association"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"
