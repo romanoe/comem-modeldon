@@ -38,15 +38,15 @@ A travers le cycle de vie de la donnée :
 
 <Card title="Modélisation" color="red" footer="ModelDon · semestre 1">
 <template #icon><pixelarticons-tree /></template>
-Structurer et formaliser les données d'un domaine métier. <strong>Ce cours.</strong>
+Structurer et formaliser les données d'un domaine métier. <strong>Ce cours</strong>
 </Card>
 <Card title="Infrastructure" color="#6b7280" footer="InfraDon · semestre 2">
 <template #icon><pixelarticons-server /></template>
-Stocker, gérer et exposer des données fiables et accessibles à grande échelle.
+Stocker, gérer et exposer des données fiables et accessibles à grande échelle
 </Card>
 <Card title="Visualisation" color="#6b7280" footer="VisualDon · semestre 5">
 <template #icon><pixelarticons-chart-bar /></template>
-Représenter les données pour en tirer du sens et appuyer les décisions.
+Représenter les données pour en tirer du sens, raconter une histoire et appuyer les décisions et une action
 </Card>
 
 
@@ -425,7 +425,7 @@ layout: two-cols
 
 ### Le besoin
 
-> « Je veux savoir quelles œuvres sont exposées, dans quelle salle, et qui les a peintes. »
+> « Je veux savoir quels livres sont empruntés, par quel·le lecteur·rice, et qui les a écrits. »
 
 ### La question
 
@@ -437,13 +437,13 @@ Quels objets du domaine se cachent dans cette phrase ?
 
 ```mermaid
 erDiagram
-  artistes {
+  auteurs {
     varchar nom
   }
-  oeuvres {
+  livres {
     varchar titre
   }
-  salles {
+  lecteurs {
     varchar nom
   }
 ```
@@ -453,85 +453,8 @@ erDiagram
 <v-click>
 
 - Trois objets, trois entités
-- Un nom au singulier par objet
-- « exposées » n'est pas une entité
-
-</v-click>
-
----
-layout: two-cols
----
-
-::title::
-# Repérage des attributs
-
-::left::
-
-### Le besoin
-
-> « Sur le cartel, j'affiche le titre, l'année et les dimensions de l'œuvre. »
-
-### La question
-
-Qu'est-ce qui décrit l'œuvre, et rien d'autre ?
-
-::right::
-
-<v-click>
-
-```mermaid
-erDiagram
-  oeuvres {
-    varchar titre
-    integer annee
-    integer hauteur_cm
-    integer largeur_cm
-  }
-```
-
-</v-click>
-
-<v-click>
-
-- Une information par colonne
-- `dimensions` se coupe en deux
-- L'artiste décrit l'artiste, pas l'œuvre
-
-</v-click>
-
----
-layout: two-cols
----
-
-::title::
-# Repérage des relations
-
-::left::
-
-### Le besoin
-
-> « Une œuvre est accrochée dans une seule salle, et une salle contient plusieurs œuvres. »
-
-### La question
-
-Combien d'un côté, combien de l'autre ?
-
-::right::
-
-<v-click>
-
-```mermaid {scale: 1.1}
-flowchart LR
-  salles --- |"1 à N"| oeuvres
-```
-
-</v-click>
-
-<v-click>
-
-- Le verbe porte la relation
-- « une seule » et « plusieurs » donnent la cardinalité
-- L'artiste se relie aux œuvres de la même façon
+- Un nom au pluriel par objet
+- « empruntés » n'est pas une entité
 
 </v-click>
 
