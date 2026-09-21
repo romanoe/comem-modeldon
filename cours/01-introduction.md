@@ -22,6 +22,7 @@ logos:
     class: "logo-hesso"
     
 
+download: true
 mdc: true
 layout: cover
 ---

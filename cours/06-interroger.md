@@ -12,6 +12,7 @@ logos:
   - src: /images/logo-hes-so.png
     height: 79px
 
+download: true
 mdc: true
 layout: cover
 ---

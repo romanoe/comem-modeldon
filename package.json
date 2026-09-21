@@ -41,6 +41,7 @@
     }
   },
   "devDependencies": {
-    "@iconify-json/logos": "^1.2.11"
+    "@iconify-json/logos": "^1.2.11",
+    "playwright-chromium": "^1.63.0"
   }
 }
