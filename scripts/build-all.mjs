@@ -7,7 +7,7 @@
 
 import { execSync } from 'node:child_process'
 import {
-  cpSync, rmSync, symlinkSync, existsSync,
+  cpSync, rmSync, existsSync,
   readFileSync, writeFileSync, mkdirSync
 } from 'node:fs'
 import { createHash } from 'node:crypto'
@@ -78,11 +78,11 @@ for (const { src, out, exportWaitUntil } of decks) {
     )
   }
 
-  // Replace per-deck images copy with symlink to shared dir
+  // Ensure each deck has a real images dir : Render ne suit pas les liens symboliques
   const deckImages = resolve(root, 'dist', out, 'images')
-  if (existsSync(deckImages)) {
-    rmSync(deckImages, { recursive: true })
-    symlinkSync('../images', deckImages)
+  if (existsSync(imagesSource)) {
+    rmSync(deckImages, { recursive: true, force: true })
+    cpSync(imagesSource, deckImages, { recursive: true })
   }
 
   // Update cache after successful build

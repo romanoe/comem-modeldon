@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: comem-mon-cours
+    name: comem-modeldon
     runtime: static
     buildCommand: npm ci && node scripts/build-all.mjs --force
     staticPublishPath: ./dist
