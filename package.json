@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@iconify-json/pixelarticons": "^1.2.6",
-    "@slidev/cli": "^52.16.0",
+    "@slidev/cli": "^53.0.0",
     "slidev-theme-pixel": "^2.0.0"
   },
   "slidev": {

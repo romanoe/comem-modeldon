@@ -9,3 +9,31 @@ services:
         value: 20
       - key: NODE_OPTIONS
         value: --max-old-space-size=2048
+    routes:
+      - type: rewrite
+        source: /01-introduction/*
+        destination: /01-introduction/index.html
+      - type: rewrite
+        source: /02-modelisation/*
+        destination: /02-modelisation/index.html
+      - type: rewrite
+        source: /03-cles-relations/*
+        destination: /03-cles-relations/index.html
+      - type: rewrite
+        source: /04-normalisation/*
+        destination: /04-normalisation/index.html
+      - type: rewrite
+        source: /05-stockage/*
+        destination: /05-stockage/index.html
+      - type: rewrite
+        source: /06-interroger/*
+        destination: /06-interroger/index.html
+      - type: rewrite
+        source: /07-connecter/*
+        destination: /07-connecter/index.html
+      - type: rewrite
+        source: /08-analyser/*
+        destination: /08-analyser/index.html
+      - type: rewrite
+        source: /09-semi-structure/*
+        destination: /09-semi-structure/index.html

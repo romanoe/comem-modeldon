@@ -231,6 +231,26 @@ CREATE TABLE oeuvres (
 ```
 
 ---
+layout: grid
+cols: 2
+content: center
+---
+
+# Liens utiles
+
+<Card title="Slides du cours">
+<template #icon><pixelarticons-external-link /></template>
+<a href="https://comem-modeldon.onrender.com">comem-modeldon.onrender.com</a><br>
+Tous les decks du semestre, mis à jour au fil des séances.
+</Card>
+
+<Card title="Dépôt du cours">
+<template #icon><logos-github-icon /></template>
+<a href="https://github.com/romanoe/comem-modeldon">github.com/romanoe/comem-modeldon</a><br>
+Sources des slides, corrections et historique des versions.
+</Card>
+
+---
 layout: section
 ---
 

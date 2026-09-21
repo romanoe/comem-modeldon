@@ -6,6 +6,8 @@ Cours d'introduction aux bases de données relationnelles pour la filière Ingé
 
 Ce document est mis à jour au fur et à mesure du semestre avec les informations du cours, le déroulé des TP et les ressources.
 
+**Slides en ligne : [comem-modeldon.onrender.com](https://comem-modeldon.onrender.com)**
+
 ---
 
 ## Objectifs
@@ -44,15 +46,15 @@ sqlite3 --version
 
 | # | Module | Contenu |
 |---|---|---|
-| 01 | Introduction | Donnée · Information · Connaissance · Du tableur à la base · SGBD · Diagramme E-R |
-| 02 | Modèle entité-association | Entités · Types d'entités · Types d'attributs · Nommage · Normalisation (1NF) · dbdiagram.io |
-| 03 | Clés et relations | Relations · Cardinalités · Clé primaire · Clé étrangère · 1:N et N:M |
-| 04 | Normalisation | Dépendances fonctionnelles · 1NF · 2NF · 3NF · Dénormalisation |
-| 05 | Stockage local | SQLite · CREATE TABLE · Types · Intégrité référentielle · Modes de suppression |
-| 06 | Interroger les données | SELECT · FROM · WHERE · ORDER BY · INSERT · UPDATE · DELETE |
-| 07 | Connecter les données | Donnée morcelée · INNER JOIN · LEFT JOIN |
-| 08 | Analyser les données | Agrégation · COUNT · SUM · AVG · GROUP BY · HAVING · CREATE VIEW |
-| 09 | La donnée semi-structurée | JSON · Syntaxe · Comparaison avec le modèle relationnel |
+| 01 | [Introduction](https://comem-modeldon.onrender.com/01-introduction/) | Donnée · Information · Connaissance · Du tableur à la base · SGBD · Diagramme E-R |
+| 02 | [Modèle entité-association](https://comem-modeldon.onrender.com/02-modelisation/) | Entités · Types d'entités · Types d'attributs · Nommage · Normalisation (1NF) · dbdiagram.io |
+| 03 | [Clés et relations](https://comem-modeldon.onrender.com/03-cles-relations/) | Relations · Cardinalités · Clé primaire · Clé étrangère · 1:N et N:M |
+| 04 | [Normalisation](https://comem-modeldon.onrender.com/04-normalisation/) | Dépendances fonctionnelles · 1NF · 2NF · 3NF · Dénormalisation |
+| 05 | [Stockage local](https://comem-modeldon.onrender.com/05-stockage/) | SQLite · CREATE TABLE · Types · Intégrité référentielle · Modes de suppression |
+| 06 | [Interroger les données](https://comem-modeldon.onrender.com/06-interroger/) | SELECT · FROM · WHERE · ORDER BY · INSERT · UPDATE · DELETE |
+| 07 | [Connecter les données](https://comem-modeldon.onrender.com/07-connecter/) | Donnée morcelée · INNER JOIN · LEFT JOIN |
+| 08 | [Analyser les données](https://comem-modeldon.onrender.com/08-analyser/) | Agrégation · COUNT · SUM · AVG · GROUP BY · HAVING · CREATE VIEW |
+| 09 | [La donnée semi-structurée](https://comem-modeldon.onrender.com/09-semi-structure/) | JSON · Syntaxe · Comparaison avec le modèle relationnel |
 
 ---
 
@@ -91,6 +93,8 @@ La première séance de TP part d'une seule question, sans outil : **quelles don
 
 ## Ressources
 
+- [Slides du cours](https://comem-modeldon.onrender.com)
+- [Dépôt GitHub du cours](https://github.com/romanoe/comem-modeldon)
 - [dbdiagram.io](https://dbdiagram.io/)
 - [SQLite documentation officielle](https://www.sqlite.org/docs.html)
 - [SQLite Tutorial](https://www.sqlitetutorial.net)
