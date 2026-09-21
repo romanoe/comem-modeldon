@@ -1,6 +1,6 @@
 ---
 theme: pixel
-title: "06 · Connecter les données"
+title: "08 · Analyser les données"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"
@@ -19,22 +19,30 @@ layout: cover
 layout: section
 ---
 
-# Pourquoi la donnée est morcelée
+# De la donnée brute aux indicateurs
 
-_La normalisation et ses conséquences_
-
----
-layout: section
----
-
-# INNER JOIN
-
-_Le parcours de visite : œuvre · artiste · salle · exposition_
+_Transformer les chiffres en décisions_
 
 ---
 layout: section
 ---
 
-# LEFT JOIN
+# Fonctions d'agrégation
 
-_Garder toutes les lignes, même sans correspondance_
+_SUM · COUNT · COUNT DISTINCT · AVG_
+
+---
+layout: section
+---
+
+# Regrouper les résultats
+
+_GROUP BY · HAVING_
+
+---
+layout: section
+---
+
+# Vues
+
+_CREATE VIEW : enregistrer une requête complexe_

@@ -34,15 +34,15 @@ cols: 3
 
 A travers le cycle de vie de la donnée : 
 
-<Card title="Modélisation" color="#000000" footer="modeldon · semestre 1">
+<Card title="Modélisation" color="red" footer="ModelDon · semestre 1">
 <template #icon><pixelarticons-tree /></template>
 Structurer et formaliser les données d'un domaine métier. <strong>Ce cours.</strong>
 </Card>
-<Card title="Infrastructure" color="#6b7280" footer="infradon · semestre 2">
+<Card title="Infrastructure" color="#6b7280" footer="InfraDon · semestre 2">
 <template #icon><pixelarticons-server /></template>
 Stocker, gérer et exposer des données fiables et accessibles à grande échelle.
 </Card>
-<Card title="Visualisation" color="#6b7280" footer="visualdon · semestre 5">
+<Card title="Visualisation" color="#6b7280" footer="VisualDon · semestre 5">
 <template #icon><pixelarticons-chart-bar /></template>
 Représenter les données pour en tirer du sens et appuyer les décisions.
 </Card>
@@ -63,25 +63,25 @@ content: center
 clicks: 2
 ---
 
-# Qu'est-ce qu'une donnée ?
+# Donnée -> information -> connaissance
 
 <Card title="Données brutes" :at="0">
 <template #icon><pixelarticons-database /></template>
 <ul>
-  <li>24</li>
-  <li>65</li>
-  <li>180</li>
+  <li>47</li>
+  <li>4</li>
+  <li>8</li>
 </ul>
 </Card>
 <pixelarticons-arrow-right v-click="1" class="text-3xl self-center" />
 <Card title="Information" :at="1">
 <template #icon><pixelarticons-article /></template>
-24°C, 65% d'humidité relative, 180 visiteur·euse·s dans la salle
+47 inscrit·e·s au cours, 4 présent·e·s en salle, 8 heures du matin
 </Card>
 <pixelarticons-arrow-right v-click="2" class="text-3xl self-center" />
 <Card title="Connaissance" :at="2">
 <template #icon><pixelarticons-lightbulb /></template>
-Activer la déshumidification et limiter l'accès à la salle des œuvres sur papier
+Le créneau de 8h ne convainc personne : déplacer le cours à 10h15
 </Card>
 
 
@@ -96,14 +96,14 @@ layout: two-cols
 ---
 
 ::title::
-# Le tableur : point de départ naturel
+# Le tableur
 
 ::left::
 
 - **Visibles** : toutes les données tiennent à l'écran
 - **Immédiat** : aucun outil à installer
 - **Sans formation** : tout le monde sait déjà s'en servir
-- **Limité** : quelques centaines de lignes, sur un seul poste
+- **Limité** : quelques centaines de lignes, sur un seul poste (à part si c'est un fichier partagé en ligne..)
 
 ::right::
 
@@ -127,7 +127,7 @@ backgroundSize: contain
 caption: "<em>I'm Sick of This Sheet</em>"
 ---
 
-# Pourquoi (pas) Excel ?
+# Limites du tableur
 
 - `v1`, `v2_final`, `v2_FINAL_ok.xlsx`
 - "Noe Romano" vs "Noé romano" : deux entrées distinctes
@@ -144,9 +144,7 @@ Excel n'empêche rien. N'importe qui peut écrire n'importe quoi dans n'importe 
 layout: default
 ---
 
-# Ce qui casse, ce qu'il faudrait
-
-Chaque limite du tableur appelle une réponse précise. Ces réponses portent un nom : ce sont les fonctions d'une base de données.
+# Besoins induits
 
 | Dans le tableur | Ce qu'il faudrait |
 |---|---|
@@ -164,51 +162,73 @@ content: center
 clicks: 3
 ---
 
-# Le passage, étape par étape
+# Le passage en quatre étapes
 
-<Card title="1 · Séparer" :at="0">
+<Card title="Séparer" :at="0">
 <template #icon><pixelarticons-scissors /></template>
-Une feuille mélange œuvres, artistes et salles. Chaque sujet devient une entité.
+Repérer les sujets distincts mêlés dans une même feuille. Chacun devient une entité.
 </Card>
 <pixelarticons-arrow-right v-click="1" class="text-3xl self-center" />
-<Card title="2 · Décrire" :at="1">
+<Card title="Décrire" :at="1">
 <template #icon><pixelarticons-git-branch /></template>
-Entités, attributs et relations, écrits en DBML.
+Entités, attributs et relations, dessinés dans dbdiagram.io.
 </Card>
 <pixelarticons-arrow-right v-click="2" class="text-3xl self-center" />
-<Card title="3 · Créer" :at="2">
+<Card title="Créer" :at="2">
 <template #icon><pixelarticons-table /></template>
 Le diagramme devient des <code>CREATE TABLE</code> typés.
 </Card>
 <pixelarticons-arrow-right v-click="3" class="text-3xl self-center" />
-<Card title="4 · Interroger" :at="3">
+<Card title="Interroger" :at="3">
 <template #icon><pixelarticons-search /></template>
 Les données entrent, les réponses sortent en SQL.
 </Card>
 
-Ces quatre étapes sont le plan du semestre : cours 02-03, puis 04, puis 05 à 07.
+Ces quatre étapes sont le plan du semestre : cours 02 à 04, puis 05, puis 06 à 08.
 
 ---
-layout: grid
-cols: 3
+layout: two-cols
 ---
 
-# Les langages du cours
+::title::
+# Les outils du cours
 
-Trois notations, trois rôles. Aucune n'est un langage de programmation : on décrit, on interroge, on échange.
+::left::
 
-<Card title="DBML" footer="Cours 02-03">
-<template #icon><pixelarticons-git-branch /></template>
-<strong>Décrire.</strong> Le diagramme entité-association s'écrit en texte, se versionne dans le dépôt et se prévisualise dans VS Code.
-</Card>
-<Card title="SQL" footer="Cours 04 à 07">
-<template #icon><pixelarticons-database /></template>
-<strong>Créer et interroger.</strong> Créer les tables, insérer les données, poser des questions et en tirer des indicateurs.
-</Card>
-<Card title="JSON" footer="Cours 08">
-<template #icon><pixelarticons-braces /></template>
-<strong>Échanger.</strong> Un format, pas un langage de requête : ce que la base expose à une application.
-</Card>
+### dbdiagram.io
+
+- Diagramme E-R dans le navigateur
+- Entités, attributs, cardinalités
+- Export en image et en fichier source
+- Rien à installer
+- Cours 02 à 04
+
+```mermaid {scale: 0.7}
+flowchart LR
+  artistes --- |"1 à N"| oeuvres
+```
+
+::right::
+
+### SQL
+
+- **S**tructured **Q**uery **L**anguage
+- Crée les tables, insère les données
+- Interroge, croise, calcule des indicateurs
+- Exécuté par le SGBD
+- Cours 05 à 08
+
+```sql
+CREATE TABLE artistes (
+  id INTEGER PRIMARY KEY,
+  nom TEXT NOT NULL
+);
+
+CREATE TABLE oeuvres (
+  id INTEGER PRIMARY KEY,
+  artiste_id INTEGER REFERENCES artistes(id)
+);
+```
 
 ---
 layout: section
@@ -221,7 +241,7 @@ layout: two-cols
 ---
 
 ::title::
-# Qu'est-ce qu'une base de données ?
+# Base de données
 
 ::left::
 
@@ -240,14 +260,14 @@ Rapidement, avec des critères précis.
 
 ::right::
 
-### Ce que c'est
+### Définition
 
 - Données **structurées** et **persistantes**
 - Gérée par un logiciel qui garantit la cohérence
 
 <br>
 
-### Ce qu'elle garantit
+### Garanties
 
 - Une **seule** source de vérité
 - Des données qui **survivent** aux erreurs
@@ -258,7 +278,7 @@ layout: two-cols
 ---
 
 ::title::
-# Le SGBD : le logiciel qui gère les données
+# SGBD
 
 ::left::
 
@@ -292,14 +312,14 @@ Client-serveur, très répandu sur le web.
 layout: section
 ---
 
-# Pourquoi modéliser ?
+# Raisons de modéliser
 
 ---
 layout: grid
 cols: 2
 ---
 
-# Objectifs de la modélisation
+# Objectifs
 
 <Card title="Organiser l'information">
 <template #icon><pixelarticons-list /></template>
@@ -327,23 +347,22 @@ layout: section
 ---
 layout: grid
 cols: 3
+content: center
 ---
 
-# L'ERD : le plan de la base
-
-Avant d'écrire la moindre ligne de SQL, on dessine la structure des données. Un diagramme entité-association répond à trois questions.
+# Entités, attributs, relations
 
 <Card title="Entités">
 <template #icon><pixelarticons-archive /></template>
-Quels sont les <strong>objets</strong> du domaine ? Une œuvre, un artiste, une salle.
+Les <strong>objets</strong> du domaine : une œuvre, un artiste, une salle.
 </Card>
 <Card title="Attributs">
 <template #icon><pixelarticons-label /></template>
-Que sait-on de chacun d'eux ? Un titre, une année, une technique.
+Ce qu'on sait de chacun : un titre, une année, une technique.
 </Card>
 <Card title="Relations">
 <template #icon><pixelarticons-git-branch /></template>
-Comment sont-ils liés, et <strong>combien de fois</strong> ? Un artiste crée plusieurs œuvres.
+Les liens et leur <strong>nombre</strong> : un artiste crée plusieurs œuvres.
 </Card>
 
 ---
@@ -398,18 +417,19 @@ layout: two-cols
 
 ---
 
-# Ce que vous saurez faire
+# Compétences par cours
 
 | # | Cours | Compétences |
 |---|---|---|
 | 01 | Introduction | Distinguer données, information et connaissance |
 | 02 | Modélisation | Concevoir un modèle E-R à partir d'un besoin métier |
 | 03 | Clés et relations | Définir des clés primaires, étrangères et des relations |
-| 04 | Stockage | Créer et structurer une base SQLite |
-| 05 | Interroger | Lire, filtrer et modifier des données |
-| 06 | Connecter | Relier des tables avec des jointures |
-| 07 | Analyser | Agréger des données et créer des vues |
-| 08 | Semi-structuré | Lire et produire du JSON |
+| 04 | Normalisation | Détecter la redondance et appliquer les formes normales |
+| 05 | Stockage | Créer et structurer une base SQLite |
+| 06 | Interroger | Lire, filtrer et modifier des données |
+| 07 | Connecter | Relier des tables avec des jointures |
+| 08 | Analyser | Agréger des données et créer des vues |
+| 09 | Semi-structuré | Lire et produire du JSON |
 
 ---
 layout: section
@@ -422,13 +442,13 @@ layout: two-cols
 ---
 
 ::title::
-# Comment vous serez évalué·e·s
+# Répartition
 
 ::left::
 
-<Card title="Projet · 50%" footer="Noté sur grille de critères">
-<template #icon><pixelarticons-briefcase /></template>
-Fil rouge du semestre · noté sur une grille de critères (échelle 0/1/2).
+<Card title="Examen intermédiaire · 50%">
+<template #icon><pixelarticons-edit-box /></template>
+Mi-semestre · Format papier · Questions ouvertes · QCM
 </Card>
 
 ::right::
@@ -439,6 +459,21 @@ Période jan-fev · Format papier · Questions ouvertes · QCM
 </Card>
 
 ---
+layout: default
+---
+
+# Examen intermédiaire
+
+Format papier, à mi-semestre. Même forme que l'examen final.
+
+| Élément | Détail |
+|---|---|
+| Programme | Modélisation : cours 01 à 04 |
+| Format | Questions ouvertes et QCM |
+| Support | Papier, sans machine |
+| Poids | 50% de la note finale |
+
+---
 layout: section
 ---
 
@@ -446,97 +481,36 @@ layout: section
 
 ---
 
-# Le projet
+# Le fil rouge
 
-- Groupes de **2-3 personnes**
-- Un projet unique tout au long du semestre : **modéliser et implémenter la base de données d'un musée**
-- Hébergé sur **GitHub** : un dépôt par groupe, partagé avec l'enseignant·e dès le début du semestre
-- Le **diagramme E-R** est écrit en **DBML** et prévisualisé dans VS Code ; le fichier `.dbml` est versionné dans le repo
-- Chaque séance fait avancer le même projet, du diagramme entité-association jusqu'aux requêtes SQL
-
----
-layout: grid
-cols: 2
----
-
-# Prérequis & installation
-
-À mettre en place **avant la première séance de TP**.
-
-<Card title="Compte GitHub">
-<template #icon><logos-github-icon /></template>
-Compte gratuit sur <strong>github.com</strong> : indispensable pour héberger et partager votre projet.
-</Card>
-<Card title="VS Code + devcontainer">
-<template #icon><logos-visual-studio-code /></template>
-L'éditeur du cours. Le devcontainer (via Docker) installe tout : SQLite et l'extension <strong>DBML</strong>.
-</Card>
-<Card title="DBML" color="#e92528">
-<template #icon><pixelarticons-table /></template>
-Le langage de modélisation du cours : vous décrivez votre diagramme E-R en <strong>DBML</strong>, prévisualisé dans VS Code.
-</Card>
-<Card title="Template de projet" footer="github.com/romanoe/comem-model-template">
-<template #icon><logos-github-icon /></template>
-<strong>Use this template</strong> sur le dépôt du cours : votre dépôt de groupe part de cette base, avec un historique Git neuf.
-</Card>
+- Groupes de **2-3 personnes** : un·e chef·fe de projet, un ou deux devs
+- Un seul domaine, du premier au dernier cours : **un musée**
+- Aucun rendu noté : les TP préparent les deux examens
+- Chaque séance applique au musée ce qui vient d'être vu
+- À l'arrivée : un modèle complet, une base, des requêtes
 
 ---
 
-# Workflow GitHub
+# Travail en TP
 
-Chaque séance, le groupe pousse sur le dépôt :
+Chaque séance produit de quoi réviser :
 
-| Livrable | Format |
+| Production | Format |
 |---|---|
-| Diagramme E-R | Fichier `.dbml` (DBML) |
+| Diagramme E-R | Image et fichier source exportés de dbdiagram.io |
 | Schéma SQL | Fichier `.sql` |
-| Retour individuel | Fichier `retour-XX-prenom.md` par étudiant·e |
+| Requêtes | Fichier `.sql` par question |
 
-<Card color="#6b7280" tag="note" title="Versionné">
-<template #icon><pixelarticons-git-commit /></template>
-L'historique Git montre l'évolution du modèle séance après séance.
-</Card>
-
----
-layout: default
----
-
-# Évaluation du projet
-
-Chaque critère est noté **0** (non respecté), **1** (partiellement respecté) ou **2** (pleinement respecté).
-
-| # | Critère | Rendu attendu |
-|---|---|---|
-| 1 | Workflow Git/GitHub : issues, branches, pull requests | Historique Git et PRs |
-| 2 | README faisant office de rapport : journal et conclusion | `README.md` |
-| 3 | Diagramme E-R : entités, attributs, relations, cardinalités | `modele/musee.dbml` |
-| 4 | Schéma SQLite : types, contraintes, clés étrangères | `sql/schema.sql` |
-| 5 | Données traitées et importées correctement | `sql/import.sql` |
-| 6 | Requêtes SQL justes et lisibles : sélections, jointures, agrégats | `sql/requetes/` |
-| 7 | Retours individuels rédigés après chaque séance | `retours/` |
-
-
-[github.com/romanoe/comem-model-template](https://github.com/romanoe/comem-model-template)
-
----
-
-# Contraintes
-
-- Chaque membre de l'équipe contribue de manière **équitable**.
-- La documentation permet à une personne externe de **reprendre** le projet.
-- Le travail est **rendu dans les temps**.
-- L'usage d'outils d'IA ou de code externe est autorisé, **s'il est justifié**.
-
-<Card color="#e92528" tag="danger" title="Justification de l'IA" footer="Exemples : JUSTIFICATIONS_IA.md">
-<template #icon><pixelarticons-robot /></template>
-Indiquer <strong>quand</strong>, <strong>comment</strong> et <strong>pourquoi</strong>. Expliquer le code et son intégration. Une justification insuffisante ou un manque de transparence : note <strong>1</strong>.
+<Card color="#6b7280" tag="note" title="Rien à rendre">
+<template #icon><pixelarticons-folder /></template>
+Ces fichiers restent sur votre machine. Ils sont votre matériel de révision pour les examens.
 </Card>
 
 ---
 
 # Retours individuels
 
-Après chaque cours, chaque étudiant·e rédige un court retour **individuel** :
+Après chaque cours, chaque étudiant·e note pour soi :
 
 - Ce que j'ai compris
 - Ce qui reste flou
@@ -544,36 +518,22 @@ Après chaque cours, chaque étudiant·e rédige un court retour **individuel** 
 
 <Card title="En pratique">
 <template #icon><pixelarticons-message-text /></template>
-Un retour par séance, rendu via une pull request avec l'enseignante en reviewer. Pas de correction formelle : c'est un outil de réflexion et de suivi.
+Rien à rendre, rien de corrigé. Les questions notées ici sont reprises en début de séance suivante.
 </Card>
 
----
-
-# Pour cette première séance
-
-Pas encore de modélisation : on met en place le workflow.
-
-1. Créer un compte **GitHub**, puis créer le dépôt du groupe avec **Use this template**
-2. Rédiger son **retour individuel** dans `retours/retour-01-prenom.md`
-3. Ouvrir une **pull request** avec ce retour, en ajoutant l'enseignante comme **reviewer**
-
-<Card color="#16a34a" tag="tip" title="Pourquoi une pull request ?">
-<template #icon><pixelarticons-git-pull-request /></template>
-C'est la brique du travail collaboratif : chaque contribution devient visible et relisable avant d'être fusionnée.
-</Card>
 
 ---
 layout: section
 ---
 
-# Projet fil rouge : modéliser la base de données d'un musée
+# Fil rouge des TP : le musée
 
 ---
 layout: two-cols
 ---
 
 ::title::
-# Projet 
+# Le musée
 
 ::left::
 
@@ -593,12 +553,53 @@ Le dimanche sature. Ouvrir un créneau de visite guidée supplémentaire et inci
 
 ::right::
 
-Les 8 cours s'appliquent à ce même musée.
+Cours et TP portent sur ce même musée, enrichi séance après séance.
 
-| # | Application |
+| # | Ce qu'on y ajoute |
 |---|---|
-| 02-03 | Modéliser |
-| 04 | Stocker le schéma dans la base de données |
-| 05-06 | Parcours de visite : œuvre · artiste · salle |
-| 07 | Chiffre d'affaires · fréquentation par salle |
-| 08 | Catalogue JSON pour l'app mobile |
+| 02-04 | Modéliser : entités, relations, normalisation |
+| 05 | Créer la base et ses tables |
+| 06 | Interroger le catalogue des œuvres |
+| 07 | Relier œuvre, artiste et salle |
+| 08 | Chiffre d'affaires · fréquentation par salle |
+| 09 | Catalogue JSON pour l'app mobile |
+
+---
+layout: two-cols
+---
+
+::title::
+# Travail pratique · Semaine 1
+
+::left::
+
+### La question
+
+> « Quels objets, quels types de données ce musée doit-il stocker ? »
+
+- Je vais prendre la casquette d'employée du musée et emettrai les besoins au fur et à mesure du semestre 
+- Le groupe en tire une liste de mots
+- Ni diagramme ni base cette semaine
+
+::right::
+
+<Card title="Chef·fe de projet">
+<template #icon><pixelarticons-briefcase /></template>
+Écoute la cliente, pose les questions, puis <strong>traduit le besoin</strong> à son ou sa partenaire.
+</Card>
+
+<Card title="Dev">
+<template #icon><pixelarticons-terminal /></template>
+Ne connaît le besoin que par cette traduction. Note les objets et les données à stocker.
+</Card>
+
+<Card color="#6b7280" tag="note" title="Groupes de 2-3">
+<template #icon><pixelarticons-users /></template>
+Un·e chef·fe de projet, un ou deux devs. Les rôles changent à chaque séance
+</Card>
+
+---
+layout: section
+---
+
+<h1>Chef·fes de projet, <br> réunion dans 10 min !</h1>

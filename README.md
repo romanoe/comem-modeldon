@@ -4,7 +4,7 @@
 
 Cours d'introduction aux bases de données relationnelles pour la filière Ingénierie des Médias, HEIG-VD.
 
-Ce document est mis à jour au fur et à mesure du semestre avec les informations du cours, les jalons du projet et les ressources.
+Ce document est mis à jour au fur et à mesure du semestre avec les informations du cours, le déroulé des TP et les ressources.
 
 ---
 
@@ -22,24 +22,19 @@ Ce document est mis à jour au fur et à mesure du semestre avec les information
 
 | Outil | Usage |
 |---|---|
-| VS Code + Dev Containers | Environnement de travail unifié, fourni par le template du projet (SQLite pré-installé) |
-| DBML | Décrire le diagramme E-R en DBML ; prévisualisé dans VS Code (extension du devcontainer) et versionné dans le repo |
+| [dbdiagram.io](https://dbdiagram.io/) | Dessiner le diagramme E-R dans le navigateur, l'exporter en image et en fichier source |
+| VS Code | Éditeur du cours : écrire et exécuter le SQL |
+| SQLite CLI | Exécuter des requêtes dans le terminal |
 | SQLite Viewer (extension VS Code) | Visualiser les fichiers `.db` directement dans l'éditeur |
-| SQLite CLI | Exécuter des requêtes dans le terminal intégré |
 
 ### Démarrage rapide
 
-Ce dépôt contient les slides. Les étudiant·e·s ne le clonent pas : elles et ils créent leur dépôt de groupe depuis le [template du projet](https://github.com/romanoe/comem-model-template) avec **Use this template**.
+Ce dépôt contient les slides. Les étudiant·e·s ne le clonent pas : elles et ils installent leur environnement une fois pour toutes.
+
+1. Créer un compte gratuit sur [dbdiagram.io](https://dbdiagram.io/)
+2. Installer [SQLite](https://www.sqlite.org/download.html) et vérifier l'installation
 
 ```bash
-# 1. Cloner le dépôt de groupe créé depuis le template
-git clone https://github.com/<compte>/<depot-du-groupe>.git
-
-# 2. Ouvrir dans VS Code
-code <depot-du-groupe>
-
-# 3. Accepter d'ouvrir dans le devcontainer (notification VS Code)
-# SQLite est prêt dans le terminal
 sqlite3 --version
 ```
 
@@ -50,13 +45,14 @@ sqlite3 --version
 | # | Module | Contenu |
 |---|---|---|
 | 01 | Introduction | Donnée · Information · Connaissance · Du tableur à la base · SGBD · Diagramme E-R |
-| 02 | Modèle entité-association | Entités · Types d'entités · Types d'attributs · Normalisation · DBML |
+| 02 | Modèle entité-association | Entités · Types d'entités · Types d'attributs · Nommage · Normalisation (1NF) · dbdiagram.io |
 | 03 | Clés et relations | Relations · Cardinalités · Clé primaire · Clé étrangère · 1:N et N:M |
-| 04 | Stockage local | SQLite · CREATE TABLE · Types · Intégrité référentielle · Modes de suppression |
-| 05 | Interroger les données | SELECT · FROM · WHERE · ORDER BY · INSERT · UPDATE · DELETE |
-| 06 | Connecter les données | Donnée morcelée · INNER JOIN · LEFT JOIN |
-| 07 | Analyser les données | Agrégation · COUNT · SUM · AVG · GROUP BY · HAVING · CREATE VIEW |
-| 08 | La donnée semi-structurée | JSON · Syntaxe · Comparaison avec le modèle relationnel |
+| 04 | Normalisation | Dépendances fonctionnelles · 1NF · 2NF · 3NF · Dénormalisation |
+| 05 | Stockage local | SQLite · CREATE TABLE · Types · Intégrité référentielle · Modes de suppression |
+| 06 | Interroger les données | SELECT · FROM · WHERE · ORDER BY · INSERT · UPDATE · DELETE |
+| 07 | Connecter les données | Donnée morcelée · INNER JOIN · LEFT JOIN |
+| 08 | Analyser les données | Agrégation · COUNT · SUM · AVG · GROUP BY · HAVING · CREATE VIEW |
+| 09 | La donnée semi-structurée | JSON · Syntaxe · Comparaison avec le modèle relationnel |
 
 ---
 
@@ -64,73 +60,38 @@ sqlite3 --version
 
 | Composante | Poids | Période |
 |---|---|---|
-| Projet fil rouge (musée) | 50% | Fin de semestre |
+| Examen intermédiaire | 50% | Mi-semestre · Format papier · Questions ouvertes · QCM |
 | Examen final | 50% | Jan-fev · Format papier · Questions ouvertes · QCM |
 
-### Échelle d'évaluation
+L'examen intermédiaire porte sur la partie modélisation, cours 01 à 05. L'examen final porte sur l'ensemble du semestre.
 
-Chaque critère du projet est noté sur l'échelle suivante :
+### Travaux pratiques
 
-- **0 point** : critère non respecté (production absente, hors sujet ou très incomplète)
-- **1 point** : critère partiellement respecté (éléments essentiels manquants ou imprécis)
-- **2 points** : critère pleinement respecté (attendu présent, précis et maîtrisé)
-
-Note du projet : `(points obtenus / points totaux) × 5 + 1`.
-
-### Critères d'évaluation du projet
-
-| # | Critère | Rendu attendu |
-|---|---|---|
-| 1 | Workflow Git/GitHub professionnel : issues, branches, pull requests, gestion des conflits | Historique Git et pull requests |
-| 2 | README clair faisant office de rapport : journal de travail et conclusion | `README.md` |
-| 3 | Diagramme E-R cohérent avec le domaine : entités, attributs, relations, cardinalités | Diagramme E-R en DBML |
-| 4 | Schéma physique SQLite : types, contraintes, clés étrangères | `sql/schema.sql` |
-| 5 | Données traitées et importées correctement | `sql/import.sql` |
-| 6 | Requêtes SQL justes et lisibles : sélections, jointures, agrégats | `sql/requetes/` |
-| 7 | Retours individuels rédigés après chaque séance | `retours/retour-XX-prenom.md` |
-
-### Contraintes
-
-- Chaque membre de l'équipe contribue de manière équitable.
-- La documentation permet à une personne externe de comprendre et reprendre le projet.
-- Le travail est rendu dans les temps.
-- L'usage d'outils d'intelligence artificielle ou de code copié de sources externes est autorisé **à condition d'être justifié** : indiquer **quand**, **comment** et **pourquoi**, et expliquer le code et son intégration. Une justification insuffisante ou un manque de transparence entraîne la note **1** pour le travail concerné. Voir [JUSTIFICATIONS_IA.md](https://github.com/romanoe/comem-model-template/blob/main/JUSTIFICATIONS_IA.md) dans le template.
+Les TP ne sont pas notés. Ils servent d'entraînement aux deux examens : rien n'est rendu, rien n'est corrigé formellement. Les questions soulevées en séance sont reprises au début de la séance suivante.
 
 ---
 
-## Projet fil rouge : le musée
+## Fil rouge des TP : le musée
 
 ### Contexte
 
-Tout au long du cours, les étudiant·e·s construisent une base de données de gestion d'un musée fictif. Le projet couvre l'ensemble du parcours : modélisation, création des tables, insertion des données, interrogation et analyse.
+Tout au long du semestre, cours et TP portent sur le même musée fictif : modélisation, création des tables, insertion des données, interrogation et analyse. Chaque séance applique au musée la notion qu'elle vient d'introduire, si bien que le modèle grossit semaine après semaine. Rien n'est noté : le fil rouge sert à construire le sujet pas à pas et à préparer les examens.
 
-### Entités principales
+La première séance de TP part d'une seule question, sans outil : **quelles données un musée doit-il gérer pour fonctionner ?**
 
-| Entité | Description |
-|---|---|
-| `artistes` | Créateur·rice·s des œuvres |
-| `oeuvres` | Pièces de la collection (titre, année, technique) |
-| `salles` | Salles et espaces d'exposition |
-| `expositions` | Expositions permanentes et temporaires (dates, salle) |
-| `billets` | Catégories de billets et tarifs |
-| `visiteurs` | Acheteur·euse·s de billets |
+### Étapes
 
-### Dépôt template
-
-Les groupes partent de [romanoe/comem-model-template](https://github.com/romanoe/comem-model-template) via **Use this template**. Le `README.md` de ce dépôt porte l'énoncé, le barème et la grille détaillée.
-
-### Jalons
-
-| Jalon | Thème | Livrable |
+| Étape | Thème | Production |
 |---|---|---|
-| J1 | Modélisation | Diagramme E-R DBML du musée |
-| J2 | SQLite physique | Base `.db` avec tables et données de test |
-| J3 | SQL | Ensemble de requêtes documentées |
+| 1 | Modélisation | Diagramme E-R du musée, exporté de dbdiagram.io en image et en fichier source |
+| 2 | SQLite | Base `.db` avec tables et données de test |
+| 3 | SQL | Ensemble de requêtes commentées |
 
 ---
 
 ## Ressources
 
+- [dbdiagram.io](https://dbdiagram.io/)
 - [SQLite documentation officielle](https://www.sqlite.org/docs.html)
 - [SQLite Tutorial](https://www.sqlitetutorial.net)
 

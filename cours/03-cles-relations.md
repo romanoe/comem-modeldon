@@ -21,7 +21,7 @@ layout: section
 
 # La relation
 
-_Ce qui relie deux entités · l'écrire en DBML : `>` `<` `-` `<>`_
+_Ce qui relie deux entités · la lire dans le diagramme_
 
 ---
 layout: section

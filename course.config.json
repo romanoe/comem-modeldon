@@ -24,28 +24,33 @@
       "title": "Clés et relations"
     },
     {
-      "src": "cours/04-stockage.md",
-      "out": "04-stockage",
+      "src": "cours/04-normalisation.md",
+      "out": "04-normalisation",
+      "title": "Normalisation"
+    },
+    {
+      "src": "cours/05-stockage.md",
+      "out": "05-stockage",
       "title": "Stockage local"
     },
     {
-      "src": "cours/05-interroger.md",
-      "out": "05-interroger",
+      "src": "cours/06-interroger.md",
+      "out": "06-interroger",
       "title": "Interroger les données"
     },
     {
-      "src": "cours/06-connecter.md",
-      "out": "06-connecter",
+      "src": "cours/07-connecter.md",
+      "out": "07-connecter",
       "title": "Connecter les données"
     },
     {
-      "src": "cours/07-analyser.md",
-      "out": "07-analyser",
+      "src": "cours/08-analyser.md",
+      "out": "08-analyser",
       "title": "Analyser les données"
     },
     {
-      "src": "cours/08-semi-structure.md",
-      "out": "08-semi-structure",
+      "src": "cours/09-semi-structure.md",
+      "out": "09-semi-structure",
       "title": "La donnée semi-structurée"
     }
   ]

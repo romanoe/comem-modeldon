@@ -1,6 +1,6 @@
 ---
 theme: pixel
-title: "05 · Interroger les données"
+title: "06 · Interroger les données"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"

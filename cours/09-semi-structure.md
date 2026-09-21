@@ -1,13 +1,13 @@
 ---
 theme: pixel
-title: "07 · Analyser les données"
+title: "09 · La donnée semi-structurée"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"
 github: "https://github.com/romanoe/comem-modeldon"
 breadcrumb: "Modélisation de Données"
 logos:
-  - /images/logo-heig-vd.png
+  - /images/logo-heig-vd.svg
   - src: /images/logo-hes-so.png
     height: 79px
 
@@ -19,30 +19,30 @@ layout: cover
 layout: section
 ---
 
-# De la donnée brute aux indicateurs
+# Quand le tableau ne suffit plus
 
-_Transformer les chiffres en décisions_
-
----
-layout: section
----
-
-# Fonctions d'agrégation
-
-_SUM · COUNT · COUNT DISTINCT · AVG_
+_Données imbriquées · structures variables_
 
 ---
 layout: section
 ---
 
-# Regrouper les résultats
+# Le format JSON
 
-_GROUP BY · HAVING_
+_Syntaxe · types · objets · tableaux_
 
 ---
 layout: section
 ---
 
-# Vues
+# SQL vs JSON
 
-_CREATE VIEW : enregistrer une requête complexe_
+_Quand utiliser l'un ou l'autre_
+
+---
+layout: section
+---
+
+# Le catalogue du musée en JSON
+
+_Le format exact envoyé à l'application mobile pour afficher le line-up_
