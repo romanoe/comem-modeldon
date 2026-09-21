@@ -65,7 +65,7 @@ sqlite3 --version
 | Examen intermédiaire | 50% | Mi-semestre · Format papier · Questions ouvertes · QCM |
 | Examen final | 50% | Jan-fev · Format papier · Questions ouvertes · QCM |
 
-L'examen intermédiaire porte sur la partie modélisation, cours 01 à 05. L'examen final porte sur l'ensemble du semestre.
+L'examen intermédiaire porte sur la modélisation et la création des tables, cours 01 à 05. L'examen final porte sur l'ensemble du semestre.
 
 ### Travaux pratiques
 

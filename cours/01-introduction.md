@@ -488,7 +488,7 @@ Format papier, à mi-semestre. Même forme que l'examen final.
 
 | Élément | Détail |
 |---|---|
-| Programme | Modélisation : cours 01 à 04 |
+| Programme | Modélisation et création des tables : cours 01 à 05 |
 | Format | Questions ouvertes et QCM |
 | Support | Papier, sans machine |
 | Poids | 50% de la note finale |
