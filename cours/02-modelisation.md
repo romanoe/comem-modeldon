@@ -37,7 +37,7 @@ Le même musée, dans votre diagramme. Chaque séance y ajoute ce qu'elle vient 
 layout: section
 ---
 
-# Entité et attributs
+# L'entité
 
 ---
 layout: two-cols
@@ -58,15 +58,13 @@ layout: two-cols
 
 <v-click>
 
-```mermaid
-erDiagram
-  oeuvres { integer id PK }
-  artistes { integer id PK }
-  salles { integer id PK }
-  expositions { integer id PK }
-```
+### Retenues
 
-- Écartés : `cadre` non décrit, `musee` unique
+`oeuvres` · `artistes` · `salles` · `expositions`
+
+### Écartées
+
+`cadre` non décrit · `musee` en exemplaire unique
 
 </v-click>
 
@@ -95,147 +93,6 @@ layout: two-cols
 | `accrochage` | Peut-être | Si daté |
 
 ---
-layout: two-cols
----
-
-::title::
-# Attribut
-
-::left::
-
-- Il qualifie l'entité
-- Il porte un type
-- L'un d'eux identifie : la clé
-- `PK` marque cette clé
-
-::right::
-
-```mermaid
-erDiagram
-  oeuvres {
-    integer id PK
-    varchar titre
-    integer annee
-    integer hauteur_cm
-  }
-```
-
----
-layout: two-cols
----
-
-::title::
-# Anatomie du cadre
-
-::left::
-
-| Zone | Contenu |
-|---|---|
-| En-tête | Nom de l'entité |
-| Gauche | Type de l'attribut |
-| Centre | Nom de l'attribut |
-| Droite | Contrainte |
-
-::right::
-
-```mermaid
-erDiagram
-  oeuvres {
-    integer id PK
-    varchar titre
-    integer annee
-    integer hauteur_cm
-    integer salle_id FK
-  }
-```
-
-| Marqueur | Sens |
-|---|---|
-| `PK` | Clé primaire |
-| `FK` | Clé étrangère |
-| `UK` | Valeur unique |
-
----
-layout: section
----
-
-# Le canevas draw.io
-
----
-layout: two-cols
----
-
-::title::
-# Gabarit d'une entité
-
-::left::
-
-- Bibliothèque de formes **Entity Relation**
-- Un bloc par entité, son nom en tête
-- Une ligne par attribut
-- Le marqueur s'écrit au bout de la ligne
-
-::right::
-
-```mermaid
-erDiagram
-  nom_de_l_entite {
-    integer id PK
-    varchar attribut
-    integer autre_attribut
-  }
-```
-
-<div class="ref">draw.io · <a href="https://app.diagrams.net/">éditeur en ligne</a></div>
-
----
-layout: two-cols
----
-
-::title::
-# Exemple : `oeuvres`
-
-::left::
-
-### Le besoin
-
-> « Chaque œuvre a un titre, une année de création, et des dimensions qu'on affiche sur le cartel. »
-
-### La question
-
-Quelles colonnes ? Lesquelles sont obligatoires ?
-
-::right::
-
-<v-click>
-
-```mermaid
-erDiagram
-  oeuvres {
-    integer id PK
-    varchar titre
-    integer annee
-    integer hauteur_cm
-  }
-```
-
-</v-click>
-
-<v-click>
-
-- `titre` obligatoire
-- `annee` facultative : certaines œuvres ne sont pas datées
-- `hauteur_cm` en `integer` : comparable
-
-</v-click>
-
----
-layout: section
----
-
-# Types d'entités
-
----
 layout: grid
 cols: 3
 content: center
@@ -255,99 +112,6 @@ Emprunte la clé de son parent.
 <template #icon><pixelarticons-git-branch /></template>
 Naît d'une relation, porte ses attributs.
 </Card>
-
----
-layout: two-cols
----
-
-::title::
-# Clé primaire
-
-::left::
-
-| Type | Exemple |
-|---|---|
-| Technique | `id`, entier attribué par la base |
-| Naturelle | `code`, valeur du métier |
-
-### Recommandation
-
-- Sans signification métier
-- Stable dans le temps
-
-::right::
-
-```mermaid
-erDiagram
-  oeuvres {
-    integer id PK
-    varchar titre
-  }
-```
-
----
-layout: two-cols
----
-
-::title::
-# Clé composite
-
-::left::
-
-- Identité portée par deux colonnes
-- Le couple est unique
-- Chaque colonne seule se répète
-- Deux marques `PK` dans le cadre
-
-::right::
-
-```mermaid
-erDiagram
-  vitrines {
-    integer salle_id PK
-    integer numero PK
-    varchar description
-  }
-```
-
----
-layout: two-cols
----
-
-::title::
-# Exemple : `vitrines`, entité faible
-
-::left::
-
-### Le besoin
-
-> « On dit la vitrine 3 **de** telle salle. Le numéro repart à 1 dans chaque salle. »
-
-### La question
-
-Le numéro seul suffit-il à identifier une vitrine ?
-
-::right::
-
-<v-click>
-
-```mermaid
-erDiagram
-  vitrines {
-    integer salle_id PK
-    integer numero PK
-    varchar description
-  }
-```
-
-</v-click>
-
-<v-click>
-
-- Non : deux salles ont une vitrine 3
-- La vitrine n'existe pas sans sa salle
-
-</v-click>
 
 ---
 layout: two-cols
@@ -393,14 +157,11 @@ Où ranger la date d'accrochage ?
 
 <v-click>
 
-```mermaid
-erDiagram
-  accrochages {
-    integer oeuvre_id PK
-    integer exposition_id PK
-    date date_accrochage
-  }
-```
+| accrochages | |
+|---|---|
+|  | oeuvre_id INTEGER |
+|  | exposition_id INTEGER |
+|  | date_accrochage DATE |
 
 </v-click>
 
@@ -408,45 +169,6 @@ erDiagram
 
 - Ni sur l'œuvre, ni sur l'exposition
 - Elle décrit la **relation**
-
-</v-click>
-
----
-layout: two-cols
----
-
-::title::
-# Coût de l'entité faible
-
-::left::
-
-### Le constat
-
-`vitrines` a une clé en deux colonnes. Toute table qui la référence hérite des deux.
-
-Une table des emplacements aurait donc une clé en **trois** colonnes.
-
-::right::
-
-### Compromis
-
-<v-click>
-
-```mermaid
-erDiagram
-  vitrines {
-    integer id PK
-    integer salle_id UK
-    integer numero UK
-  }
-```
-
-</v-click>
-
-<v-click>
-
-- Identifiant technique pour référencer
-- `unique` conserve la règle métier
 
 </v-click>
 
@@ -486,10 +208,59 @@ Ajoutez une colonne. Le métier a-t-il quoi y mettre ?
 - Le nom et la doc : tout
 
 ---
+layout: two-cols
+---
+
+::title::
+# L'entité dans le diagramme
+
+::left::
+
+- Une boîte par entité
+- Le nom au pluriel, en tête
+- Rien d'autre à ce stade
+
+<div class="ref">draw.io · <a href="https://app.diagrams.net/">bibliothèque Entity Relation</a></div>
+
+::right::
+
+| <span style="color: #e92528">oeuvres</span> |
+|---|
+
+| <span style="color: #e92528">artistes</span> |
+|---|
+
+| <span style="color: #e92528">salles</span> |
+|---|
+
+---
 layout: section
 ---
 
-# Types d'attributs
+# Les attributs
+
+---
+layout: two-cols
+---
+
+::title::
+# Attribut
+
+::left::
+
+- Il qualifie l'entité
+- Une valeur par ligne
+- Il porte un type
+- L'un d'eux identifie : la clé
+
+::right::
+
+| oeuvres | |
+|---|---|
+|  | id INTEGER |
+|  | titre VARCHAR |
+|  | annee INTEGER |
+|  | hauteur_cm INTEGER |
 
 ---
 layout: grid
@@ -527,11 +298,11 @@ layout: two-cols
 
 | Type | Valeur | Permet |
 |---|---|---|
-| `varchar` | `'Matinale'` | Tri alphabétique |
-| `integer` | `52` | Somme, moyenne |
-| `decimal` | `24.5` | Calcul exact |
-| `date` | `'2019-03-14'` | Intervalles |
-| `boolean` | `true` | Filtrage direct |
+| `VARCHAR` | `'Matinale'` | Tri alphabétique |
+| `INTEGER` | `52` | Somme, moyenne |
+| `DECIMAL` | `24.5` | Calcul exact |
+| `DATE` | `'2019-03-14'` | Intervalles |
+| `BOOLEAN` | `true` | Filtrage direct |
 
 ::right::
 
@@ -555,12 +326,9 @@ layout: two-cols
 
 ### À éviter
 
-```mermaid
-erDiagram
-  visiteurs {
-    varchar contact
-  }
-```
+| visiteurs | |
+|---|---|
+|  | contact VARCHAR |
 
 - Plusieurs valeurs en une
 - Recherche par domaine impossible
@@ -569,13 +337,10 @@ erDiagram
 
 ### À faire
 
-```mermaid
-erDiagram
-  visiteurs {
-    varchar email
-    varchar telephone
-  }
-```
+| visiteurs | |
+|---|---|
+|  | email VARCHAR |
+|  | telephone VARCHAR |
 
 - Chaque composant interrogeable
 - Chacun son type et ses contraintes
@@ -591,13 +356,10 @@ layout: two-cols
 
 ### À éviter
 
-```mermaid
-erDiagram
-  expositions {
-    varchar titre
-    integer nb_oeuvres
-  }
-```
+| expositions | |
+|---|---|
+|  | titre VARCHAR |
+|  | nb_oeuvres INTEGER |
 
 - Faux dès le prochain accrochage
 - Cohérence non garantie
@@ -615,6 +377,244 @@ GROUP BY titre;
 
 - Une seule source : `accrochages`
 - Toujours juste
+
+---
+layout: two-cols
+---
+
+::title::
+# Les attributs dans la boîte
+
+::left::
+
+- Une ligne par attribut
+- Le nom, puis le type en majuscules
+- La colonne de gauche reste vide
+
+<div class="ref">draw.io · <a href="https://app.diagrams.net/">bibliothèque Entity Relation</a></div>
+
+::right::
+
+| oeuvres | |
+|---|---|
+|  | <span style="color: #e92528">id INTEGER</span> |
+|  | <span style="color: #e92528">titre VARCHAR</span> |
+|  | <span style="color: #e92528">annee INTEGER</span> |
+|  | <span style="color: #e92528">hauteur_cm INTEGER</span> |
+
+---
+layout: two-cols
+---
+
+::title::
+# Exemple : `oeuvres`
+
+::left::
+
+### Le besoin
+
+> « Chaque œuvre a un titre, une année de création, et des dimensions qu'on affiche sur le cartel. »
+
+### La question
+
+Quelles colonnes, et de quel type ?
+
+::right::
+
+<v-click>
+
+| oeuvres | |
+|---|---|
+|  | titre VARCHAR |
+|  | annee INTEGER |
+|  | hauteur_cm INTEGER |
+
+</v-click>
+
+<v-click>
+
+- `annee` en `INTEGER` : comparable
+- `hauteur_cm` en `INTEGER` : l'unité est dans le nom
+
+</v-click>
+
+---
+layout: section
+---
+
+# Les contraintes
+
+---
+layout: grid
+cols: 2
+content: center
+---
+
+# Clé, obligation, unicité
+
+<Card title="Clé primaire">
+<template #icon><pixelarticons-bookmark /></template>
+<code>PK</code> · identifie la ligne, jamais vide, jamais répétée.
+</Card>
+<Card title="Obligatoire">
+<template #icon><pixelarticons-alert /></template>
+<code>NOT NULL</code> · la valeur est exigée à la saisie.
+</Card>
+<Card title="Unique">
+<template #icon><pixelarticons-check-double /></template>
+<code>UNIQUE</code> · deux lignes ne peuvent pas la partager.
+</Card>
+<Card title="Clé étrangère" footer="cours 03 · Clés et relations">
+<template #icon><pixelarticons-link /></template>
+<code>FK</code> · renvoie à la clé d'une autre entité.
+</Card>
+
+---
+layout: two-cols
+---
+
+::title::
+# Clé primaire
+
+::left::
+
+| Type | Exemple |
+|---|---|
+| Technique | `id`, entier attribué par la base |
+| Naturelle | `code`, valeur du métier |
+
+### Recommandation
+
+- Sans signification métier
+- Stable dans le temps
+
+::right::
+
+| oeuvres | |
+|---|---|
+| PK | id INTEGER |
+|  | titre VARCHAR |
+
+---
+layout: two-cols
+---
+
+::title::
+# Clé composite
+
+::left::
+
+- Identité portée par deux colonnes
+- Le couple est unique
+- Chaque colonne seule se répète
+- Deux marques `PK` dans la boîte
+
+::right::
+
+| vitrines | |
+|---|---|
+| PK | salle_id INTEGER |
+| PK | numero INTEGER |
+|  | description VARCHAR |
+
+---
+layout: two-cols
+---
+
+::title::
+# La boîte complète
+
+::left::
+
+| Marqueur | Sens |
+|---|---|
+| `PK` | Clé primaire |
+| `FK` | Clé étrangère |
+| `NOT NULL` | Jamais vide |
+| `UNIQUE` | Non répétable |
+
+<div class="ref">draw.io · <a href="https://app.diagrams.net/">bibliothèque Entity Relation</a></div>
+
+::right::
+
+| oeuvres | |
+|---|---|
+| <span style="color: #e92528">PK</span> | id INTEGER |
+| <span style="color: #e92528">NOT NULL</span> | titre VARCHAR |
+|  | annee INTEGER |
+| <span style="color: #e92528">NOT NULL</span> | hauteur_cm INTEGER |
+
+---
+layout: two-cols
+---
+
+::title::
+# Exemple : `vitrines`, entité faible
+
+::left::
+
+### Le besoin
+
+> « On dit la vitrine 3 **de** telle salle. Le numéro repart à 1 dans chaque salle. »
+
+### La question
+
+Le numéro seul suffit-il à identifier une vitrine ?
+
+::right::
+
+<v-click>
+
+| vitrines | |
+|---|---|
+| PK | salle_id INTEGER |
+| PK | numero INTEGER |
+|  | description VARCHAR |
+
+</v-click>
+
+<v-click>
+
+- Non : deux salles ont une vitrine 3
+- La vitrine n'existe pas sans sa salle
+
+</v-click>
+
+---
+layout: two-cols
+---
+
+::title::
+# Coût de l'entité faible
+
+::left::
+
+### Le constat
+
+`vitrines` a une clé en deux colonnes. Toute table qui la référence hérite des deux.
+
+Une table des emplacements aurait donc une clé en **trois** colonnes.
+
+::right::
+
+### Compromis
+
+<v-click>
+
+| vitrines | |
+|---|---|
+| PK | id INTEGER |
+| UNIQUE | salle_id INTEGER |
+| UNIQUE | numero INTEGER |
+
+</v-click>
+
+<v-click>
+
+- Identifiant technique pour référencer
+- `UNIQUE` conserve la règle métier
+
+</v-click>
 
 ---
 layout: section
@@ -762,23 +762,21 @@ Une colonne suffit-elle ?
 
 <v-click>
 
-```mermaid
-erDiagram
-  techniques {
-    integer id PK
-    varchar nom UK
-  }
-  oeuvre_techniques {
-    integer oeuvre_id PK
-    integer technique_id PK
-  }
-```
+| techniques | |
+|---|---|
+| PK | id INTEGER |
+| UNIQUE | nom VARCHAR |
+
+| oeuvre_techniques | |
+|---|---|
+| PK | oeuvre_id INTEGER |
+| PK | technique_id INTEGER |
 
 </v-click>
 
 <v-click>
 
-- `unique` interdit les doublons
+- `UNIQUE` interdit les doublons
 - La liste devient une jointure
 
 </v-click>
@@ -805,7 +803,7 @@ layout: two-cols
 
 ### Repère
 
-Une entité par bloc, du plus autonome au plus dépendant.
+Une entité par boîte, du plus autonome au plus dépendant.
 
 ::right::
 
@@ -859,9 +857,9 @@ content: center
 <template #icon><pixelarticons-clipboard-note /></template>
 On modélise ce que le client dit, pas ce qu'on imagine.
 </Card>
-<Card title="La clé dit le type d'entité">
-<template #icon><pixelarticons-bookmark /></template>
-Propre, empruntée, ou composite.
+<Card title="La boîte se remplit en trois temps">
+<template #icon><pixelarticons-layout /></template>
+Le nom, les attributs, les contraintes.
 </Card>
 <Card title="Trois attributs se traduisent">
 <template #icon><pixelarticons-scissors /></template>
@@ -880,20 +878,18 @@ layout: two-cols
 ### TP · Semaine 2
 
 1. Reprendre la liste de la semaine 1, en tirer les entités fortes
-2. Les dessiner dans draw.io, avec leurs attributs et leur clé
-3. Repérer une entité faible ou associative, la justifier
+2. Les dessiner dans draw.io, une boîte par entité
+3. Remplir les attributs, puis les contraintes
 4. Exporter l'image et garder le fichier `.drawio`
 
 ::right::
 
 <Card color="#16a34a" tag="tip" title="Pas encore de relations">
 <template #icon><pixelarticons-git-branch /></template>
-Les liens entre entités sont au cours 03. Pour l'instant, <code>artiste_id</code> est un simple <code>integer</code>.
+Les liens entre entités sont au cours 03. Pour l'instant, <code>artiste_id</code> est un simple <code>INTEGER</code>.
 </Card>
 
 <Card color="#6b7280" tag="note" title="Un diagramme qui grossit">
 <template #icon><pixelarticons-trending-up /></template>
 Chaque séance ajoute au même diagramme ce qu'elle vient d'introduire. On ne recommence jamais de zéro.
 </Card>
-
-<div class="ref">draw.io · <a href="https://app.diagrams.net/">éditeur en ligne</a></div>

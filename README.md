@@ -47,7 +47,7 @@ sqlite3 --version
 | # | Module | Contenu |
 |---|---|---|
 | 01 | [Introduction](https://comem-modeldon.onrender.com/01-introduction/) | Donnée · Information · Connaissance · Du tableur à la base · SGBD · Diagramme E-R |
-| 02 | [Modèle entité-association](https://comem-modeldon.onrender.com/02-modelisation/) | Entités · Types d'entités · Types d'attributs · Nommage · Normalisation (1NF) · draw.io |
+| 02 | [Modèle entité-association](https://comem-modeldon.onrender.com/02-modelisation/) | Entité et types d'entités · Attributs et types · Contraintes · Nommage · Normalisation (1NF) · draw.io |
 | 03 | [Clés et relations](https://comem-modeldon.onrender.com/03-cles-relations/) | Relations · Cardinalités · Clé primaire · Clé étrangère · 1:N et N:M |
 | 04 | [Normalisation](https://comem-modeldon.onrender.com/04-normalisation/) | Dépendances fonctionnelles · 1NF · 2NF · 3NF · Dénormalisation |
 | 05 | [Stockage local](https://comem-modeldon.onrender.com/05-stockage/) | SQLite · CREATE TABLE · Types · Intégrité référentielle · Modes de suppression |
