@@ -24,7 +24,7 @@ Ce document est mis à jour au fur et à mesure du semestre avec les information
 
 | Outil | Usage |
 |---|---|
-| [dbdiagram.io](https://dbdiagram.io/) | Dessiner le diagramme E-R dans le navigateur, l'exporter en image et en fichier source |
+| [draw.io](https://app.diagrams.net/) | Dessiner le diagramme E-R dans le navigateur, l'exporter en image et en fichier `.drawio` |
 | VS Code | Éditeur du cours : écrire et exécuter le SQL |
 | SQLite CLI | Exécuter des requêtes dans le terminal |
 | SQLite Viewer (extension VS Code) | Visualiser les fichiers `.db` directement dans l'éditeur |
@@ -33,7 +33,7 @@ Ce document est mis à jour au fur et à mesure du semestre avec les information
 
 Ce dépôt contient les slides. Les étudiant·e·s ne le clonent pas : elles et ils installent leur environnement une fois pour toutes.
 
-1. Créer un compte gratuit sur [dbdiagram.io](https://dbdiagram.io/)
+1. Ouvrir [draw.io](https://app.diagrams.net/) dans le navigateur, aucun compte à créer
 2. Installer [SQLite](https://www.sqlite.org/download.html) et vérifier l'installation
 
 ```bash
@@ -47,7 +47,7 @@ sqlite3 --version
 | # | Module | Contenu |
 |---|---|---|
 | 01 | [Introduction](https://comem-modeldon.onrender.com/01-introduction/) | Donnée · Information · Connaissance · Du tableur à la base · SGBD · Diagramme E-R |
-| 02 | [Modèle entité-association](https://comem-modeldon.onrender.com/02-modelisation/) | Entités · Types d'entités · Types d'attributs · Nommage · Normalisation (1NF) · dbdiagram.io |
+| 02 | [Modèle entité-association](https://comem-modeldon.onrender.com/02-modelisation/) | Entités · Types d'entités · Types d'attributs · Nommage · Normalisation (1NF) · draw.io |
 | 03 | [Clés et relations](https://comem-modeldon.onrender.com/03-cles-relations/) | Relations · Cardinalités · Clé primaire · Clé étrangère · 1:N et N:M |
 | 04 | [Normalisation](https://comem-modeldon.onrender.com/04-normalisation/) | Dépendances fonctionnelles · 1NF · 2NF · 3NF · Dénormalisation |
 | 05 | [Stockage local](https://comem-modeldon.onrender.com/05-stockage/) | SQLite · CREATE TABLE · Types · Intégrité référentielle · Modes de suppression |
@@ -85,7 +85,7 @@ La première séance de TP part d'une seule question, sans outil : **quelles don
 
 | Étape | Thème | Production |
 |---|---|---|
-| 1 | Modélisation | Diagramme E-R du musée, exporté de dbdiagram.io en image et en fichier source |
+| 1 | Modélisation | Diagramme E-R du musée, dessiné dans draw.io, exporté en image et gardé en `.drawio` |
 | 2 | SQLite | Base `.db` avec tables et données de test |
 | 3 | SQL | Ensemble de requêtes commentées |
 
@@ -95,7 +95,7 @@ La première séance de TP part d'une seule question, sans outil : **quelles don
 
 - [Slides du cours](https://comem-modeldon.onrender.com)
 - [Dépôt GitHub du cours](https://github.com/romanoe/comem-modeldon)
-- [dbdiagram.io](https://dbdiagram.io/)
+- [draw.io](https://app.diagrams.net/)
 - [SQLite documentation officielle](https://www.sqlite.org/docs.html)
 - [SQLite Tutorial](https://www.sqlitetutorial.net)
 

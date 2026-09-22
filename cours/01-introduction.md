@@ -209,12 +209,12 @@ layout: two-cols
 
 ::left::
 
-### dbdiagram.io
+### draw.io
 
 - Diagramme E-R dans le navigateur
 - Entités, attributs, cardinalités
-- Export en image et en fichier source
-- Rien à installer
+- Export en image et en fichier `.drawio`
+- Rien à installer, aucun compte
 - Cours 02 à 04
 
 ```mermaid {scale: 0.7}
@@ -592,7 +592,7 @@ Chaque séance produit de quoi réviser :
 
 | Production | Format |
 |---|---|
-| Diagramme E-R | Image et fichier source exportés de dbdiagram.io |
+| Diagramme E-R | Image et fichier `.drawio` exportés de draw.io |
 | Schéma SQL | Fichier `.sql` |
 | Requêtes | Fichier `.sql` par question |
 

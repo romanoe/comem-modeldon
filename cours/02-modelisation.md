@@ -159,7 +159,7 @@ erDiagram
 layout: section
 ---
 
-# Le canevas dbdiagram.io
+# Le canevas draw.io
 
 ---
 layout: two-cols
@@ -170,27 +170,23 @@ layout: two-cols
 
 ::left::
 
-- Un bloc par entité
+- Bibliothèque de formes **Entity Relation**
+- Un bloc par entité, son nom en tête
 - Une ligne par attribut
-- `pk` marque l'identifiant
-- Le diagramme se dessine à droite
-
-| Réglage | Effet |
-|---|---|
-| `pk` | Clé primaire |
-| `not null` | Jamais vide |
-| `unique` | Non répétable |
+- Le marqueur s'écrit au bout de la ligne
 
 ::right::
 
-```sql
-Table nom_de_la_table {
-  nom_de_colonne  type  [reglage]
-  autre_colonne   type
-}
+```mermaid
+erDiagram
+  nom_de_l_entite {
+    integer id PK
+    varchar attribut
+    integer autre_attribut
+  }
 ```
 
-<div class="ref">dbdiagram.io · <a href="https://dbdiagram.io/">éditeur en ligne</a></div>
+<div class="ref">draw.io · <a href="https://app.diagrams.net/">éditeur en ligne</a></div>
 
 ---
 layout: two-cols
@@ -838,17 +834,17 @@ content: center
 
 # Export du diagramme
 
-<Card title="Compte gratuit">
+<Card title="Aucun compte">
 <template #icon><pixelarticons-user /></template>
-Nécessaire pour enregistrer un diagramme et le retrouver d'une séance à l'autre.
+L'éditeur s'ouvre dans le navigateur : le fichier se garde sur la machine ou dans un drive.
 </Card>
 <Card title="Image">
 <template #icon><pixelarticons-image /></template>
-Le diagramme exporté en image : la version qui se relit vite, pour réviser.
+Le diagramme exporté en <code>.png</code> ou <code>.svg</code> : la version qui se relit vite, pour réviser.
 </Card>
 <Card title="Fichier source">
 <template #icon><pixelarticons-file /></template>
-Le texte de l'éditeur, copié dans un fichier <code>.dbml</code> : de quoi reprendre le diagramme plus tard.
+Le fichier <code>.drawio</code> de l'éditeur : de quoi rouvrir le diagramme et le compléter.
 </Card>
 
 ---
@@ -884,9 +880,9 @@ layout: two-cols
 ### TP · Semaine 2
 
 1. Reprendre la liste de la semaine 1, en tirer les entités fortes
-2. Les poser dans dbdiagram.io, avec leurs attributs et leur clé
+2. Les dessiner dans draw.io, avec leurs attributs et leur clé
 3. Repérer une entité faible ou associative, la justifier
-4. Exporter l'image et le fichier source
+4. Exporter l'image et garder le fichier `.drawio`
 
 ::right::
 
@@ -900,4 +896,4 @@ Les liens entre entités sont au cours 03. Pour l'instant, <code>artiste_id</cod
 Chaque séance ajoute au même diagramme ce qu'elle vient d'introduire. On ne recommence jamais de zéro.
 </Card>
 
-<div class="ref">dbdiagram.io · <a href="https://dbdiagram.io/">éditeur en ligne</a></div>
+<div class="ref">draw.io · <a href="https://app.diagrams.net/">éditeur en ligne</a></div>
