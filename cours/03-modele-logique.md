@@ -1,14 +1,14 @@
 ---
 theme: pixel
-number: "09"
-title: "La donnée semi-structurée"
+number: "03"
+title: "Modèle Logique de Données (MLD)"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"
 github: "https://github.com/romanoe/comem-modeldon"
 breadcrumb: "Modélisation de Données"
 logos:
-  - /images/logo-heig-vd.svg
+  - /images/logo-heig-vd.png
   - src: /images/logo-hes-so.png
     height: 79px
 
@@ -37,13 +37,15 @@ hide: true
 
 # Cours précédent
 
-- Fonctions d'agrégation
-- Regrouper les résultats avec `GROUP BY`
-- Vues enregistrées comme requêtes réutilisables
+- Le relationnel, et les trois niveaux de modèle
+- Types d'entités : forte, faible, associative
+- Types d'attributs, types de données, identifiant
+- Contraintes `PK`, `NOT NULL`, `UNIQUE`
+- Relations nommées et cardinalités `0..1`, `1`, `0..*`, `1..*`
 
 <Card title="Aujourd'hui" color="#e92528">
-<template #icon><pixelarticons-braces /></template>
-Quand le tableau ne suffit plus : le format JSON, ce qu'il apporte et ce qu'il coûte face au relationnel.
+<template #icon><pixelarticons-git-branch /></template>
+Traduire le conceptuel en <strong>tables</strong> : clé étrangère <code>FK</code>, table de liaison, relations identifiantes, 1:N et N:M.
 </Card>
 
 ---
@@ -51,28 +53,42 @@ layout: section
 hide: true
 ---
 
-# Quand le tableau ne suffit plus
+# De la relation à la table
 
 ---
 layout: section
 hide: true
 ---
 
-# Le format JSON
+# La clé primaire
 
 ---
 layout: section
 hide: true
 ---
 
-# SQL vs JSON
+# La clé étrangère
 
 ---
 layout: section
 hide: true
 ---
 
-# Le catalogue du musée en JSON
+# Relation identifiante ou non identifiante
+
+---
+layout: section
+hide: true
+---
+
+# Relation 1:N
+
+---
+layout: section
+hide: true
+---
+
+# Relation N:M et entité associative
 
 ---
 layout: section
@@ -91,11 +107,12 @@ hide: true
 
 ::left::
 
-### TP · Semaine 9
+### TP · Semaine 3
 
-1. Exporter une partie du catalogue du musée en JSON
-2. Comparer la structure obtenue avec le modèle relationnel
-3. Noter ce que chaque forme facilite et ce qu'elle complique
+1. Reprendre le MCD du musée et poser les cardinalités sur chaque relation
+2. Traduire chaque entité en table, avec sa clé primaire
+3. Poser les clés étrangères, créer les tables de liaison des relations N:M
+4. Exporter le diagramme logique : image et fichier `.drawio`
 
 ::right::
 

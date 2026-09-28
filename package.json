@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "dev:01": "slidev cours/01-introduction.md --open",
-    "dev:02": "slidev cours/02-modelisation.md --open",
-    "dev:03": "slidev cours/03-cles-relations.md --open",
+    "dev:02": "slidev cours/02-modele-conceptuel.md --open",
+    "dev:03": "slidev cours/03-modele-logique.md --open",
     "dev:04": "slidev cours/04-normalisation.md --open",
-    "dev:05": "slidev cours/05-stockage.md --open",
+    "dev:05": "slidev cours/05-modele-physique.md --open",
     "dev:06": "slidev cours/06-interroger.md --open",
     "dev:07": "slidev cours/07-connecter.md --open",
     "dev:08": "slidev cours/08-analyser.md --open",

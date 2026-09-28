@@ -14,14 +14,14 @@
       "title": "Introduction"
     },
     {
-      "src": "cours/02-modelisation.md",
-      "out": "02-modelisation",
-      "title": "Modèle entité-association"
+      "src": "cours/02-modele-conceptuel.md",
+      "out": "02-modele-conceptuel",
+      "title": "Modèle Conceptuel de Données (MCD)"
     },
     {
-      "src": "cours/03-cles-relations.md",
-      "out": "03-cles-relations",
-      "title": "Clés et relations"
+      "src": "cours/03-modele-logique.md",
+      "out": "03-modele-logique",
+      "title": "Modèle Logique de Données (MLD)"
     },
     {
       "src": "cours/04-normalisation.md",
@@ -29,9 +29,9 @@
       "title": "Normalisation"
     },
     {
-      "src": "cours/05-stockage.md",
-      "out": "05-stockage",
-      "title": "Stockage local"
+      "src": "cours/05-modele-physique.md",
+      "out": "05-modele-physique",
+      "title": "Modèle Physique de Données (MPD)"
     },
     {
       "src": "cours/06-interroger.md",

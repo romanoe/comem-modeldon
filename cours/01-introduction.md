@@ -87,7 +87,7 @@ clicks: 2
 <pixelarticons-arrow-right v-click="2" class="text-3xl self-center" />
 <Card title="Connaissance" :at="2">
 <template #icon><pixelarticons-lightbulb /></template>
-Le créneau de 8h ne convainc personne : déplacer le cours à 8h30
+Le créneau de 8h ne convainc personne : déplacer le cours à 8h30 :-)
 </Card>
 
 
@@ -184,12 +184,12 @@ clicks: 3
 Repérer les entités, leurs attributs et leurs relations
 </Card>
 <pixelarticons-arrow-right v-click="1" class="text-3xl self-center" />
-<Card title="Décrire" :at="1" footer="cours 03 · Clés et relations">
+<Card title="Décrire" :at="1" footer="cours 03 · Modèle logique">
 <template #icon><pixelarticons-git-branch /></template>
 Dessiner entités, attributs et relations
 </Card>
 <pixelarticons-arrow-right v-click="2" class="text-3xl self-center" />
-<Card title="Créer" :at="2" footer="cours 05 · Stockage local">
+<Card title="Créer" :at="2" footer="cours 05 · Modèle physique">
 <template #icon><pixelarticons-table /></template>
 Le diagramme devient des <code>CREATE TABLE</code> typés
 </Card>
@@ -219,7 +219,7 @@ layout: two-cols
 
 ```mermaid {scale: 0.7}
 flowchart LR
-  artistes --- |"1 à N"| oeuvres
+  artistes --- |"1..*"| oeuvres
 ```
 
 ::right::
@@ -411,7 +411,7 @@ erDiagram
 
 ```mermaid {scale: 0.65}
 flowchart LR
-  artistes --- |"1 à N"| oeuvres
+  artistes --- |"1..*"| oeuvres
 ```
 
 ---
@@ -423,7 +423,7 @@ layout: two-cols
 
 ::left::
 
-### Le besoin
+### Besoins
 
 > « Je veux savoir quels livres sont empruntés, par quel·le lecteur·rice, et qui les a écrits. »
 

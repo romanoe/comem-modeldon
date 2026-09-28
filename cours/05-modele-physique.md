@@ -1,14 +1,14 @@
 ---
 theme: pixel
-number: "09"
-title: "La donnée semi-structurée"
+number: "05"
+title: "Modèle Physique de Données (MPD)"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"
 github: "https://github.com/romanoe/comem-modeldon"
 breadcrumb: "Modélisation de Données"
 logos:
-  - /images/logo-heig-vd.svg
+  - /images/logo-heig-vd.png
   - src: /images/logo-hes-so.png
     height: 79px
 
@@ -37,13 +37,14 @@ hide: true
 
 # Cours précédent
 
-- Fonctions d'agrégation
-- Regrouper les résultats avec `GROUP BY`
-- Vues enregistrées comme requêtes réutilisables
+- Dépendances fonctionnelles
+- Première, deuxième et troisième formes normales
+- Déterminant et clé candidate
+- Dénormalisation raisonnée
 
 <Card title="Aujourd'hui" color="#e92528">
-<template #icon><pixelarticons-braces /></template>
-Quand le tableau ne suffit plus : le format JSON, ce qu'il apporte et ce qu'il coûte face au relationnel.
+<template #icon><pixelarticons-database /></template>
+Traduire le diagramme en <code>CREATE TABLE</code> : types SQLite, intégrité référentielle, modes de suppression.
 </Card>
 
 ---
@@ -51,28 +52,35 @@ layout: section
 hide: true
 ---
 
-# Quand le tableau ne suffit plus
+# Pourquoi une base de données ?
 
 ---
 layout: section
 hide: true
 ---
 
-# Le format JSON
+# Du schéma au CREATE TABLE
 
 ---
 layout: section
 hide: true
 ---
 
-# SQL vs JSON
+# Choisir les bons types
 
 ---
 layout: section
 hide: true
 ---
 
-# Le catalogue du musée en JSON
+# Intégrité référentielle
+
+---
+layout: section
+hide: true
+---
+
+# Modes de suppression
 
 ---
 layout: section
@@ -91,11 +99,12 @@ hide: true
 
 ::left::
 
-### TP · Semaine 9
+### TP · Semaine 5
 
-1. Exporter une partie du catalogue du musée en JSON
-2. Comparer la structure obtenue avec le modèle relationnel
-3. Noter ce que chaque forme facilite et ce qu'elle complique
+1. Traduire le modèle logique du musée en `CREATE TABLE`
+2. Choisir les types SQLite de chaque colonne
+3. Poser les contraintes et les clés étrangères
+4. Insérer quelques lignes de test dans chaque table
 
 ::right::
 

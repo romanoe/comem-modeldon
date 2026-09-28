@@ -44,13 +44,15 @@ sqlite3 --version
 
 ## Cours
 
+Les trois niveaux de modèle structurent le semestre : **conceptuel** au cours 02, **logique** aux cours 03 et 04, **physique** au cours 05. Les cours 03 et suivants sont en cours d'écriture et n'affichent pour l'instant qu'une page d'attente.
+
 | # | Module | Contenu |
 |---|---|---|
 | 01 | [Introduction](https://comem-modeldon.onrender.com/01-introduction/) | Donnée · Information · Connaissance · Du tableur à la base · SGBD · Diagramme E-R |
-| 02 | [Modèle entité-association](https://comem-modeldon.onrender.com/02-modelisation/) | Entité et types d'entités · Attributs et types · Contraintes · Nommage · Normalisation (1NF) · draw.io |
-| 03 | [Clés et relations](https://comem-modeldon.onrender.com/03-cles-relations/) | Relations · Cardinalités · Clé primaire · Clé étrangère · 1:N et N:M |
+| 02 | [Modèle conceptuel](https://comem-modeldon.onrender.com/02-modele-conceptuel/) | Modèle relationnel · Notation UML · Entité · Attribut · Identifiant · Contraintes · Relation · Cardinalités · Nommage |
+| 03 | [Modèle logique](https://comem-modeldon.onrender.com/03-modele-logique/) | Clé primaire · Clé étrangère · Table de liaison · Relations identifiantes · 1:N et N:M |
 | 04 | [Normalisation](https://comem-modeldon.onrender.com/04-normalisation/) | Dépendances fonctionnelles · 1NF · 2NF · 3NF · Dénormalisation |
-| 05 | [Stockage local](https://comem-modeldon.onrender.com/05-stockage/) | SQLite · CREATE TABLE · Types · Intégrité référentielle · Modes de suppression |
+| 05 | [Modèle physique](https://comem-modeldon.onrender.com/05-modele-physique/) | SQLite · CREATE TABLE · Types · Intégrité référentielle · Modes de suppression |
 | 06 | [Interroger les données](https://comem-modeldon.onrender.com/06-interroger/) | SELECT · FROM · WHERE · ORDER BY · INSERT · UPDATE · DELETE |
 | 07 | [Connecter les données](https://comem-modeldon.onrender.com/07-connecter/) | Donnée morcelée · INNER JOIN · LEFT JOIN |
 | 08 | [Analyser les données](https://comem-modeldon.onrender.com/08-analyser/) | Agrégation · COUNT · SUM · AVG · GROUP BY · HAVING · CREATE VIEW |
@@ -75,9 +77,13 @@ Les TP ne sont pas notés. Ils servent d'entraînement aux deux examens : rien n
 
 ## Fil rouge des TP : le musée
 
+### Deux domaines
+
+Les exemples présentés en classe prennent une **bibliothèque** : livres, auteurs, rayons, lecteur·rice·s, emprunts. Le fil rouge des TP reste le **musée** : la classe voit la notion sur la bibliothèque, puis l'applique à son propre modèle.
+
 ### Contexte
 
-Tout au long du semestre, cours et TP portent sur le même musée fictif : modélisation, création des tables, insertion des données, interrogation et analyse. Chaque séance applique au musée la notion qu'elle vient d'introduire, si bien que le modèle grossit semaine après semaine. Rien n'est noté : le fil rouge sert à construire le sujet pas à pas et à préparer les examens.
+Tout au long du semestre, les TP portent sur le même musée fictif : modélisation, création des tables, insertion des données, interrogation et analyse. Chaque séance applique au musée la notion qu'elle vient d'introduire, si bien que le modèle grossit semaine après semaine. Rien n'est noté : le fil rouge sert à construire le sujet pas à pas et à préparer les examens.
 
 La première séance de TP part d'une seule question, sans outil : **quelles données un musée doit-il gérer pour fonctionner ?**
 

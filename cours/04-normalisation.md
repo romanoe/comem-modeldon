@@ -16,45 +16,57 @@ download: true
 mdc: true
 layout: cover
 ---
-
 ---
-layout: grid
-cols: 2
-content: center
+layout: default
 ---
 
-# Où on en est
+# Cours en construction
 
-Vous savez décrire des entités, des attributs et des relations. Reste une question : ce découpage est-il **le bon** ?
+Cette séance est en cours d'écriture. Les slides arriveront avant le cours.
 
-<Card title="Acquis des cours 02 et 03">
-<template #icon><pixelarticons-check /></template>
-Entités, types d'attributs, clés primaires et étrangères, cardinalités, table de liaison.
+<Card color="#d97706" tag="warning" title="Contenu provisoire">
+<template #icon><pixelarticons-edit-box /></template>
+Le plan et les premières slides existent déjà dans le dépôt, mais ne sont pas encore présentables.
 </Card>
-<Card title="Objectif du jour" color="#e92528">
+
+
+---
+layout: default
+hide: true
+---
+
+# Cours précédent
+
+- La relation et sa lecture dans le diagramme
+- Cardinalités `0..1`, `1`, `0..*`, `1..*`
+- Clé primaire et clé étrangère
+- Relations 1:N, N:M et table de liaison
+
+<Card title="Aujourd'hui" color="#e92528">
 <template #icon><pixelarticons-scissors /></template>
 Savoir <strong>prouver</strong> qu'un découpage est correct, et corriger celui qui ne l'est pas.
 </Card>
 
 ---
 layout: section
+hide: true
 ---
 
 # Pourquoi normaliser
 
-_La redondance n'est pas un gaspillage de place, c'est une source d'erreurs_
-
+---
+hide: true
 ---
 
 # Table fourre-tout
 
 Voici le réflexe naturel quand on vient du tableur : une seule table, tout dedans.
 
-| oeuvre_id | titre | artiste | nationalite | expo_id | expo_titre | salle | etage | techniques |
+| livre_id | titre | auteur | nationalite | lecteur_id | lecteur_nom | rayon | etage | genres |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Sans titre | Vallotton | Suisse | 10 | Regards | Nord | 1 | huile, toile |
-| 1 | Sans titre | Vallotton | Suisse | 11 | Figures | Sud | 2 | huile, toile |
-| 2 | Étude | Vallotton | Suisse | 10 | Regards | Nord | 1 | crayon, papier |
+| 1 | Germinal | Zola | France | 7 | Dupont | Romans | 1 | roman, social |
+| 1 | Germinal | Zola | France | 9 | Perret | Romans | 1 | roman, social |
+| 2 | La Peste | Camus | France | 7 | Dupont | Romans | 1 | roman, philosophie |
 
 Elle fonctionne. Elle répond aux questions. Et elle contient déjà trois défauts structurels que ce cours va nommer, prouver et corriger.
 
@@ -64,6 +76,7 @@ Elle fonctionne. Elle répond aux questions. Et elle contient déjà trois défa
 layout: grid
 cols: 3
 content: center
+hide: true
 ---
 
 # Trois anomalies
@@ -72,17 +85,19 @@ La redondance ne coûte pas de l'espace disque. Elle coûte de la **cohérence**
 
 <Card title="Insertion" color="#d97706">
 <template #icon><pixelarticons-plus /></template>
-Impossible d'enregistrer une nouvelle salle tant qu'aucune exposition n'y est programmée. La salle n'a pas de ligne à elle.
+Impossible d'enregistrer un nouveau rayon tant qu'aucun livre n'y est rangé. Le rayon n'a pas de ligne à lui.
 </Card>
 <Card title="Modification" color="#d97706">
 <template #icon><pixelarticons-edit-box /></template>
-Corriger l'orthographe de <code>Vallotton</code> oblige à la corriger sur chaque ligne. Une ligne oubliée crée deux artistes.
+Corriger l'orthographe de <code>Zola</code> oblige à la corriger sur chaque ligne. Une ligne oubliée crée deux auteurs.
 </Card>
 <Card title="Suppression" color="#e92528">
 <template #icon><pixelarticons-trash /></template>
-Supprimer la dernière exposition d'une salle efface l'existence même de la salle.
+Supprimer le dernier emprunt d'un lecteur efface l'existence même du lecteur.
 </Card>
 
+---
+hide: true
 ---
 
 # Découper méthodiquement
@@ -101,12 +116,13 @@ Les trois s'appliquent dans l'ordre. On ne cherche la 2NF que sur une table déj
 
 ---
 layout: section
+hide: true
 ---
 
 # Dépendance fonctionnelle
 
-_L'outil qui permet de prouver, au lieu de deviner_
-
+---
+hide: true
 ---
 
 # Définition
@@ -121,11 +137,13 @@ A  ->  B
 
 Posez la question à voix haute : « si je connais A, est-ce que B est forcément la même valeur ? »
 
-- Si je connais l'`oeuvre_id`, le `titre` est-il toujours le même ? **Oui.** Donc `oeuvre_id -> titre`.
-- Si je connais le `titre`, l'`oeuvre_id` est-il toujours le même ? **Non**, deux œuvres peuvent partager un titre. Donc pas de dépendance dans ce sens.
+- Si je connais le `livre_id`, le `titre` est-il toujours le même ? **Oui.** Donc `livre_id -> titre`.
+- Si je connais le `titre`, le `livre_id` est-il toujours le même ? **Non**, deux livres peuvent partager un titre. Donc pas de dépendance dans ce sens.
 
 Une dépendance fonctionnelle est une **règle du métier**, pas une observation sur les données présentes. Trois lignes qui coïncident ne prouvent rien.
 
+---
+hide: true
 ---
 
 # Exemple : dépendances relevées
@@ -133,31 +151,32 @@ Une dépendance fonctionnelle est une **règle du métier**, pas une observation
 Listons-les toutes avant de corriger quoi que ce soit.
 
 ```
-oeuvre_id                ->  titre, artiste, nationalite
-expo_id                  ->  expo_titre, salle
-salle                    ->  etage
-(oeuvre_id, expo_id)     ->  date_accrochage
+livre_id                  ->  titre, auteur, nationalite, rayon
+rayon                     ->  etage
+lecteur_id                ->  lecteur_nom
+(livre_id, lecteur_id)    ->  date_emprunt
 ```
 
 ### Ce que cette liste révèle
 
-La clé de la table est le couple `(oeuvre_id, expo_id)` : il faut les deux pour désigner une ligne.
+La clé de la table est le couple `(livre_id, lecteur_id)` : il faut les deux pour désigner une ligne.
 
-Or `titre` ne dépend que de `oeuvre_id`, et `expo_titre` ne dépend que de `expo_id`. Aucun des deux n'a besoin de la clé entière. C'est exactement ce que la 2NF interdit.
+Or `titre` ne dépend que de `livre_id`, et `lecteur_nom` ne dépend que de `lecteur_id`. Aucun des deux n'a besoin de la clé entière. C'est exactement ce que la 2NF interdit.
 
-Et `etage` ne dépend de la clé par aucun chemin direct : il dépend de `salle`. C'est ce que la 3NF interdit.
+Et `etage` ne dépend de la clé par aucun chemin direct : il dépend de `rayon`. C'est ce que la 3NF interdit.
 
 ---
 layout: grid
 cols: 2
 content: center
+hide: true
 ---
 
 # Déterminant et clé candidate
 
 <Card title="Déterminant">
 <template #icon><pixelarticons-search /></template>
-La partie gauche d'une flèche. Dans <code>salle -> etage</code>, le déterminant est <code>salle</code>.
+La partie gauche d'une flèche. Dans <code>rayon -> etage</code>, le déterminant est <code>rayon</code>.
 </Card>
 <Card title="Clé candidate">
 <template #icon><pixelarticons-bookmark /></template>
@@ -166,16 +185,17 @@ Un ensemble minimal de colonnes qui détermine <strong>toutes</strong> les autre
 
 La règle qui résume tout le cours : **un déterminant qui n'est pas une clé candidate signale une table à découper.**
 
-Ici `salle` détermine `etage` sans être clé de la table. Le signal est donné : `salles` mérite sa propre table.
+Ici `rayon` détermine `etage` sans être clé de la table. Le signal est donné : `rayons` mérite sa propre table.
 
 ---
 layout: section
+hide: true
 ---
 
 # Première forme normale
 
-_Une seule valeur par case_
-
+---
+hide: true
 ---
 
 # La règle
@@ -190,50 +210,67 @@ Sans 1NF, on ne peut même pas raisonner sur les dépendances fonctionnelles : u
 
 | Symptôme | Exemple |
 |---|---|
-| Liste séparée par des virgules | `techniques = "huile, toile"` |
-| Colonnes numérotées | `technique_1`, `technique_2`, `technique_3` |
-| Champ libre contenant plusieurs idées | `notes = "Restaurée en 2019, cadre d origine"` |
+| Liste séparée par des virgules | `genres = "roman, social"` |
+| Colonnes numérotées | `genre_1`, `genre_2`, `genre_3` |
+| Champ libre contenant plusieurs idées | `notes = "Relié en 2019, edition d origine"` |
 
 La deuxième est la plus sournoise : elle **paraît** atomique, mais force à choisir un maximum arbitraire.
 
 ---
+layout: two-cols
+hide: true
+---
 
+::title::
 # Exemple : correction 1NF
+
+::left::
 
 ### Avant
 
-```mermaid
-erDiagram
-  accrochages_plat {
-    integer oeuvre_id
-    varchar techniques "huile, toile"
-  }
-```
+<ErBox
+  name="emprunts_plat"
+  :rows="[
+    { name: 'livre_id', type: 'INTEGER' },
+    { name: 'genres', type: 'VARCHAR', note: 'roman, social' },
+  ]"
+/>
+
+- Une liste dans une case
+- Recherche par genre impossible
+
+::right::
 
 ### Après
 
-```mermaid
-erDiagram
-  techniques {
-    integer id PK
-    varchar nom UK
-  }
-  oeuvre_techniques {
-    integer oeuvre_id PK
-    integer technique_id PK
-  }
-```
+<ErBox
+  name="genres"
+  :rows="[
+    { key: 'PK', name: 'id', type: 'INTEGER', id: true },
+    { key: 'UNIQUE', name: 'nom', type: 'VARCHAR' },
+  ]"
+/>
 
-L'attribut multivalué a produit une table de valeurs et une table de liaison. La recherche par technique redevient une simple jointure.
+<ErBox
+  name="livre_genres"
+  :rows="[
+    { key: 'PK', name: 'livre_id', type: 'INTEGER', id: true },
+    { key: 'PK', name: 'genre_id', type: 'INTEGER', id: true },
+  ]"
+/>
+
+- Une table de valeurs, une table de liaison
+- La recherche devient une jointure
 
 ---
 layout: section
+hide: true
 ---
 
 # Deuxième forme normale
 
-_Chaque colonne dépend de toute la clé_
-
+---
+hide: true
 ---
 
 # La règle
@@ -246,7 +283,7 @@ Uniquement si la clé primaire est **composite**. Une table à clé simple est a
 
 ### Le symptôme visible
 
-Une même valeur se répète à chaque fois que revient la même moitié de la clé. Dans la table fourre-tout, `Vallotton` réapparaît sur toutes les lignes où `oeuvre_id = 1`.
+Une même valeur se répète à chaque fois que revient la même moitié de la clé. Dans la table fourre-tout, `Zola` réapparaît sur toutes les lignes où `livre_id = 1`.
 
 <Card color="#6b7280" tag="note" title="Le raccourci utile">
 <template #icon><pixelarticons-zap /></template>
@@ -254,55 +291,65 @@ Clé primaire sur une seule colonne : la 2NF est acquise, passez directement à 
 </Card>
 
 ---
+layout: two-cols
+hide: true
+---
 
+::title::
 # Exemple : correction 2NF
 
-La clé est `(oeuvre_id, expo_id)`. Or `titre` et `artiste` ne dépendent que de `oeuvre_id`.
+::left::
 
 ### Avant
 
-```mermaid
-erDiagram
-  accrochages_plat {
-    integer oeuvre_id PK
-    integer expo_id PK
-    varchar titre "depend de oeuvre_id seul"
-    varchar artiste "depend de oeuvre_id seul"
-    varchar expo_titre "depend de expo_id seul"
-    date date_accrochage "depend bien des deux"
-  }
-```
+<ErBox
+  name="emprunts_plat"
+  :rows="[
+    { key: 'PK', name: 'livre_id', type: 'INTEGER', id: true },
+    { key: 'PK', name: 'lecteur_id', type: 'INTEGER', id: true },
+    { name: 'titre', type: 'VARCHAR', note: 'livre_id seul' },
+    { name: 'auteur', type: 'VARCHAR', note: 'livre_id seul' },
+    { name: 'lecteur_nom', type: 'VARCHAR', note: 'lecteur_id seul' },
+    { name: 'date_emprunt', type: 'DATE', note: 'bien les deux' },
+  ]"
+/>
+
+- La clé est le couple `(livre_id, lecteur_id)`
+- `titre` et `auteur` n'en dépendent qu'à moitié
+
+::right::
 
 ### Après
 
-```mermaid
-erDiagram
-  oeuvres {
-    integer id PK
-    varchar titre
-    varchar artiste
-  }
-  expositions {
-    integer id PK
-    varchar titre
-  }
-  accrochages {
-    integer oeuvre_id PK
-    integer exposition_id PK
-    date date_accrochage
-  }
-```
+<ErBox
+  name="livres"
+  :rows="[
+    { key: 'PK', name: 'id', type: 'INTEGER', id: true },
+    { name: 'titre', type: 'VARCHAR' },
+    { name: 'auteur', type: 'VARCHAR' },
+  ]"
+/>
 
-Ne reste dans `accrochages` que ce qui dépend vraiment du **couple**.
+<ErBox
+  name="emprunts"
+  :rows="[
+    { key: 'PK', name: 'livre_id', type: 'INTEGER', id: true },
+    { key: 'PK', name: 'lecteur_id', type: 'INTEGER', id: true },
+    { name: 'date_emprunt', type: 'DATE' },
+  ]"
+/>
+
+- Ne reste que ce qui dépend du **couple**
 
 ---
 layout: section
+hide: true
 ---
 
 # Troisième forme normale
 
-_Aucun détour par une colonne qui n'est pas clé_
-
+---
+hide: true
 ---
 
 # La règle
@@ -312,10 +359,10 @@ Une table est en 3NF si elle est en 2NF **et** qu'aucune colonne hors clé n'en 
 ### La dépendance transitive
 
 ```
-expo_id  ->  salle  ->  etage
+livre_id  ->  rayon  ->  etage
 ```
 
-`etage` dépend bien de `expo_id`, mais **en passant par** `salle`. Ce détour est la dépendance transitive que la 3NF interdit.
+`etage` dépend bien de `livre_id`, mais **en passant par** `rayon`. Ce détour est la dépendance transitive que la 3NF interdit.
 
 ### La formule mnémotechnique
 
@@ -324,89 +371,102 @@ Chaque colonne doit dépendre de la clé, de **toute** la clé, et de **rien d'a
 Les trois membres correspondent exactement aux trois formes : 1NF, 2NF, 3NF.
 
 ---
+layout: two-cols
+hide: true
+---
 
+::title::
 # Exemple : correction 3NF
+
+::left::
 
 ### Avant
 
-```mermaid
-erDiagram
-  expositions {
-    integer id PK
-    varchar titre
-    varchar salle "determinant"
-    integer etage "determine par salle, pas par id"
-  }
-```
+<ErBox
+  name="livres"
+  :rows="[
+    { key: 'PK', name: 'id', type: 'INTEGER', id: true },
+    { name: 'titre', type: 'VARCHAR' },
+    { name: 'rayon', type: 'VARCHAR', note: 'determinant' },
+    { name: 'etage', type: 'INTEGER', note: 'depend de rayon' },
+  ]"
+/>
 
-Changer une salle d'étage obligerait à mettre à jour toutes les expositions qui s'y sont tenues. Et une salle sans exposition n'aurait aucun étage enregistré.
+- Changer un rayon d'étage touche tous ses livres
+- Un rayon vide n'a aucun étage enregistré
+
+::right::
 
 ### Après
 
-```mermaid
-erDiagram
-  salles {
-    integer id PK
-    varchar nom UK
-    integer etage
-  }
-  expositions {
-    integer id PK
-    varchar titre
-    integer salle_id FK
-  }
-```
+<ErBox
+  name="rayons"
+  :rows="[
+    { key: 'PK', name: 'id', type: 'INTEGER', id: true },
+    { key: 'UNIQUE', name: 'nom', type: 'VARCHAR' },
+    { name: 'etage', type: 'INTEGER' },
+  ]"
+/>
 
-L'étage est désormais une propriété de la salle, enregistrée une seule fois.
+<ErBox
+  name="livres"
+  :rows="[
+    { key: 'PK', name: 'id', type: 'INTEGER', id: true },
+    { name: 'titre', type: 'VARCHAR' },
+    { key: 'FK', name: 'rayon_id', type: 'INTEGER' },
+  ]"
+/>
+
+- L'étage appartient au rayon, écrit une seule fois
 
 ---
 layout: section
+hide: true
 ---
 
 # Démarche complète
 
-_De la table fourre-tout au modèle du musée_
-
+---
+hide: true
 ---
 
 # Résultat des trois passes
 
-La table du début produit sept tables. Elles forment le cœur du modèle du musée.
+La table du début produit sept tables. Elles forment le cœur du modèle de la bibliothèque.
 
 ```mermaid {scale: 0.55}
 erDiagram
-  artistes {
+  auteurs {
     integer id PK
     varchar nom
     varchar nationalite
   }
-  oeuvres {
+  livres {
     integer id PK
     varchar titre
-    integer artiste_id FK
+    integer auteur_id FK
   }
-  salles {
+  rayons {
     integer id PK
     varchar nom
     integer etage
   }
-  expositions {
-    integer id PK
-    varchar titre
-    integer salle_id FK
-  }
-  techniques {
+  lecteurs {
     integer id PK
     varchar nom
   }
-  accrochages {
-    integer oeuvre_id PK
-    integer exposition_id PK
-    date date_accrochage
+  genres {
+    integer id PK
+    varchar nom
   }
-  oeuvre_techniques {
-    integer oeuvre_id PK
-    integer technique_id PK
+  emprunts {
+    integer livre_id PK
+    integer lecteur_id PK
+    date date_emprunt
+  }
+  livre_genres {
+    integer livre_id PK
+    integer genre_id PK
   }
 ```
 
@@ -414,6 +474,7 @@ erDiagram
 layout: grid
 cols: 3
 content: center
+hide: true
 ---
 
 # Trois questions
@@ -437,12 +498,13 @@ En pratique, la 3NF suffit à la très grande majorité des modèles métier. Le
 
 ---
 layout: section
+hide: true
 ---
 
 # Dénormaliser
 
-_Savoir quand la règle mérite d'être enfreinte_
-
+---
+hide: true
 ---
 
 # Compromis lecture-écriture
@@ -465,23 +527,26 @@ Dénormaliser est une décision **documentée et assumée**, prise après avoir 
 layout: grid
 cols: 3
 content: center
+hide: true
 ---
 
 # Trois cas, trois verdicts
 
 <Card title="Valeur historique" color="#16a34a">
 <template #icon><pixelarticons-clock /></template>
-Le <strong>prix payé</strong> stocké sur le billet vendu. Ce n'est pas une copie du tarif courant : c'est une donnée différente, figée dans le temps. <strong>Légitime</strong>.
+La <strong>durée de prêt</strong> figée sur l'emprunt. Ce n'est pas une copie du règlement courant : c'est la règle qui s'appliquait ce jour-là. <strong>Légitime</strong>.
 </Card>
 <Card title="Agrégat précalculé" color="#d97706">
 <template #icon><pixelarticons-calculator /></template>
-Un compteur <code>nb_oeuvres</code> sur l'exposition, pour éviter un <code>COUNT</code> à chaque affichage. <strong>Acceptable si mesuré</strong>, et si la mise à jour est automatisée.
+Un compteur <code>nb_emprunts</code> sur le livre, pour éviter un <code>COUNT</code> à chaque affichage. <strong>Acceptable si mesuré</strong>, et si la mise à jour est automatisée.
 </Card>
 <Card title="Copie de confort" color="#e92528">
 <template #icon><pixelarticons-close /></template>
-Recopier <code>artiste_nom</code> dans <code>oeuvres</code> pour « éviter une jointure ». <strong>Non</strong> : c'est la violation de 3NF qu'on vient de corriger.
+Recopier <code>auteur_nom</code> dans <code>livres</code> pour « éviter une jointure ». <strong>Non</strong> : c'est la violation de 3NF qu'on vient de corriger.
 </Card>
 
+---
+hide: true
 ---
 
 # La vue, alternative
@@ -491,12 +556,10 @@ Avant de dupliquer une donnée, demandez-vous si le confort de lecture ne peut p
 ```sql
 -- Le modèle reste normalisé, la lecture devient simple
 CREATE VIEW catalogue AS
-SELECT o.titre, a.nom AS artiste, s.nom AS salle
-FROM oeuvres o
-JOIN artistes a ON a.id = o.artiste_id
-JOIN accrochages ac ON ac.oeuvre_id = o.id
-JOIN expositions e ON e.id = ac.exposition_id
-JOIN salles s ON s.id = e.salle_id;
+SELECT l.titre, a.nom AS auteur, r.nom AS rayon, r.etage
+FROM livres l
+JOIN auteurs a ON a.id = l.auteur_id
+JOIN rayons r ON r.id = l.rayon_id;
 ```
 
 Une vue donne le confort d'une table à plat **sans** la redondance : les données restent stockées une seule fois. Les vues sont au programme du cours 08.
@@ -507,6 +570,7 @@ Une vue donne le confort d'une table à plat **sans** la redondance : les donné
 layout: grid
 cols: 3
 content: center
+hide: true
 ---
 
 # À retenir
@@ -525,6 +589,15 @@ Jamais par confort de conception. Uniquement après avoir mesuré, et toujours d
 </Card>
 
 ---
+layout: section
+hide: true
+---
+
+# Travaux pratiques
+
+---
+hide: true
+---
 
 # Pour la prochaine séance
 
@@ -533,7 +606,7 @@ Jamais par confort de conception. Uniquement après avoir mesuré, et toujours d
 1. Reprendre le diagramme du musée et **écrire les dépendances fonctionnelles** de chaque table
 2. Vérifier les trois formes sur chaque table, dans l'ordre, et corriger ce qui doit l'être
 3. Noter toute dénormalisation volontaire, avec sa justification
-4. Exporter le diagramme corrigé : image et fichier source
+4. Exporter le diagramme corrigé : image et fichier `.drawio`
 
 <Card color="#16a34a" tag="tip" title="Le test le plus rentable">
 <template #icon><pixelarticons-zap /></template>

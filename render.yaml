@@ -14,17 +14,17 @@ services:
         source: /01-introduction/*
         destination: /01-introduction/index.html
       - type: rewrite
-        source: /02-modelisation/*
-        destination: /02-modelisation/index.html
+        source: /02-modele-conceptuel/*
+        destination: /02-modele-conceptuel/index.html
       - type: rewrite
-        source: /03-cles-relations/*
-        destination: /03-cles-relations/index.html
+        source: /03-modele-logique/*
+        destination: /03-modele-logique/index.html
       - type: rewrite
         source: /04-normalisation/*
         destination: /04-normalisation/index.html
       - type: rewrite
-        source: /05-stockage/*
-        destination: /05-stockage/index.html
+        source: /05-modele-physique/*
+        destination: /05-modele-physique/index.html
       - type: rewrite
         source: /06-interroger/*
         destination: /06-interroger/index.html
