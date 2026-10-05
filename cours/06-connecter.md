@@ -1,6 +1,6 @@
 ---
 theme: pixel
-number: "07"
+number: "06"
 title: "Connecter les données"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
@@ -85,7 +85,7 @@ hide: true
 
 ::left::
 
-### TP · Semaine 7
+### TP · Semaine 6
 
 1. Repérer les questions qui traversent plusieurs tables
 2. Écrire les jointures correspondantes

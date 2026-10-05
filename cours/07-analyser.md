@@ -1,6 +1,6 @@
 ---
 theme: pixel
-number: "08"
+number: "07"
 title: "Analyser les données"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
@@ -92,7 +92,7 @@ hide: true
 
 ::left::
 
-### TP · Semaine 8
+### TP · Semaine 7
 
 1. Formuler trois indicateurs utiles au musée
 2. Les calculer avec des agrégats et `GROUP BY`

@@ -20,20 +20,20 @@ services:
         source: /03-modele-logique/*
         destination: /03-modele-logique/index.html
       - type: rewrite
-        source: /04-normalisation/*
-        destination: /04-normalisation/index.html
+        source: /04-modele-physique/*
+        destination: /04-modele-physique/index.html
       - type: rewrite
-        source: /05-modele-physique/*
-        destination: /05-modele-physique/index.html
+        source: /05-interroger/*
+        destination: /05-interroger/index.html
       - type: rewrite
-        source: /06-interroger/*
-        destination: /06-interroger/index.html
+        source: /06-connecter/*
+        destination: /06-connecter/index.html
       - type: rewrite
-        source: /07-connecter/*
-        destination: /07-connecter/index.html
+        source: /07-analyser/*
+        destination: /07-analyser/index.html
       - type: rewrite
-        source: /08-analyser/*
-        destination: /08-analyser/index.html
+        source: /08-optimiser/*
+        destination: /08-optimiser/index.html
       - type: rewrite
         source: /09-semi-structure/*
         destination: /09-semi-structure/index.html

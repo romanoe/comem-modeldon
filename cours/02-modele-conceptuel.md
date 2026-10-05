@@ -99,7 +99,7 @@ content: center
 <strong>MLD</strong> · la traduction en tables, avec clés primaires et clés étrangères.
 </Card>
 <pixelarticons-arrow-right class="text-3xl self-center" />
-<Card title="Physique" footer="cours 05 · Modèle physique">
+<Card title="Physique" footer="cours 04 · Modèle physique">
 <template #icon><pixelarticons-database /></template>
 <strong>MPD</strong> · l'implémentation dans un SGBD précis : types SQLite, contraintes, index.
 </Card>
@@ -135,6 +135,7 @@ Une valeur par clé, rien de plus. Caches et sessions web.
 
 ---
 layout: two-cols
+class: compact
 ---
 
 ::title::
@@ -153,7 +154,7 @@ layout: two-cols
 
 <Figure
   class="w-full mx-auto"
-  src="/images/02/diagramme-complet.svg"
+  src="/images/02/mcd-complet.svg"
   alt="Le diagramme complet de la bibliothèque"
   caption="Le MCD complet de la bibliothèque"
 />
@@ -171,6 +172,7 @@ layout: section
 
 ---
 layout: two-cols
+class: compact
 ---
 
 ::title::
@@ -191,8 +193,6 @@ layout: two-cols
 > « On gère quelques milliers de livres, écrits par des auteurs. Ils sont rangés dans des rayons et empruntés par des lecteur·rice·s. »
 
 ::right::
-
-### Représentation
 
 <Figure
   class="w-2/3 mx-auto"
@@ -241,8 +241,6 @@ layout: two-cols
 
 ::right::
 
-### Représentation
-
 <Figure
   class="w-2/3 mx-auto"
   src="/images/02/entite-forte.svg"
@@ -267,8 +265,6 @@ layout: two-cols
 - Il faut le rayon **et** le numéro
 
 ::right::
-
-### Représentation
 
 <Figure
   class="w-2/3 mx-auto"
@@ -295,8 +291,6 @@ layout: two-cols
 
 ::right::
 
-
-### Représentation
 
 <Figure
   src="/images/02/entite-associative.svg"
@@ -333,8 +327,6 @@ layout: two-cols
 
 ::right::
 
-### Représentation
-
 <Figure
   class="w-2/3 mx-auto"
   src="/images/02/attribut.svg"
@@ -355,8 +347,6 @@ layout: two-cols
 - Le cas le plus fréquent
 
 ::right::
-
-### Représentation
 
 <Figure
   class="w-2/3 mx-auto"
@@ -403,14 +393,12 @@ layout: two-cols
 - Il ne se stocke pas
 - Sinon il devient faux dès la prochaine saisie
 
-<Card color="#e92528" tag="danger" title="À éviter" footer="cours 08 · Analyser les données">
+<Card color="#e92528" tag="danger" title="À éviter" footer="cours 07 · Analyser les données">
 <template #icon><pixelarticons-calculator /></template>
 Un <code>nb_livres</code> figé sur l'auteur, que chaque acquisition périme. Il se calculera en <strong>SQL</strong> au moment de la question.
 </Card>
 
 ::right::
-
-### Représentation
 
 <Figure
   class="w-2/3 mx-auto"
@@ -441,8 +429,6 @@ layout: two-cols
 | `UNIQUE` | Deux lignes ne peuvent pas la partager |
 
 ::right::
-
-### Représentation
 
 <Figure
   class="w-2/3 mx-auto"
@@ -519,8 +505,6 @@ layout: two-cols
 - Un **verbe à l'infinitif** posé au milieu de la ligne : p. ex. `emprunter`, `écrire`
 
 ::right::
-
-### Représentation
 
 <Figure
   src="/images/02/relation.svg"
@@ -689,7 +673,7 @@ layout: section
 
 ---
 layout: image-full
-image: /images/02/diagramme-complet.svg
+image: /images/02/mcd-complet.svg
 backgroundSize: contain
 caption: "Le <strong>MCD complet</strong> de la bibliothèque"
 ---

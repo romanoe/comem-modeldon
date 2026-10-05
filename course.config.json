@@ -24,29 +24,29 @@
       "title": "Modèle Logique de Données (MLD)"
     },
     {
-      "src": "cours/04-normalisation.md",
-      "out": "04-normalisation",
-      "title": "Normalisation"
-    },
-    {
-      "src": "cours/05-modele-physique.md",
-      "out": "05-modele-physique",
+      "src": "cours/04-modele-physique.md",
+      "out": "04-modele-physique",
       "title": "Modèle Physique de Données (MPD)"
     },
     {
-      "src": "cours/06-interroger.md",
-      "out": "06-interroger",
+      "src": "cours/05-interroger.md",
+      "out": "05-interroger",
       "title": "Interroger les données"
     },
     {
-      "src": "cours/07-connecter.md",
-      "out": "07-connecter",
+      "src": "cours/06-connecter.md",
+      "out": "06-connecter",
       "title": "Connecter les données"
     },
     {
-      "src": "cours/08-analyser.md",
-      "out": "08-analyser",
+      "src": "cours/07-analyser.md",
+      "out": "07-analyser",
       "title": "Analyser les données"
+    },
+    {
+      "src": "cours/08-optimiser.md",
+      "out": "08-optimiser",
+      "title": "Indexer et optimiser"
     },
     {
       "src": "cours/09-semi-structure.md",

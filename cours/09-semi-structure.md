@@ -16,6 +16,7 @@ download: true
 mdc: true
 layout: cover
 ---
+
 ---
 layout: default
 ---
@@ -37,9 +38,10 @@ hide: true
 
 # Cours précédent
 
-- Fonctions d'agrégation
-- Regrouper les résultats avec `GROUP BY`
-- Vues enregistrées comme requêtes réutilisables
+- Index : accélérer la recherche sur une colonne
+- Lire un plan avec `EXPLAIN QUERY PLAN`
+- Coût d'un index à l'écriture
+- Dénormalisation raisonnée
 
 <Card title="Aujourd'hui" color="#e92528">
 <template #icon><pixelarticons-braces /></template>

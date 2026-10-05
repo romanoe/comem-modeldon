@@ -87,7 +87,7 @@ clicks: 2
 <pixelarticons-arrow-right v-click="2" class="text-3xl self-center" />
 <Card title="Connaissance" :at="2">
 <template #icon><pixelarticons-lightbulb /></template>
-Le créneau de 8h ne convainc personne : déplacer le cours à 8h30 :-)
+Le créneau de 8h ne convainc personne : déplacer le cours à 8h30 
 </Card>
 
 
@@ -99,6 +99,7 @@ layout: section
 
 ---
 layout: two-cols
+class: compact
 ---
 
 ::title::
@@ -184,17 +185,17 @@ clicks: 3
 Repérer les entités, leurs attributs et leurs relations
 </Card>
 <pixelarticons-arrow-right v-click="1" class="text-3xl self-center" />
-<Card title="Décrire" :at="1" footer="cours 03 · Modèle logique">
+<Card title="Décrire" :at="1" footer="cours 03 · Clés et relations">
 <template #icon><pixelarticons-git-branch /></template>
 Dessiner entités, attributs et relations
 </Card>
 <pixelarticons-arrow-right v-click="2" class="text-3xl self-center" />
-<Card title="Créer" :at="2" footer="cours 05 · Modèle physique">
+<Card title="Créer" :at="2" footer="cours 04 · Modèle physique">
 <template #icon><pixelarticons-table /></template>
 Le diagramme devient des <code>CREATE TABLE</code> typés
 </Card>
 <pixelarticons-arrow-right v-click="3" class="text-3xl self-center" />
-<Card title="Interroger" :at="3" footer="cours 06 · Interroger les données">
+<Card title="Interroger" :at="3" footer="cours 05 · Interroger les données">
 <template #icon><pixelarticons-search /></template>
 Les données entrent, les réponses sortent en SQL
 </Card>
@@ -215,11 +216,11 @@ layout: two-cols
 - Entités, attributs, cardinalités
 - Export en image et en fichier `.drawio`
 - Rien à installer, aucun compte
-- Cours 02 à 04
+- Cours 02 et 03
 
 ```mermaid {scale: 0.7}
 flowchart LR
-  artistes --- |"1..*"| oeuvres
+  artistes --- |"1 à N"| oeuvres
 ```
 
 ::right::
@@ -230,16 +231,12 @@ flowchart LR
 - Crée les tables, insère les données
 - Interroge, croise, calcule des indicateurs
 - Exécuté par le SGBD
-- Cours 05 à 08
+- Cours 04 à 08
 
 ```sql
-CREATE TABLE artistes (
-  id INTEGER PRIMARY KEY,
-  nom TEXT NOT NULL
-);
-
 CREATE TABLE oeuvres (
   id INTEGER PRIMARY KEY,
+  titre TEXT NOT NULL,
   artiste_id INTEGER REFERENCES artistes(id)
 );
 ```
@@ -309,6 +306,7 @@ Rapidement, avec des critères précis.
 
 ---
 layout: two-cols
+class: compact
 ---
 
 ::title::
@@ -352,6 +350,7 @@ layout: section
 ---
 layout: grid
 cols: 2
+class: compact
 ---
 
 # Objectifs
@@ -411,7 +410,7 @@ erDiagram
 
 ```mermaid {scale: 0.65}
 flowchart LR
-  artistes --- |"1..*"| oeuvres
+  artistes --- |"1 à N"| oeuvres
 ```
 
 ---
@@ -423,7 +422,7 @@ layout: two-cols
 
 ::left::
 
-### Besoins
+### Le besoin
 
 > « Je veux savoir quels livres sont empruntés, par quel·le lecteur·rice, et qui les a écrits. »
 
@@ -517,13 +516,13 @@ layout: two-cols
 | # | Cours | Compétences |
 |---|---|---|
 | 01 | Introduction | Distinguer données, information et connaissance |
-| 02 | Modélisation | Concevoir un modèle E-R à partir d'un besoin métier |
-| 03 | Clés et relations | Définir des clés primaires, étrangères et des relations |
-| 04 | Normalisation | Détecter la redondance et appliquer les formes normales |
-| 05 | Stockage | Créer et structurer une base SQLite |
-| 06 | Interroger | Lire, filtrer et modifier des données |
-| 07 | Connecter | Relier des tables avec des jointures |
-| 08 | Analyser | Agréger des données et créer des vues |
+| 02 | Modèle conceptuel | Concevoir un modèle E-R à partir d'un besoin métier |
+| 03 | Modèle logique | Traduire en tables, poser les clés, normaliser |
+| 04 | Modèle physique | Créer et structurer une base SQLite |
+| 05 | Interroger | Lire, filtrer et modifier des données |
+| 06 | Connecter | Relier des tables avec des jointures |
+| 07 | Analyser | Agréger des données et créer des vues |
+| 08 | Optimiser | Indexer et lire un plan d'exécution |
 | 09 | Semi-structuré | Lire et produire du JSON |
 
 ---
@@ -563,7 +562,7 @@ Format papier, à mi-semestre. Même forme que l'examen final.
 
 | Élément | Détail |
 |---|---|
-| Programme | Modélisation et création des tables : cours 01 à 05 |
+| Programme | Modélisation et création des tables : cours 01 à 04 |
 | Format | Questions ouvertes et QCM |
 | Support | Papier, sans machine |
 | Poids | 50% de la note finale |
@@ -625,6 +624,7 @@ layout: section
 
 ---
 layout: two-cols
+class: compact
 ---
 
 ::title::
@@ -652,15 +652,17 @@ Cours et TP portent sur ce même musée, enrichi séance après séance.
 
 | # | Ce qu'on y ajoute |
 |---|---|
-| 02-04 | Modéliser : entités, relations, normalisation |
-| 05 | Créer la base et ses tables |
-| 06 | Interroger le catalogue des œuvres |
-| 07 | Relier œuvre, artiste et salle |
-| 08 | Chiffre d'affaires · fréquentation par salle |
+| 02-03 | Modéliser : entités, relations, normalisation |
+| 04 | Créer la base et ses tables |
+| 05 | Interroger le catalogue des œuvres |
+| 06 | Relier œuvre, artiste et salle |
+| 07 | Chiffre d'affaires · fréquentation par salle |
+| 08 | Accélérer les requêtes fréquentes |
 | 09 | Catalogue JSON pour l'app mobile |
 
 ---
 layout: two-cols
+class: compact
 ---
 
 ::title::

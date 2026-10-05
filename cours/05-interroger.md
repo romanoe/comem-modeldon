@@ -1,7 +1,7 @@
 ---
 theme: pixel
 number: "05"
-title: "Modèle Physique de Données (MPD)"
+title: "Interroger les données"
 subtitle: "Modélisation de Données"
 author: "Noemi Romano"
 email: "noemi.romano@heig-vd.ch"
@@ -37,14 +37,14 @@ hide: true
 
 # Cours précédent
 
-- Dépendances fonctionnelles
-- Première, deuxième et troisième formes normales
-- Déterminant et clé candidate
-- Dénormalisation raisonnée
+- Du schéma au `CREATE TABLE`
+- Choix des types SQLite
+- Intégrité référentielle
+- Modes de suppression
 
 <Card title="Aujourd'hui" color="#e92528">
-<template #icon><pixelarticons-database /></template>
-Traduire le diagramme en <code>CREATE TABLE</code> : types SQLite, intégrité référentielle, modes de suppression.
+<template #icon><pixelarticons-search /></template>
+Lire, filtrer et trier les données. Insérer, modifier, supprimer des lignes.
 </Card>
 
 ---
@@ -52,35 +52,21 @@ layout: section
 hide: true
 ---
 
-# Pourquoi une base de données ?
+# Lire les données
 
 ---
 layout: section
 hide: true
 ---
 
-# Du schéma au CREATE TABLE
+# Filtrer et trier
 
 ---
 layout: section
 hide: true
 ---
 
-# Choisir les bons types
-
----
-layout: section
-hide: true
----
-
-# Intégrité référentielle
-
----
-layout: section
-hide: true
----
-
-# Modes de suppression
+# Modifier les données
 
 ---
 layout: section
@@ -101,10 +87,10 @@ hide: true
 
 ### TP · Semaine 5
 
-1. Traduire le modèle logique du musée en `CREATE TABLE`
-2. Choisir les types SQLite de chaque colonne
-3. Poser les contraintes et les clés étrangères
-4. Insérer quelques lignes de test dans chaque table
+1. Écrire les requêtes qui répondent aux questions du musée
+2. Filtrer et trier les résultats
+3. Insérer, modifier et supprimer quelques lignes
+4. Garder chaque requête dans un fichier `.sql` commenté
 
 ::right::
 
