@@ -770,5 +770,6 @@ layout: two-cols
   class="w-2/3 mx-auto"
   src="/images/03/02-mcd-musee.svg"
   alt="Le MCD du musée, corrigé du TP de la semaine 2"
-  caption="Corrigé · MCD du musée, semaine 2"
+  href="https://drive.google.com/file/d/16kFrXVQ47jkS6C3mpQ9_FIE25oYGJ2dF/view?usp=sharing"
+  caption="<a href='https://drive.google.com/file/d/16kFrXVQ47jkS6C3mpQ9_FIE25oYGJ2dF/view?usp=sharing' target='_blank' rel='noopener'>Corrigé · MCD du musée, semaine 2</a>"
 />
