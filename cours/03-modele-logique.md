@@ -750,32 +750,11 @@ layout: two-cols
 ---
 
 ::title::
-# Nouveaux besoins du musée
+# TP · Semaine 3
 
 ::left::
 
-### Besoins
-
-> « Nous voulons gérer notre personnel : guides, gardiens et restaurateurs, chacun affecté à une salle. Nous voulons aussi inventorier le mobilier de chaque salle et noter son état. »
-
-::right::
-
-### Corrigé
-
-<Figure
-  class="w-2/3 mx-auto"
-  src="/images/03/02-mcd-musee.svg"
-  alt="Le MCD du musée, corrigé du TP de la semaine 2"
-  caption="MCD du musée · semaine 2"
-/>
-
----
-layout: default
----
-
-# TP · Semaine 3
-
-1. Nouveaux besoins 
+1. Nouveaux besoins
 
 2. Mettre à jour MCD, puis création MLD
 
@@ -785,5 +764,11 @@ layout: default
 
 5. Exporter l'image et garder le fichier `.drawio`
 
+::right::
 
-
+<Figure
+  class="w-2/3 mx-auto"
+  src="/images/03/02-mcd-musee.svg"
+  alt="Le MCD du musée, corrigé du TP de la semaine 2"
+  caption="Corrigé · MCD du musée, semaine 2"
+/>
