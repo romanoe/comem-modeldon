@@ -21,7 +21,7 @@
   "dependencies": {
     "@iconify-json/pixelarticons": "^1.2.6",
     "@slidev/cli": "^53.0.0",
-    "slidev-theme-pixel": "^2.0.1"
+    "slidev-theme-pixel": "^2.0.2"
   },
   "slidev": {
     "colorSchema": "both",
