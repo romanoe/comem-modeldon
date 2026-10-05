@@ -540,7 +540,7 @@ class: compact split
 ::title::
 # Troisième forme normale (3NF)
 
-Chaque colonne dépend **seulement** de la clé
+Chaque colonne dépend **seulement** de la clé, d'aucune autre colonne
 
 ::left::
 
@@ -614,23 +614,41 @@ class: compact
 
 `etudiants`
 
-| id | nom | npa |
+| id | nom | localite_id |
 |---|---|---|
-| 1 | Martin | 1400 |
-| 2 | Rossi | 1003 |
-| 3 | Weber | 1400 |
+| 1 | Martin | 1 |
+| 2 | Rossi | 2 |
+| 3 | Weber | 1 |
 
 `localites`
 
-| npa | ville |
-|---|---|
-| 1400 | Yverdon |
-| 1003 | Lausanne |
+| id | npa | ville |
+|---|---|---|
+| 1 | 1400 | Yverdon |
+| 2 | 1003 | Lausanne |
 
-- `ville` rejoint `localites`
-- Écrite une seule fois par NPA
+- `localite_id` : clé étrangère vers `localites`
+- `npa` et `ville` écrits une seule fois
 
 </v-click>
+
+---
+layout: default
+---
+
+# 2NF et 3NF
+
+| | 2NF | 3NF |
+|---|---|---|
+| La colonne dépend de | une **partie** de la clé | une colonne **hors** clé |
+| Concerne | les clés composées seulement | toutes les tables |
+| Exemple | `titre` dépend de `id`, pas de `genre` | `etage` dépend de `rayon_id` |
+| Correction | une table pour cette partie | une table pour cette colonne |
+
+<Card title="Diagnostic" color="#e92528">
+<template #icon><pixelarticons-search /></template>
+Pour chaque colonne : de quoi dépend-elle vraiment ?
+</Card>
 
 ---
 layout: two-cols
@@ -689,8 +707,8 @@ layout: default
 | Forme | Exigence | Erreur détectée |
 |---|---|---|
 | 1NF | Une seule valeur par case | Une liste : relation N:M oubliée |
-| 2NF | Chaque colonne dépend de **toute** la clé | Une colonne posée sur la mauvaise table |
-| 3NF | Chaque colonne dépend **seulement** de la clé | Une colonne qui décrit une autre colonne |
+| 2NF | Chaque colonne dépend de **toute** la clé | Une colonne liée à une partie de la clé |
+| 3NF | Chaque colonne dépend **seulement** de la clé | Une colonne liée à une colonne hors clé |
 
 <Card title="Formule" color="#e92528">
 <template #icon><pixelarticons-bookmark /></template>
