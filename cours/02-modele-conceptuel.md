@@ -702,6 +702,7 @@ layout: section
 
 ---
 layout: two-cols
+routeAlias: corrige-semaine-1
 ---
 
 ::title::
@@ -726,6 +727,7 @@ layout: two-cols
 
 ---
 layout: two-cols
+routeAlias: tp
 ---
 
 ::title::

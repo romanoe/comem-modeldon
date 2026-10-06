@@ -11,22 +11,29 @@
     {
       "src": "cours/01-introduction.md",
       "out": "01-introduction",
-      "title": "Introduction"
+      "title": "Introduction",
+      "tp": "01-introduction/tp",
+      "corrige": "02-modele-conceptuel/corrige-semaine-1"
     },
     {
       "src": "cours/02-modele-conceptuel.md",
       "out": "02-modele-conceptuel",
-      "title": "Modèle Conceptuel de Données (MCD)"
+      "title": "Modèle Conceptuel de Données (MCD)",
+      "tp": "02-modele-conceptuel/tp",
+      "corrige": "images/03/02-mcd-musee.svg"
     },
     {
       "src": "cours/03-modele-logique.md",
       "out": "03-modele-logique",
-      "title": "Modèle Logique de Données (MLD)"
+      "title": "Modèle Logique de Données (MLD)",
+      "tp": "03-modele-logique/tp",
+      "corrige": "images/04/03-mld-musee.svg"
     },
     {
       "src": "cours/04-modele-physique.md",
       "out": "04-modele-physique",
-      "title": "Modèle Physique de Données (MPD)"
+      "title": "Modèle Physique de Données (MPD)",
+      "tp": "04-modele-physique/tp"
     },
     {
       "src": "cours/05-interroger.md",

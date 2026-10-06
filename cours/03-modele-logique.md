@@ -765,6 +765,7 @@ layout: section
 
 ---
 layout: two-cols
+routeAlias: tp
 ---
 
 ::title::

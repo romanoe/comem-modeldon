@@ -50,7 +50,9 @@ const slidev = resolve(root, 'node_modules/.bin/slidev')
 mkdirSync(resolve(root, 'dist'), { recursive: true })
 const imagesSource = resolve(root, 'cours/public/images')
 const imagesDist = resolve(root, 'dist/images')
-if (existsSync(imagesSource) && !existsSync(imagesDist)) {
+if (existsSync(imagesSource)) {
+  // Toujours rafraîchir : l'index pointe vers les corrigés dans dist/images
+  rmSync(imagesDist, { recursive: true, force: true })
   cpSync(imagesSource, imagesDist, { recursive: true })
 }
 

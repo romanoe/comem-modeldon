@@ -669,6 +669,7 @@ Cours et TP portent sur ce même musée, enrichi séance après séance.
 
 ---
 layout: two-cols
+routeAlias: tp
 class: compact
 ---
 
