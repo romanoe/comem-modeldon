@@ -58,7 +58,7 @@ content: center
 <pixelarticons-arrow-right class="text-3xl self-center" />
 <Card title="Physique" footer="cours 04 · Modèle physique">
 <template #icon><pixelarticons-database /></template>
-<strong>MPD</strong> · l'implémentation dans un SGBD précis : types SQLite, contraintes, index.
+<strong>MPD</strong> · l'implémentation dans un SGBD précis : types SQLite, contraintes, clés étrangères.
 </Card>
 
 ---

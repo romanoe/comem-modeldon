@@ -37,10 +37,11 @@ hide: true
 
 # Cours précédent
 
-- Du schéma au `CREATE TABLE`
-- Choix des types SQLite
-- Intégrité référentielle
-- Modes de suppression
+- Types SQLite : `INTEGER`, `REAL`, `TEXT`
+- `CREATE TABLE` et contraintes de colonne
+- Clé étrangère : `REFERENCES`, `PRAGMA foreign_keys`
+- Modes de suppression : `RESTRICT`, `CASCADE`, `SET NULL`
+- Clé primaire composite de la table de liaison
 
 <Card title="Aujourd'hui" color="#e92528">
 <template #icon><pixelarticons-search /></template>
