@@ -25,20 +25,24 @@ Ce document est mis à jour au fur et à mesure du semestre avec les information
 | Outil | Usage |
 |---|---|
 | [draw.io](https://app.diagrams.net/) | Dessiner le diagramme E-R dans le navigateur, l'exporter en image et en fichier `.drawio` |
+| [Environnement de TP](https://github.com/romanoe/comem-modeldon-tp) | VS Code, SQLite et SQLite Viewer prêts, dans Codespaces ou en local avec Docker |
 | VS Code | Éditeur du cours : écrire et exécuter le SQL |
 | SQLite CLI | Exécuter des requêtes dans le terminal |
 | SQLite Viewer (extension VS Code) | Visualiser les fichiers `.db` directement dans l'éditeur |
 
 ### Démarrage rapide
 
-Ce dépôt contient les slides. Les étudiant·e·s ne le clonent pas : elles et ils installent leur environnement une fois pour toutes.
+Ce dépôt contient les slides. Les étudiant·e·s ne le clonent pas : leur environnement de travail est le dépôt [comem-modeldon-tp](https://github.com/romanoe/comem-modeldon-tp), qui ne contient que VS Code et SQLite.
 
 1. Ouvrir [draw.io](https://app.diagrams.net/) dans le navigateur, aucun compte à créer
-2. Installer [SQLite](https://www.sqlite.org/download.html) et vérifier l'installation
+2. Ouvrir l'environnement de TP : [dans Codespaces](https://codespaces.new/romanoe/comem-modeldon-tp), ou en local avec Docker et l'extension VS Code Dev Containers (**Reopen in Container**)
+3. Vérifier SQLite dans le terminal
 
 ```bash
 sqlite3 --version
 ```
+
+Les fichiers d'exercice se téléchargent depuis les liens des slides, puis se glissent dans l'explorateur de VS Code. Git n'est pas nécessaire.
 
 ---
 

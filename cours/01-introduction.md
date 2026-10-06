@@ -243,7 +243,8 @@ CREATE TABLE oeuvres (
 
 ---
 layout: grid
-cols: 2
+cols: 3
+align: stretch
 content: center
 ---
 
@@ -259,6 +260,12 @@ Tous les cours du semestre, mis à jour au fil des séances.
 <template #icon><logos-github-icon /></template>
 <a href="https://github.com/romanoe/comem-modeldon">github.com/romanoe/comem-modeldon</a><br>
 Sources des slides, corrections et historique des versions.
+</Card>
+
+<Card title="Environnement de TP">
+<template #icon><pixelarticons-terminal /></template>
+<a href="https://github.com/romanoe/comem-modeldon-tp">github.com/romanoe/comem-modeldon-tp</a><br>
+VS Code et SQLite prêts, dans Codespaces ou Docker.
 </Card>
 
 ---
@@ -597,7 +604,7 @@ Chaque séance produit de quoi réviser :
 
 <Card color="#6b7280" tag="note" title="Rien à rendre">
 <template #icon><pixelarticons-folder /></template>
-Ces fichiers restent sur votre machine. Ils sont votre matériel de révision pour les examens.
+Ces fichiers se téléchargent et se gardent. Ils sont votre matériel de révision pour les examens.
 </Card>
 
 ---
