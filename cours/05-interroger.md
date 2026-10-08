@@ -39,8 +39,8 @@ hide: true
 
 - Types SQLite : `INTEGER`, `REAL`, `TEXT`
 - `CREATE TABLE` et contraintes de colonne
-- Clé étrangère : `REFERENCES`, `PRAGMA foreign_keys`
-- Modes de suppression : `RESTRICT`, `CASCADE`, `SET NULL`
+- Clé étrangère et modes de suppression
+- `DROP TABLE` et `ALTER TABLE` : modifier la structure
 - Clé primaire composite de la table de liaison
 
 <Card title="Aujourd'hui" color="#e92528">

@@ -33,7 +33,7 @@ layout: default
 
 <Card title="Aujourd'hui" color="#e92528">
 <template #icon><pixelarticons-database /></template>
-Traduire le modèle logique en <code>CREATE TABLE</code> : types SQLite, contraintes, clés étrangères, modes de suppression.
+Traduire le modèle logique en <code>CREATE TABLE</code> : types SQLite, contraintes, clés étrangères, modes de suppression. Puis modifier la structure : <code>DROP TABLE</code>, <code>ALTER TABLE</code>.
 </Card>
 
 ---
@@ -591,7 +591,7 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE auteurs (...);
 CREATE TABLE rayons (...);
 CREATE TABLE lecteurs (...);
-CREATE TABLE genre (...);
+CREATE TABLE genres (...);
 
 CREATE TABLE livres (...);
 
@@ -626,6 +626,171 @@ sqlite> .quit
 ```
 
 ---
+layout: two-cols
+---
+
+::title::
+# Base de la bibliothèque
+
+::left::
+
+- <a href="/exercices/bibliotheque.sql" download>bibliotheque.sql</a> : structure, relançable
+- <a href="/exercices/bibliotheque-donnees.sql" download>bibliotheque-donnees.sql</a> : livres, lecteur·rice·s, emprunts
+- Fichiers glissés dans l'explorateur de VS Code
+- La structure d'abord, les données ensuite
+- Donnée refusée : contrainte à revoir
+
+::right::
+
+```bash
+sqlite3 bibliotheque.db
+
+sqlite> .read bibliotheque.sql
+sqlite> .read bibliotheque-donnees.sql
+sqlite> .tables
+sqlite> .quit
+```
+
+---
+layout: section
+---
+
+# Modifier la structure
+
+---
+layout: two-cols
+---
+
+::title::
+# DROP TABLE
+
+::left::
+
+- Supprime la table et toutes ses lignes
+- `IF EXISTS` : aucune erreur si la table manque
+- Irréversible : aucune corbeille
+- Tables qui la référencent : supprimées avant elle
+
+::right::
+
+```sql
+DROP TABLE nom_table;
+
+DROP TABLE IF EXISTS nom_table;
+```
+
+---
+layout: two-cols
+---
+
+::title::
+# Exemple : script relançable
+
+::left::
+
+### Besoins
+
+> « Le script `bibliotheque.sql` doit pouvoir se relancer après chaque correction, sans erreur. »
+
+### La question
+
+Que placer en tête du script ?
+
+::right::
+
+<v-click>
+
+```sql
+PRAGMA foreign_keys = ON;
+
+DROP TABLE IF EXISTS livres_genres;
+DROP TABLE IF EXISTS emprunts;
+DROP TABLE IF EXISTS livres;
+DROP TABLE IF EXISTS genres;
+DROP TABLE IF EXISTS lecteurs;
+DROP TABLE IF EXISTS rayons;
+DROP TABLE IF EXISTS auteurs;
+
+CREATE TABLE auteurs (...);
+```
+
+</v-click>
+
+<v-click>
+
+- Ordre inverse de la création
+- Tables de liaison supprimées en premier
+- Les données de test disparaissent aussi
+
+</v-click>
+
+---
+layout: two-cols
+---
+
+::title::
+# ALTER TABLE
+
+::left::
+
+- `RENAME TO` : renommer la table
+- `RENAME COLUMN` : renommer une colonne
+- `ADD COLUMN` : ajouter une colonne en fin de table
+- `DROP COLUMN` : supprimer une colonne
+- Type et contraintes : non modifiables dans SQLite
+
+::right::
+
+```sql
+ALTER TABLE nom_table RENAME TO nouveau_nom;
+
+ALTER TABLE nom_table
+  RENAME COLUMN ancien_nom TO nouveau_nom;
+
+ALTER TABLE nom_table ADD COLUMN colonne TYPE;
+
+ALTER TABLE nom_table DROP COLUMN colonne;
+```
+
+---
+layout: two-cols
+---
+
+::title::
+# Exemple : *lecteurs*
+
+::left::
+
+### Besoins
+
+> « Le téléphone ne nous sert plus. En revanche, on veut noter la date d'inscription de chaque lecteur·rice. »
+
+### La question
+
+Quelles instructions, sans recréer la table ?
+
+::right::
+
+<v-click>
+
+```sql
+ALTER TABLE lecteurs DROP COLUMN telephone;
+
+ALTER TABLE lecteurs
+  ADD COLUMN date_inscription TEXT;
+```
+
+</v-click>
+
+<v-click>
+
+- Une instruction par changement
+- Lignes existantes : `date_inscription` vide
+- Le `CREATE TABLE` du script se corrige aussi
+
+</v-click>
+
+---
 layout: default
 ---
 
@@ -658,7 +823,7 @@ routeAlias: tp
 
 1. Partir du MLD du musée de la semaine 3
 
-2. Écrire `musee.sql` : un `CREATE TABLE` par table
+2. Écrire `musee.sql` : les `DROP TABLE`, puis un `CREATE TABLE` par table
 
 3. Typer chaque colonne, poser les contraintes
 

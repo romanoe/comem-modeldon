@@ -49,11 +49,14 @@ const slidev = resolve(root, 'node_modules/.bin/slidev')
 // Ensure dist and shared images exist
 mkdirSync(resolve(root, 'dist'), { recursive: true })
 const imagesSource = resolve(root, 'cours/public/images')
-const imagesDist = resolve(root, 'dist/images')
-if (existsSync(imagesSource)) {
-  // Toujours rafraîchir : l'index pointe vers les corrigés dans dist/images
-  rmSync(imagesDist, { recursive: true, force: true })
-  cpSync(imagesSource, imagesDist, { recursive: true })
+// Toujours rafraîchir : l'index pointe vers les corrigés dans dist/images,
+// les slides vers les fichiers d'exercice dans dist/exercices
+for (const dir of ['images', 'exercices']) {
+  const source = resolve(root, 'cours/public', dir)
+  if (!existsSync(source)) continue
+  const dist = resolve(root, 'dist', dir)
+  rmSync(dist, { recursive: true, force: true })
+  cpSync(source, dist, { recursive: true })
 }
 
 let built = 0
