@@ -25,10 +25,10 @@ Ce document est mis à jour au fur et à mesure du semestre avec les information
 | Outil | Usage |
 |---|---|
 | [draw.io](https://app.diagrams.net/) | Dessiner le diagramme E-R dans le navigateur, l'exporter en image et en fichier `.drawio` |
-| [Environnement de TP](https://github.com/romanoe/comem-modeldon-tp) | VS Code, SQLite et SQLite Viewer prêts, dans Codespaces ou en local avec Docker |
+| [Environnement de TP](https://github.com/romanoe/comem-modeldon-tp) | VS Code, SQLite et Database Client prêts, dans Codespaces ou en local avec Docker |
 | VS Code | Éditeur du cours : écrire et exécuter le SQL |
 | SQLite CLI | Exécuter des requêtes dans le terminal |
-| SQLite Viewer (extension VS Code) | Visualiser les fichiers `.db` directement dans l'éditeur |
+| Database Client (extension VS Code) | Explorer les tables d'un fichier `.db` dans l'éditeur |
 
 ### Démarrage rapide
 

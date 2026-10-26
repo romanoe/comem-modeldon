@@ -604,6 +604,27 @@ layout: two-cols
 ---
 
 ::title::
+# Environnement de TP
+
+::left::
+
+- <a href="https://github.com/romanoe/comem-modeldon-tp">github.com/romanoe/comem-modeldon-tp</a>
+- Bouton **Code** : codespace, ZIP ou clone
+- En local : **Reopen in Container**
+- `sqlite3` et Database Client déjà installés
+- Database Client : **+**, **SQLite**, puis le fichier `.db`
+
+::right::
+
+```bash
+sqlite3 --version
+```
+
+---
+layout: two-cols
+---
+
+::title::
 # Terminal SQLite
 
 ::left::
