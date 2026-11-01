@@ -6,7 +6,7 @@ services:
     staticPublishPath: ./dist
     envVars:
       - key: NODE_VERSION
-        value: 20
+        value: 24
       - key: NODE_OPTIONS
         value: --max-old-space-size=2048
     routes:
