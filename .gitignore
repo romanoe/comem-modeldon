@@ -2,3 +2,10 @@ node_modules
 dist
 .build-cache.json
 cours/node_modules
+
+# Corrigé de l'examen type, pas encore publié
+revisions/examen-type-corrige.md
+revisions/examen-type-corrige.pdf
+revisions/corrige-forets.sql
+revisions/images/mcd-forets.svg
+revisions/images/mld-forets.svg

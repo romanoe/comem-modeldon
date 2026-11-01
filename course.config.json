@@ -7,6 +7,13 @@
   "email": "noemi.romano@heig-vd.ch",
   "github": "https://github.com/romanoe/comem-modeldon",
   "license": "CC BY 4.0",
+  "revisions": [
+    {
+      "title": "Examen type · Intermédiaire",
+      "pdf": "revisions/examen-type.pdf",
+      "md": "revisions/examen-type.md"
+    }
+  ],
   "decks": [
     {
       "src": "cours/01-introduction.md",

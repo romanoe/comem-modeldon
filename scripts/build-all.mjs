@@ -59,6 +59,15 @@ for (const dir of ['images', 'exercices']) {
   cpSync(source, dist, { recursive: true })
 }
 
+// Révisions : seulement les PDF listés dans la config. Le dossier revisions/
+// contient aussi le corrigé, qui ne doit pas partir en ligne avec un build local.
+for (const { pdf } of config.revisions ?? []) {
+  const dist = resolve(root, 'dist', pdf)
+  rmSync(dist, { force: true })
+  mkdirSync(dirname(dist), { recursive: true })
+  cpSync(resolve(root, pdf), dist)
+}
+
 let built = 0
 let skipped = 0
 

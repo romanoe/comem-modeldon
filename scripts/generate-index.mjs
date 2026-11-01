@@ -1,6 +1,8 @@
 /**
  * Génère cours/public/index.html depuis course.config.json.
  * Colonnes TP et Corrigé : champs optionnels `tp` et `corrige` de chaque deck.
+ * Colonne PDF : le PDF exporté par Slidev au build (`download: true` dans le deck).
+ * Section Révisions : champ `revisions` (PDF servi par le site, Markdown sur GitHub).
  * Met aussi à jour le badge de licence dans README.md.
  * Relancer après chaque modification de course.config.json.
  * Usage : node scripts/generate-index.mjs
@@ -13,7 +15,7 @@ import { fileURLToPath } from 'node:url'
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const config = JSON.parse(readFileSync(resolve(root, 'course.config.json'), 'utf-8'))
 
-const { name, slug, subtitle, year, author, email, github, license = 'CC BY 4.0', decks } = config
+const { name, slug, subtitle, year, author, email, github, license = 'CC BY 4.0', decks, revisions = [] } = config
 
 function licenseBadge(license) {
   const badges = {
@@ -46,18 +48,42 @@ const badge = licenseBadge(license)
 // --- index.html ---
 
 // Lien optionnel (TP, corrigé) : absent -> tiret atténué
-function extra(href, label) {
+function extra(href, label, attrs = '') {
   return href
-    ? `<a class="extra" href="${href}">${label}</a>`
+    ? `<a class="extra" href="${href}"${attrs}>${label}</a>`
     : `<span class="extra none">·</span>`
 }
 
+// Slidev exporte <out>/slidev-exported.pdf au build si le deck déclare `download: true`
+function pdf(src, out) {
+  const source = readFileSync(resolve(root, src), 'utf-8')
+  return /^download:\s*true\s*$/m.test(source)
+    ? extra(`${out}/slidev-exported.pdf`, 'PDF', ` download="${out}.pdf"`)
+    : extra(null)
+}
+
 const items = decks
-  .map(({ out, title, tp, corrige }, i) => {
+  .map(({ src, out, title, tp, corrige }, i) => {
     const num = String(i + 1).padStart(2, '0')
-    return `    <li><a class="course" href="${out}/"><span class="num">${num}</span><span class="title">${title}</span></a>${extra(tp, 'TP')}${extra(corrige, 'Corrigé')}</li>`
+    return `    <li><a class="course" href="${out}/"><span class="num">${num}</span><span class="title">${title}</span></a>${pdf(src, out)}${extra(tp, 'TP')}${extra(corrige, 'Corrigé')}</li>`
   })
   .join('\n')
+
+const revisionItems = revisions
+  .map(({ title, pdf, md }) => {
+    const file = pdf.split('/').pop()
+    return `    <li><a class="course" href="${pdf}"><span class="num"></span><span class="title">${title}</span></a>${extra(pdf, 'PDF', ` download="${file}"`)}${extra(`${github}/blob/main/${md}`, 'MD')}<span></span></li>`
+  })
+  .join('\n')
+
+const revisionSection = revisions.length
+  ? `
+  <div class="head"><span>Révisions</span><span>PDF</span><span>Source</span><span></span></div>
+  <ul class="courses">
+${revisionItems}
+  </ul>
+`
+  : ''
 
 const html = `<!DOCTYPE html>
 <html lang="fr">
@@ -72,7 +98,7 @@ const html = `<!DOCTYPE html>
     h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em;  font-family: 'Atkinson Hyperlegible Mono'}
     .subtitle { font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 0.9rem; color: #9e9e9e; margin-top: 0.5rem; }
     .courses { margin-top: 3rem; list-style: none; }
-    .courses li, .head { display: grid; grid-template-columns: 1fr 4.5rem 5.5rem; align-items: center; border-bottom: 1px solid #e0e0e0; }
+    .courses li, .head { display: grid; grid-template-columns: 1fr 4.5rem 4.5rem 5.5rem; align-items: center; border-bottom: 1px solid #e0e0e0; }
     .head { margin-top: 3rem; padding-bottom: 0.5rem; border-bottom-color: #000; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 0.75rem; color: #9e9e9e; text-transform: uppercase; }
     .head + .courses { margin-top: 0; }
     .courses li a { text-decoration: none; color: #000; transition: opacity 0.2s; }
@@ -83,7 +109,7 @@ const html = `<!DOCTYPE html>
     .extra.none { color: #c0c0c0; }
     @media (max-width: 480px) {
       body { padding: 3rem 1rem; }
-      .courses li, .head { grid-template-columns: 1fr 2.5rem 4.5rem; }
+      .courses li, .head { grid-template-columns: 1fr 2.5rem 2.5rem 4.5rem; }
       .title { margin-left: 0.5rem; }
     }
     .num { font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 0.8rem; color: #9e9e9e; min-width: 2rem; }
@@ -96,11 +122,11 @@ const html = `<!DOCTYPE html>
   <h1>${name}</h1>
   <p class="subtitle">${subtitle} · ${year}</p>
 
-  <div class="head"><span>Cours</span><span>TP</span><span>Corrigé</span></div>
+  <div class="head"><span>Cours</span><span>PDF</span><span>TP</span><span>Corrigé</span></div>
   <ol class="courses">
 ${items}
   </ol>
-
+${revisionSection}
   <footer>
     <a href="mailto:${email}">${author}</a>
     <a href="${github}">GitHub</a>

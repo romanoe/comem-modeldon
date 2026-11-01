@@ -73,6 +73,10 @@ Les trois niveaux de modèle structurent le semestre : **conceptuel** au cours 0
 
 L'examen intermédiaire porte sur la modélisation et la création des tables, cours 01 à 04. L'examen final porte sur l'ensemble du semestre.
 
+### Révisions
+
+Un [examen type](https://comem-modeldon.onrender.com/revisions/examen-type.pdf) prépare l'examen intermédiaire. Il se télécharge aussi depuis la page d'accueil du cours.
+
 ### Travaux pratiques
 
 Les TP ne sont pas notés. Ils servent d'entraînement aux deux examens : rien n'est rendu, rien n'est corrigé formellement. Les questions soulevées en séance sont reprises au début de la séance suivante.
