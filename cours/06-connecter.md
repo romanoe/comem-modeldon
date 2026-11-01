@@ -37,9 +37,10 @@ hide: true
 
 # Cours précédent
 
-- `SELECT` et projection des colonnes
-- Filtrer avec `WHERE`, trier avec `ORDER BY`
-- `INSERT`, `UPDATE`, `DELETE`
+- `SELECT` et `FROM` : colonnes et table lues
+- `WHERE`, `BETWEEN`, `IN`, `LIKE`, `IS NULL`
+- `ORDER BY` et `LIMIT`
+- `INSERT`, `UPDATE`, `DELETE`, avec `WHERE`
 - Une seule table à la fois
 
 <Card title="Aujourd'hui" color="#e92528">

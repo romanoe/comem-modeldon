@@ -33,12 +33,14 @@
       "src": "cours/04-modele-physique.md",
       "out": "04-modele-physique",
       "title": "Modèle Physique de Données (MPD)",
-      "tp": "04-modele-physique/tp"
+      "tp": "04-modele-physique/tp",
+      "corrige": "exercices/musee.sql"
     },
     {
       "src": "cours/05-interroger.md",
       "out": "05-interroger",
-      "title": "Interroger les données"
+      "title": "Interroger les données",
+      "tp": "05-interroger/tp"
     },
     {
       "src": "cours/06-connecter.md",
