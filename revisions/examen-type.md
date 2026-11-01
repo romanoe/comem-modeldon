@@ -33,17 +33,33 @@ lang: fr
 
 ### Besoins
 
-> « Alors, nous, on s'occupe des forêts du canton. Chaque forêt a son nom, et on ne veut pas deux fois le même. Il nous faut aussi sa surface en hectares : ça, on doit toujours l'avoir.
->
-> Certaines de ces forêts sont dans une zone protégée, d'autres pas du tout. Une zone, c'est un nom et une date de classement. Et une zone vide, ça n'existe pas : il y a toujours au moins une forêt dedans.
->
-> Dans les forêts, on suit aussi les arbres remarquables. Entre nous, on dit « l'arbre 12 de la forêt des Combes » : chaque forêt a sa propre numérotation, qui repart à 1. On note la hauteur, et l'année de plantation quand on la connaît, ce qui n'est pas toujours le cas. Un arbre, c'est un chêne, un hêtre, un épicéa... Cette liste d'essences, on aimerait la tenir à part, pour ne pas la réécrire à chaque fois.
->
-> Côté équipe, pour nos agent·e·s, il nous faut le nom, le prénom et l'e-mail, forcément différent pour chaque personne. Le téléphone, certain·e·s en ont un, d'autres non.
->
-> Et puis il y a les interventions. Chacune est menée par une seule personne, et quelqu'un qui vient d'arriver n'en a encore fait aucune. On note la date, et si c'est terminé ou pas. Une intervention touche au moins une forêt, souvent plusieurs, et il y a des forêts où on n'est jamais intervenu. Pour chaque forêt touchée, on veut savoir combien d'heures on y a passé.
->
-> Ah, et j'oubliais : on aimerait pouvoir afficher combien d'arbres on a recensés dans chaque forêt. »
+Le service forestier du canton souhaite mettre en place une base de données pour gérer ses forêts, ses arbres remarquables et les interventions de ses agent·e·s.
+
+**Forêts et zones protégées :**
+
+- Chaque forêt a un nom, unique, et une surface en hectares, toujours renseignée
+- Une forêt appartient à une seule zone protégée, mais il est aussi possible qu'elle n'appartienne à aucune zone
+- Une zone protégée a un nom et une date de classement, et regroupe au moins une forêt
+
+**Arbres remarquables :**
+
+- Une forêt peut compter plusieurs arbres remarquables, et chaque arbre se trouve dans une seule forêt
+- Les arbres sont numérotés par forêt, et le numéro repart à 1 dans chaque forêt (par exemple « l'arbre 12 de la forêt des Combes »)
+- On enregistre la hauteur de chaque arbre et, si elle est connue, son année de plantation
+- Chaque arbre appartient à une seule essence (chêne, hêtre, épicéa, etc.), et la liste des essences est tenue à part
+
+**Agent·e·s et interventions :**
+
+- Chaque agent·e a un nom, un prénom, une adresse e-mail unique et, éventuellement, un téléphone
+- Un·e agent·e peut mener plusieurs interventions, mais il est aussi possible qu'un·e agent·e n'en ait encore mené aucune
+- Chaque intervention est menée par un·e seul·e agent·e
+- Pour chaque intervention, on enregistre sa date et si elle est terminée
+- Une intervention concerne au moins une forêt, souvent plusieurs, et une forêt peut n'avoir connu aucune intervention
+- Pour chaque forêt concernée par une intervention, on enregistre le nombre d'heures passées
+
+**Affichage :**
+
+- Le service souhaite afficher le nombre d'arbres recensés dans chaque forêt
 
 ### Question 1.1 · 12 points
 
@@ -140,9 +156,13 @@ Clé primaire : le couple `outil_id`, `intervention_id`
 
 ### Besoins
 
-> « Encore quelques précisions. La surface d'une forêt, ça ne peut être ni zéro ni négatif. Si on supprime une zone, les forêts restent chez nous, simplement sans zone. Quand on crée une intervention, elle compte comme non terminée, sauf si on dit le contraire.
->
-> On ne doit pas pouvoir supprimer un·e agent·e qui a encore des interventions. Pareil pour une forêt : dès qu'une intervention l'a concernée, on ne peut plus la supprimer. Les heures, on ne les note pas toujours, mais quand on les note, c'est forcément plus que zéro. Et si on supprime une intervention, le détail de ses forêts part avec elle. »
+- La surface d'une forêt est strictement positive
+- La suppression d'une zone conserve ses forêts, qui restent en base sans zone
+- Une intervention est non terminée par défaut
+- Un·e agent·e qui a encore des interventions ne peut pas être supprimé·e
+- Une forêt concernée par une intervention ne peut pas être supprimée
+- Les heures sont facultatives et, lorsqu'elles sont renseignées, strictement positives
+- La suppression d'une intervention supprime aussi le détail de ses forêts
 
 ### Question 3.1 · 20 points {.nouvelle-page}
 
