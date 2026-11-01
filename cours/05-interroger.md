@@ -61,6 +61,26 @@ content: center
 </Card>
 
 ---
+layout: default
+---
+
+# Examen intermédiaire
+
+| Élément | Détail |
+|---|---|
+| Date | 10 novembre, 13h-15h |
+| Programme | Cours 01 à 04 |
+| Format | Questions ouvertes et QCM |
+| Support | Papier, sans machine |
+| Documents | Une feuille A4 recto-verso manuscrite |
+| Poids | 50% de la note finale |
+
+<Card title="Examen type" color="#e92528">
+<template #icon><pixelarticons-edit-box /></template>
+Pour s'entraîner : <a href="/revisions/examen-type.pdf" download>examen-type.pdf</a>, aussi disponible sur la page d'accueil du cours.
+</Card>
+
+---
 layout: two-cols
 ---
 
@@ -794,8 +814,17 @@ CREATE TABLE oeuvres (
 
 <a href="/exercices/musee.sql" download>Corrigé · musee.sql, semaine 4</a>
 
+
+---
+layout: section
+---
+
+# Cheff·es de projet: réunion
+
+
 ---
 layout: two-cols
+hide: true
 ---
 
 ::title::
@@ -823,4 +852,3 @@ layout: two-cols
 
 9. Supprimer un billet, puis une exposition qui a des billets
 
-10. Noter pour chaque refus la contrainte responsable
