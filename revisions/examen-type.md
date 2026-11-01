@@ -17,8 +17,8 @@ Nom : ........................................ Prénom : .......................
 |---|---|
 | Programme | Cours 01 à 04 |
 | Support | Papier, sans machine |
-| Durée | [À confirmer] |
-| Documents | [À confirmer] |
+| Durée | 2 heures |
+| Documents | Formulaire A4 recto-verso, manuscrit |
 
 | Partie | Sujet | Points |
 |---|---|---|
