@@ -3,51 +3,47 @@ title: "Examen type · Intermédiaire"
 lang: fr
 ---
 
-::: entete
-Modélisation de Données · HEIG-VD / COMEM+
+![](logo.png)
 
-# Examen type · Intermédiaire
-:::
+# Modélisation de données (ModelDon)
 
-::: identite
-Nom : ........................................ Prénom : ........................................
-:::
+## Examen type · Intermédiaire
 
-| Élément | Détail |
-|---|---|
-| Programme | Cours 01 à 04 |
-| Support | Papier, sans machine |
-| Durée | 2 heures |
-| Documents | Formulaire A4 recto-verso, manuscrit |
+**Programme :** cours 01 à 04\
+**Durée :** 2h00, sur papier\
+**Documents autorisés :** une feuille A4 recto-verso manuscrite
 
-| Partie | Sujet | Points |
-|---|---|---|
-| 1 | Modèle conceptuel (MCD) | 15 |
-| 2 | Modèle logique (MLD) et normalisation | 20 |
-| 3 | Modèle physique (MPD) | 30 |
-| 4 | QCM | 15 |
-|   | **Total** | **80** |
+> L'examen se déroule sur papier : aucune exécution de requête SQL n'est possible. Il s'agit d'évaluer votre capacité à traduire un besoin en modèle, à analyser un modèle existant et à écrire le SQL qui le crée.
+>
+> Répondez dans les cadres prévus. Si l'espace est insuffisant, poursuivez sur une feuille de brouillon en indiquant votre nom, votre prénom et votre classe sur chaque feuille jointe à la copie.
+
+---
+
+## Barème
+
+| Partie | Points |
+|---|:---:|
+| Partie 1 : Modèle conceptuel (MCD) | 15 |
+| Partie 2 : Modèle logique (MLD) et normalisation | 20 |
+| Partie 3 : Modèle physique (MPD) | 30 |
+| Partie 4 : QCM | 15 |
+| **TOTAL** | **80** |
 
 ## Partie 1 : Modèle conceptuel (MCD) · 15 points {.nouvelle-page}
 
 ### Besoins
 
-> - Notre service gère les forêts du canton.
-> - Chaque forêt a un nom, propre à elle seule, et une surface en hectares, toujours renseignée.
-> - Certaines forêts font partie d'une zone protégée, d'autres non.
-> - Une zone protégée a un nom et une date de classement, et regroupe au moins une forêt.
-> - Dans chaque forêt, on recense des arbres remarquables.
-> - On dit « l'arbre 12 de la forêt des Combes » : le numéro repart à 1 dans chaque forêt.
-> - On note la hauteur de chaque arbre et, quand on la connaît, son année de plantation.
-> - Chaque arbre appartient à une essence (chêne, hêtre, épicéa), et on tient la liste des essences à part.
-> - Nos agent·e·s ont un nom, un prénom, une adresse e-mail jamais partagée et, parfois, un téléphone.
-> - Une intervention est menée par une seule personne.
-> - Un·e agent·e qui vient d'arriver n'en a encore mené aucune.
-> - Pour chaque intervention, on note sa date et si elle est terminée.
-> - Une intervention concerne au moins une forêt, souvent plusieurs.
-> - Certaines forêts n'ont jamais connu d'intervention.
-> - Pour chaque forêt concernée, on note le nombre d'heures passées.
-> - On veut afficher le nombre d'arbres recensés dans chaque forêt.
+> « Alors, nous, on s'occupe des forêts du canton. Chaque forêt a son nom, et on ne veut pas deux fois le même. Il nous faut aussi sa surface en hectares : ça, on doit toujours l'avoir.
+>
+> Certaines de ces forêts sont dans une zone protégée, d'autres pas du tout. Une zone, c'est un nom et une date de classement. Et une zone vide, ça n'existe pas : il y a toujours au moins une forêt dedans.
+>
+> Dans les forêts, on suit aussi les arbres remarquables. Entre nous, on dit « l'arbre 12 de la forêt des Combes » : chaque forêt a sa propre numérotation, qui repart à 1. On note la hauteur, et l'année de plantation quand on la connaît, ce qui n'est pas toujours le cas. Un arbre, c'est un chêne, un hêtre, un épicéa... Cette liste d'essences, on aimerait la tenir à part, pour ne pas la réécrire à chaque fois.
+>
+> Côté équipe, pour nos agent·e·s, il nous faut le nom, le prénom et l'e-mail, forcément différent pour chaque personne. Le téléphone, certain·e·s en ont un, d'autres non.
+>
+> Et puis il y a les interventions. Chacune est menée par une seule personne, et quelqu'un qui vient d'arriver n'en a encore fait aucune. On note la date, et si c'est terminé ou pas. Une intervention touche au moins une forêt, souvent plusieurs, et il y a des forêts où on n'est jamais intervenu. Pour chaque forêt touchée, on veut savoir combien d'heures on y a passé.
+>
+> Ah, et j'oubliais : on aimerait pouvoir afficher combien d'arbres on a recensés dans chaque forêt. »
 
 ### Question 1.1 · 12 points
 
@@ -144,13 +140,9 @@ Clé primaire : le couple `outil_id`, `intervention_id`
 
 ### Besoins
 
-> - La surface d'une forêt est strictement positive.
-> - Une zone supprimée libère ses forêts, qui restent en base sans zone.
-> - Une intervention est considérée comme non terminée tant qu'on n'indique rien d'autre.
-> - Un·e agent·e qui a encore des interventions ne peut pas être supprimé·e.
-> - Les heures, quand elles sont notées, sont strictement positives.
-> - Une intervention supprimée emporte le détail de ses forêts.
-> - Une forêt déjà concernée par une intervention ne peut pas être supprimée.
+> « Encore quelques précisions. La surface d'une forêt, ça ne peut être ni zéro ni négatif. Si on supprime une zone, les forêts restent chez nous, simplement sans zone. Quand on crée une intervention, elle compte comme non terminée, sauf si on dit le contraire.
+>
+> On ne doit pas pouvoir supprimer un·e agent·e qui a encore des interventions. Pareil pour une forêt : dès qu'une intervention l'a concernée, on ne peut plus la supprimer. Les heures, on ne les note pas toujours, mais quand on les note, c'est forcément plus que zéro. Et si on supprime une intervention, le détail de ses forêts part avec elle. »
 
 ### Question 3.1 · 20 points {.nouvelle-page}
 
@@ -270,17 +262,16 @@ Une seule bonne réponse par question. 1 point par bonne réponse, aucun point r
 :::
 
 ::: question
-**9.** Un arbre est lié à une forêt. Un·e étudiant·e ajoute une colonne `nom_foret` dans `arbres`, au lieu d'une clé étrangère. Quel est le problème ?
+**9.** Un arbre est lié à une forêt. Le·la gestionnaire de la base de données ajoute une colonne `nom_foret` dans `arbres`, au lieu d'une clé étrangère. Quel est le problème ?
 
 - [ ] a) Une table de liaison devient nécessaire
 - [ ] b) La table `forets` perd sa clé primaire
 - [ ] c) Le nom se répète et le SGBD ne contrôle plus le lien
 - [ ] d) La relation devient N:M
 :::
-Best,
 
 ::: question
-**10.** En passant du MCD au MLD, un·e étudiant·e oublie de définir les clés primaires. Quelle est la conséquence ?
+**10.** En passant du MCD au MLD, l'analyste de données oublie de définir les clés primaires. Quelle est la conséquence ?
 
 - [ ] a) Les cardinalités deviennent inutiles
 - [ ] b) Les types de données deviennent automatiques

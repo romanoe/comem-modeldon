@@ -1,51 +1,120 @@
-@page { size: A4; }
-html { font-family: "Plus Jakarta Sans", "Liberation Sans", Arial, sans-serif; font-size: 10.5pt; line-height: 1.4; color: #000; }
-body { margin: 0; max-width: none !important; padding: 0 !important; }
+/* Même style que les révisions d'InfraDon (comem-infradon-1/revisions/print.css).
+   Le format A4, les marges, l'en-tête et le pied de page sont gérés par build.mjs. */
+
+html { font-size: 11pt; }
+
+body {
+  font-family: "Helvetica Neue", Arial, "Segoe UI", sans-serif;
+  color: #1a1a1a;
+  line-height: 1.45;
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0 !important;
+}
+
 header#title-block-header { display: none; }
-.entete { border-bottom: 2px solid #000; padding-bottom: 6pt; margin-bottom: 14pt; }
-.entete p { margin: 0; font-size: 9.5pt; }
-h1 { font-size: 20pt; margin: 4pt 0 0; }
-h2 { font-size: 13.5pt; background: #000; color: #fff; padding: 4pt 8pt; margin: 16pt 0 8pt; break-after: avoid; }
-h3 { font-size: 11.5pt; margin: 12pt 0 4pt; break-after: avoid; }
-h4 { font-size: 10.5pt; margin: 12pt 0 3pt; break-after: avoid; }
-.nouvelle-page { break-before: page; }
-h2.nouvelle-page { margin-top: 0; }
-.identite { margin: 22pt 0; }
-code, pre { font-family: "Atkinson Hyperlegible Mono", "Liberation Mono", monospace; font-size: 9.5pt; }
-pre { background: #f2f2f2; padding: 6pt 8pt; margin: 5pt 0; break-inside: avoid; white-space: pre-wrap; }
-pre code { background: none; }
+
+img { max-width: 150px; height: auto; }
+
+h1 { font-size: 19pt; color: #d6271e; margin: 0.2rem 0 1rem 0; }
+
+h2 {
+  font-size: 14.5pt;
+  border-bottom: 2px solid #d6271e;
+  padding-bottom: 0.2rem;
+  margin-top: 1.4rem;
+  break-after: avoid;
+}
+
+h3 { font-size: 12.5pt; margin-top: 1.1rem; break-after: avoid; }
+h4 { font-size: 11pt; margin: 0.9rem 0 0.2rem; break-after: avoid; }
+
+hr { border: none; border-top: 1px solid #ddd; margin: 1rem 0; }
+
+p, li { font-size: 11pt; }
+strong { color: #111; }
+
+code {
+  font-family: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+  font-size: 9.5pt;
+  background: #f4f4f4;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+pre {
+  background: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 5px;
+  padding: 0.7rem 0.9rem;
+  margin: 0.5rem 0;
+  break-inside: avoid;
+  white-space: pre-wrap;
+}
+
+pre code { background: none; padding: 0; font-size: 9pt; line-height: 1.4; }
 div.sourceCode { margin: 0 !important; background: none; }
 pre > code.sourceCode { padding-left: 0 !important; }
 pre > code.sourceCode > span { text-indent: 0 !important; padding-left: 0 !important; }
-/* Pandoc colore le SQL : le sujet s'imprime en noir et blanc */
-pre code span { color: inherit !important; font-weight: inherit !important; font-style: normal !important; }
-blockquote { margin: 5pt 0; padding: 5pt 10pt; border-left: 3px solid #000; background: #f6f6f6; }
-blockquote p { margin: 0 0 5pt; }
-blockquote p:last-child { margin: 0; }
-blockquote ul { margin: 0; padding-left: 14pt; }
-blockquote li { margin: 2pt 0; }
-table { border-collapse: collapse; width: auto; margin: 6pt 0 10pt; font-size: 9.5pt; break-inside: avoid; }
-th, td { border: 1px solid #000; padding: 3pt 7pt; text-align: left; vertical-align: top; }
-th { background: #e6e6e6; }
-.question { break-inside: avoid; margin: 0 0 8pt; line-height: 1.27; }
-.question p { margin: 0 0 3pt; }
-ul.task-list, .question ul { list-style: none; padding-left: 8pt; margin: 2pt 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 10pt;
+  margin: 0.8rem 0;
+  break-inside: avoid;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: #f0f0f0; }
+
+blockquote {
+  border-left: 3px solid #d6271e;
+  margin: 0.8rem 0;
+  padding: 0.2rem 1rem;
+  color: #444;
+}
+
+/* Sauts de page et blocs insécables */
+.nouvelle-page { break-before: page; }
+h2.nouvelle-page { margin-top: 0; }
+.tables { break-inside: avoid; }
+.tables p { margin: 0.2rem 0; }
+
+/* QCM */
+.question { break-inside: avoid; margin: 0 0 0.5rem; line-height: 1.25; }
+.question p, .question li { font-size: 10pt; }
+.question p { margin: 0 0 0.15rem; }
+.question pre { margin: 0.25rem 0; padding: 0.4rem 0.7rem; }
+ul.task-list, .question ul { list-style: none; padding-left: 0.6rem; margin: 0.1rem 0; }
 ul.task-list li label, .question li { display: block; }
-input[type=checkbox] { width: 11pt; height: 11pt; margin: 0 5pt 0 0; vertical-align: -1.5pt; appearance: none; border: 1px solid #000; background: #fff; }
-.zone { border: 1px solid #777; margin: 5pt 0 11pt; break-inside: avoid; }
+input[type=checkbox] { width: 11pt; height: 11pt; margin: 0 5pt 0 0; vertical-align: -1.5pt; appearance: none; border: 1px solid #1a1a1a; background: #fff; }
+
+/* Cadres de réponse laissés vides pour la copie papier */
+.zone {
+  border: 1px solid #b8b8b8;
+  border-radius: 4px;
+  background: #fdfdfd;
+  margin: 0.5rem 0 0.8rem;
+  break-inside: avoid;
+}
 .zone-xs { height: 11mm; }
 .zone-s { height: 26mm; }
+.zone-t { height: 58mm; }
 .zone-m { height: 44mm; }
-.zone-t { height: 62mm; }
-.zone-grande { height: 215mm; }
-.zone-pleine { height: 250mm; }
-.note { border: 1px solid #000; padding: 4pt 8pt; margin: 6pt 0; font-weight: 700; }
-.note p { margin: 0; }
-img.diagramme, .diagramme { display: block; width: 100%; max-width: 100%; height: auto; margin: 6pt auto; }
-img.reduit { width: 82%; }
+.zone-grande { height: 205mm; }
+.zone-pleine { height: 240mm; }
+
+/* Corrigé : diagrammes et tables côte à côte */
+img.diagramme { display: block; width: 100%; max-width: 100%; height: auto; margin: 0.5rem auto; }
 figure { margin: 0; }
 figcaption { display: none; }
-.cote { display: flex; gap: 22pt; align-items: flex-start; flex-wrap: wrap; }
+.cote { display: flex; gap: 10pt; align-items: flex-start; }
 .cote > * { margin-top: 0; }
-.tables { break-inside: avoid; }
-.tables p { margin: 3pt 0; }
+.cote table { width: auto; }

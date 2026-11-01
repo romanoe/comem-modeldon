@@ -10,10 +10,16 @@ const dir = dirname(fileURLToPath(import.meta.url))
 // Le corrigé est ignoré par git : il n'existe pas dans un clone du dépôt.
 const documents = ['examen-type', 'examen-type-corrige'].filter((name) => existsSync(join(dir, `${name}.md`)))
 
-const footer = `<div style="width:100%;font-size:8pt;font-family:Arial,sans-serif;padding:0 16mm;display:flex;justify-content:space-between">
-  <span>Modélisation de Données · Examen type</span>
-  <span><span class="pageNumber"></span> / <span class="totalPages"></span></span>
+const pageNumbers = `<div style="width:100%;text-align:center;font-size:9px;color:#666;font-family:Helvetica,Arial,sans-serif">
+  <span class="pageNumber"></span> / <span class="totalPages"></span>
 </div>`
+
+const headers = {
+  'examen-type': `<div style="width:100%;font-size:12px;color:#222;font-family:Helvetica,Arial,sans-serif;padding:0 18mm;text-align:right">
+    Nom :&nbsp;____________&nbsp;&nbsp; Prénom :&nbsp;____________&nbsp;&nbsp; Classe :&nbsp;________
+  </div>`,
+  'examen-type-corrige': `<div style="width:100%;font-size:12px;color:#d6271e;font-weight:bold;font-family:Helvetica,Arial,sans-serif;padding:0 18mm;text-align:right">CORRIGÉ</div>`,
+}
 
 const browser = await chromium.launch()
 const page = await browser.newPage()
@@ -27,9 +33,9 @@ for (const name of documents) {
     format: 'A4',
     printBackground: true,
     displayHeaderFooter: true,
-    headerTemplate: '<span></span>',
-    footerTemplate: footer,
-    margin: { top: '15mm', bottom: '17mm', left: '16mm', right: '16mm' },
+    headerTemplate: headers[name],
+    footerTemplate: pageNumbers,
+    margin: { top: '22mm', bottom: '16mm', left: '18mm', right: '18mm' },
   })
   rmSync(html)
 }
