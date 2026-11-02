@@ -156,6 +156,21 @@ class: compact
 | 15 | 3 | 3 | Favre |
 
 ---
+layout: image-right
+image: /images/06/sql-joins.png
+backgroundSize: contain
+caption: 'Source · <a href="https://red9.com/blog/sql-joins-venn-diagram/">red9.com/blog/sql-joins-venn-diagram</a>'
+---
+
+# Types de jointures
+
+- `A` : table du `FROM`
+- `B` : table du `JOIN`
+- `key` : colonnes reliées par `ON`
+- *excluding INNER JOIN* : lignes sans correspondance
+- `CROSS JOIN` : chaque ligne avec chaque ligne
+
+---
 layout: section
 ---
 
@@ -698,24 +713,6 @@ WHERE l.id IS NULL
 - Résultat : quatre lignes
 
 </v-click>
-
----
-layout: default
-class: compact
----
-
-# Types de jointures
-
-| Jointure | Résultat |
-|---|---|
-| `INNER JOIN` | Lignes présentes des deux côtés |
-| `LEFT JOIN` | Toute la table de gauche |
-| `LEFT JOIN` + `WHERE b.id IS NULL` | Gauche sans correspondance |
-| `RIGHT JOIN` | Toute la table de droite |
-| `RIGHT JOIN` + `WHERE a.id IS NULL` | Droite sans correspondance |
-| `FULL OUTER JOIN` | Toutes les lignes des deux tables |
-| `FULL OUTER JOIN` + `WHERE a.id IS NULL OR b.id IS NULL` | Sans correspondance, des deux côtés |
-| `CROSS JOIN` | Chaque ligne avec chaque ligne |
 
 ---
 layout: section
