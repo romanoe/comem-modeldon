@@ -39,8 +39,9 @@ hide: true
 
 - Pourquoi la donnée est morcelée
 - `INNER JOIN` : ce qui existe des deux côtés
-- `LEFT JOIN` : tout garder à gauche
-- Lire une requête sur plusieurs tables
+- `LEFT JOIN`, `RIGHT JOIN`, `FULL OUTER JOIN` : garder les lignes sans correspondance
+- Sous-requêtes, `IN` et `NOT IN`
+- CTE : `WITH`, requêtes intermédiaires nommées
 
 <Card title="Aujourd'hui" color="#e92528">
 <template #icon><pixelarticons-chart /></template>

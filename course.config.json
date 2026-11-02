@@ -52,7 +52,8 @@
     {
       "src": "cours/06-connecter.md",
       "out": "06-connecter",
-      "title": "Connecter les données"
+      "title": "Connecter les données",
+      "tp": "06-connecter/tp"
     },
     {
       "src": "cours/07-analyser.md",

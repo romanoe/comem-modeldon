@@ -57,7 +57,7 @@ Les trois niveaux de modèle structurent le semestre : **conceptuel** au cours 0
 | 03 | [Modèle logique](https://comem-modeldon.onrender.com/03-modele-logique/) | Entité en table · Clé primaire · Clé étrangère · Contraintes des clés · Relation 1:N · Relation N:M · Table de liaison · Clé primaire composite · Normalisation · 1NF · 2NF · 3NF · Champs à texte libre · Généralisation |
 | 04 | [Modèle physique](https://comem-modeldon.onrender.com/04-modele-physique/) | SQLite · Types · CREATE TABLE · Contraintes de colonne · Clé étrangère · Intégrité référentielle · Modes de suppression · Clé primaire composite · DROP TABLE · ALTER TABLE |
 | 05 | [Interroger les données](https://comem-modeldon.onrender.com/05-interroger/) | SELECT · FROM · DISTINCT · WHERE · BETWEEN · IN · LIKE · IS NULL · ORDER BY · LIMIT · INSERT · UPDATE · DELETE |
-| 06 | [Connecter les données](https://comem-modeldon.onrender.com/06-connecter/) | Donnée morcelée · INNER JOIN · LEFT JOIN |
+| 06 | [Connecter les données](https://comem-modeldon.onrender.com/06-connecter/) | Donnée morcelée · INNER JOIN · LEFT JOIN · RIGHT JOIN · FULL OUTER JOIN · Alias de table · Sous-requêtes · NOT IN · CTE |
 | 07 | [Analyser les données](https://comem-modeldon.onrender.com/07-analyser/) | Agrégation · COUNT · SUM · AVG · GROUP BY · HAVING · CREATE VIEW |
 | 08 | [Indexer et optimiser](https://comem-modeldon.onrender.com/08-optimiser/) | Parcours complet · Index · EXPLAIN QUERY PLAN · Coût d'un index · Dénormalisation |
 | 09 | [La donnée semi-structurée](https://comem-modeldon.onrender.com/09-semi-structure/) | JSON · Syntaxe · Comparaison avec le modèle relationnel |
