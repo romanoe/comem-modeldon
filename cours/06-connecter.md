@@ -156,11 +156,10 @@ class: compact
 | 15 | 3 | 3 | Favre |
 
 ---
-layout: image-right
-image: /images/06/sql-joins.png
-backgroundSize: contain
-caption: 'Source · <a href="https://red9.com/blog/sql-joins-venn-diagram/">red9.com/blog/sql-joins-venn-diagram</a>'
+layout: two-cols
 ---
+
+::left::
 
 # Types de jointures
 
@@ -170,6 +169,16 @@ caption: 'Source · <a href="https://red9.com/blog/sql-joins-venn-diagram/">red9
 - *excluding INNER JOIN* : lignes sans correspondance
 - `CROSS JOIN` : chaque ligne avec chaque ligne
 
+::right::
+
+<Figure
+  class="w-3/4 mx-auto"
+  src="/images/06/sql-joins.png"
+  alt="Diagrammes de Venn des jointures SQL : LEFT, RIGHT, FULL OUTER, INNER, leurs variantes sans correspondance et CROSS JOIN"
+  caption="Source · red9.com/blog/sql-joins-venn-diagram"
+  href="https://red9.com/blog/sql-joins-venn-diagram/"
+/>
+
 ---
 layout: section
 ---
@@ -177,7 +186,8 @@ layout: section
 # INNER JOIN
 
 ---
-layout: two-cols
+layout: two-cols-bottom
+class: compact
 ---
 
 ::title::
@@ -186,10 +196,9 @@ layout: two-cols
 ::left::
 
 - Garde les lignes présentes des deux côtés
-- `ON` : condition de correspondance
-- Clé étrangère égale à la clé primaire
+- `ON` : colonnes communes, en rouge
 - `table.colonne` : précise la table
-- Sans correspondance : ligne absente du résultat
+- Sans correspondance : ligne absente
 
 ::right::
 
@@ -199,6 +208,49 @@ FROM table_a
 INNER JOIN table_b
   ON table_a.cle_etrangere = table_b.id;
 ```
+
+::bottom::
+
+`livres`
+
+| titre | <span class="commun">rayon_id</span> |
+|---|---|
+| Indiana | <span class="commun">1</span> |
+| Madame Bovary | <span class="commun">2</span> |
+| Germinal | <span class="commun">NULL</span> |
+
+`rayons`
+
+| <span class="commun">id</span> | no_rayon |
+|---|---|
+| <span class="commun">1</span> | 1 |
+| <span class="commun">2</span> | 1 |
+| <span class="commun">6</span> | 4 |
+
+<pixelarticons-arrow-right class="fleche text-3xl" />
+
+`INNER JOIN`
+
+| titre | <span class="commun">rayon_id</span> | <span class="commun">id</span> | no_rayon |
+|---|---|---|---|
+| Indiana | <span class="commun">1</span> | <span class="commun">1</span> | 1 |
+| Madame Bovary | <span class="commun">2</span> | <span class="commun">2</span> | 1 |
+
+<style>
+.commun { color: #e92528; font-weight: 700; }
+:deep(.slide-cell:last-child) {
+  display: grid;
+  grid-template-columns: 1.8fr 1.25fr auto 3fr;
+  column-gap: 1rem;
+  align-items: start;
+}
+p { grid-row: 1; }
+table { grid-row: 2; }
+p:nth-of-type(2), table:nth-of-type(2) { grid-column: 2; }
+.fleche { grid-column: 3; grid-row: 2; align-self: center; }
+p:nth-of-type(3), table:nth-of-type(3) { grid-column: 4; }
+</style>
+
 
 ---
 layout: two-cols
@@ -407,7 +459,8 @@ layout: section
 # LEFT JOIN
 
 ---
-layout: two-cols
+layout: two-cols-bottom
+class: compact
 ---
 
 ::title::
@@ -426,8 +479,52 @@ layout: two-cols
 SELECT a.colonne, b.colonne
 FROM table_a AS a
 LEFT JOIN table_b AS b
-  ON b.cle_etrangere = a.id;
+  ON a.cle_etrangere = b.id;
 ```
+
+::bottom::
+
+`livres`
+
+| titre | <span class="commun">rayon_id</span> |
+|---|---|
+| Indiana | <span class="commun">1</span> |
+| Madame Bovary | <span class="commun">2</span> |
+| Germinal | <span class="commun">NULL</span> |
+
+`rayons`
+
+| <span class="commun">id</span> | no_rayon |
+|---|---|
+| <span class="commun">1</span> | 1 |
+| <span class="commun">2</span> | 1 |
+| <span class="commun">6</span> | 4 |
+
+<pixelarticons-arrow-right class="fleche text-3xl" />
+
+`LEFT JOIN`
+
+| titre | <span class="commun">rayon_id</span> | <span class="commun">id</span> | no_rayon |
+|---|---|---|---|
+| Indiana | <span class="commun">1</span> | <span class="commun">1</span> | 1 |
+| Madame Bovary | <span class="commun">2</span> | <span class="commun">2</span> | 1 |
+| Germinal | <span class="commun">NULL</span> | <span class="commun">NULL</span> | NULL |
+
+<style>
+.commun { color: #e92528; font-weight: 700; }
+:deep(.slide-cell:last-child) {
+  display: grid;
+  grid-template-columns: 1.8fr 1.25fr auto 3fr;
+  column-gap: 1rem;
+  align-items: start;
+}
+p { grid-row: 1; }
+table { grid-row: 2; }
+p:nth-of-type(2), table:nth-of-type(2) { grid-column: 2; }
+.fleche { grid-column: 3; grid-row: 2; align-self: center; }
+p:nth-of-type(3), table:nth-of-type(3) { grid-column: 4; }
+</style>
+
 
 ---
 layout: two-cols
@@ -574,7 +671,8 @@ layout: section
 # RIGHT JOIN et FULL OUTER JOIN
 
 ---
-layout: two-cols
+layout: two-cols-bottom
+class: compact
 ---
 
 ::title::
@@ -590,19 +688,55 @@ layout: two-cols
 ::right::
 
 ```sql
--- Toute la table de droite
 SELECT a.colonne, b.colonne
 FROM table_a AS a
 RIGHT JOIN table_b AS b
   ON a.cle_etrangere = b.id;
-
--- Seulement les lignes sans correspondance
-SELECT b.colonne
-FROM table_a AS a
-RIGHT JOIN table_b AS b
-  ON a.cle_etrangere = b.id
-WHERE a.id IS NULL;
 ```
+
+::bottom::
+
+`livres`
+
+| titre | <span class="commun">rayon_id</span> |
+|---|---|
+| Indiana | <span class="commun">1</span> |
+| Madame Bovary | <span class="commun">2</span> |
+| Germinal | <span class="commun">NULL</span> |
+
+`rayons`
+
+| <span class="commun">id</span> | no_rayon |
+|---|---|
+| <span class="commun">1</span> | 1 |
+| <span class="commun">2</span> | 1 |
+| <span class="commun">6</span> | 4 |
+
+<pixelarticons-arrow-right class="fleche text-3xl" />
+
+`RIGHT JOIN`
+
+| titre | <span class="commun">rayon_id</span> | <span class="commun">id</span> | no_rayon |
+|---|---|---|---|
+| Indiana | <span class="commun">1</span> | <span class="commun">1</span> | 1 |
+| Madame Bovary | <span class="commun">2</span> | <span class="commun">2</span> | 1 |
+| NULL | <span class="commun">NULL</span> | <span class="commun">6</span> | 4 |
+
+<style>
+.commun { color: #e92528; font-weight: 700; }
+:deep(.slide-cell:last-child) {
+  display: grid;
+  grid-template-columns: 1.8fr 1.25fr auto 3fr;
+  column-gap: 1rem;
+  align-items: start;
+}
+p { grid-row: 1; }
+table { grid-row: 2; }
+p:nth-of-type(2), table:nth-of-type(2) { grid-column: 2; }
+.fleche { grid-column: 3; grid-row: 2; align-self: center; }
+p:nth-of-type(3), table:nth-of-type(3) { grid-column: 4; }
+</style>
+
 
 ---
 layout: two-cols
@@ -644,7 +778,8 @@ WHERE l.id IS NULL;
 </v-click>
 
 ---
-layout: two-cols
+layout: two-cols-bottom
+class: compact
 ---
 
 ::title::
@@ -654,25 +789,61 @@ layout: two-cols
 
 - Garde toutes les lignes des deux tables
 - Sans correspondance : `NULL` de l'autre côté
-- `OR` : sans correspondance d'un côté ou de l'autre
+- `WHERE a.id IS NULL OR b.id IS NULL` : sans correspondance
 
 ::right::
 
 ```sql
--- Toutes les lignes des deux tables
 SELECT a.colonne, b.colonne
 FROM table_a AS a
 FULL OUTER JOIN table_b AS b
   ON a.cle_etrangere = b.id;
-
--- Seulement les lignes sans correspondance
-SELECT a.colonne, b.colonne
-FROM table_a AS a
-FULL OUTER JOIN table_b AS b
-  ON a.cle_etrangere = b.id
-WHERE a.id IS NULL
-   OR b.id IS NULL;
 ```
+
+::bottom::
+
+`livres`
+
+| titre | <span class="commun">rayon_id</span> |
+|---|---|
+| Indiana | <span class="commun">1</span> |
+| Madame Bovary | <span class="commun">2</span> |
+| Germinal | <span class="commun">NULL</span> |
+
+`rayons`
+
+| <span class="commun">id</span> | no_rayon |
+|---|---|
+| <span class="commun">1</span> | 1 |
+| <span class="commun">2</span> | 1 |
+| <span class="commun">6</span> | 4 |
+
+<pixelarticons-arrow-right class="fleche text-3xl" />
+
+`FULL OUTER JOIN`
+
+| titre | <span class="commun">rayon_id</span> | <span class="commun">id</span> | no_rayon |
+|---|---|---|---|
+| Indiana | <span class="commun">1</span> | <span class="commun">1</span> | 1 |
+| Madame Bovary | <span class="commun">2</span> | <span class="commun">2</span> | 1 |
+| Germinal | <span class="commun">NULL</span> | <span class="commun">NULL</span> | NULL |
+| NULL | <span class="commun">NULL</span> | <span class="commun">6</span> | 4 |
+
+<style>
+.commun { color: #e92528; font-weight: 700; }
+:deep(.slide-cell:last-child) {
+  display: grid;
+  grid-template-columns: 1.8fr 1.25fr auto 3fr;
+  column-gap: 1rem;
+  align-items: start;
+}
+p { grid-row: 1; }
+table { grid-row: 2; }
+p:nth-of-type(2), table:nth-of-type(2) { grid-column: 2; }
+.fleche { grid-column: 3; grid-row: 2; align-self: center; }
+p:nth-of-type(3), table:nth-of-type(3) { grid-column: 4; }
+</style>
+
 
 ---
 layout: two-cols
