@@ -182,9 +182,9 @@ layout: two-cols
 ::left::
 
 - `AS` : renomme une colonne du résultat
-- `DISTINCT` : supprime les lignes en double
-- `DISTINCT` porte sur toute la ligne
 - Nom d'origine inchangé dans la table
+- `DISTINCT` : élimine les lignes dupliquées (doublons) dans les résultats d'une requête
+- Plusieurs colonnes : la combinaison doit être identique
 
 ::right::
 
@@ -192,9 +192,57 @@ layout: two-cols
 SELECT colonne AS nouveau_nom
 FROM nom_table;
 
-SELECT DISTINCT colonne
+-- Chaque valeur une seule fois
+SELECT DISTINCT colonne_1
+FROM nom_table;
+
+-- Chaque combinaison une seule fois
+SELECT DISTINCT colonne_1, colonne_2
 FROM nom_table;
 ```
+
+---
+layout: two-cols
+class: compact split
+---
+
+::title::
+# DISTINCT sur plusieurs colonnes
+
+::left::
+
+`livres`
+
+| auteur_id | rayon_id |
+|---|---|
+| 1 | 1 |
+| 1 | 1 |
+| 1 | 5 |
+| 2 | 1 |
+| 2 | 2 |
+
+- S'applique à toutes les colonnes du `SELECT`
+- Doublon : mêmes valeurs dans toutes ces colonnes
+
+::right::
+
+### Résultats
+
+`DISTINCT auteur_id`
+
+| auteur_id |
+|---|
+| 1 |
+| 2 |
+
+`DISTINCT auteur_id, rayon_id`
+
+| auteur_id | rayon_id |
+|---|---|
+| 1 | 1 |
+| 1 | 5 |
+| 2 | 1 |
+| 2 | 2 |
 
 ---
 layout: two-cols
