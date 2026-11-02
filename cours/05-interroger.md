@@ -781,13 +781,13 @@ routeAlias: tp
 
 ::left::
 
-1. Comparer son `musee.sql` au corrigé, le corriger
+1. Comparer son `musee.sql` au <a href="/exercices/musee.sql" download>corrigé</a>, le corriger
 
-2. Écrire `musee-donnees.sql` : trois lignes par table au moins
+2. Télécharger <a href="/exercices/musee-donnees.sql" download>musee-donnees.sql</a>, exécuter les deux scripts avec `.read`
 
-3. Exécuter les deux scripts avec `.read`
+3. Écrire `musee-requetes.sql`, avec `PRAGMA foreign_keys = ON;` en tête
 
-4. Écrire `musee-requetes.sql` : une requête commentée par question
+4. Une requête commentée par question
 
 5. Modifier, supprimer : `SELECT` d'abord
 
@@ -811,8 +811,6 @@ CREATE TABLE oeuvres (
     ON DELETE RESTRICT
 );
 ```
-
-<a href="/exercices/musee.sql" download>Corrigé · musee.sql, semaine 4</a>
 
 
 ---
@@ -851,4 +849,6 @@ hide: true
 8. Marquer un financement comme payé
 
 9. Supprimer un billet, puis une exposition qui a des billets
+
+10. Provoquer un refus par contrainte : `NOT NULL`, `UNIQUE`, `CHECK`, `REFERENCES`
 
