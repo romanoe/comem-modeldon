@@ -202,7 +202,7 @@ layout: two-cols
 
 > « Pour chaque auteur·rice, on note son nom, sa date de naissance et, le cas échéant, sa date de décès. »
 
-### La question
+### Question
 
 Quel `CREATE TABLE` pour cette table ?
 
@@ -269,7 +269,7 @@ layout: two-cols
 
 > « Chaque lecteur·rice donne son nom, son prénom et son adresse e-mail. Deux personnes ne partagent jamais la même adresse. Le téléphone est facultatif. »
 
-### La question
+### Question
 
 Quelles contraintes sur chaque colonne ?
 
@@ -378,7 +378,7 @@ layout: two-cols
 
 > « Un livre a toujours un·e auteur·rice. Un livre neuf n'est pas encore rangé. Le nombre de pages est positif. »
 
-### La question
+### Question
 
 Quelles contraintes sur `auteur_id`, `rayon_id` et `nb_pages` ?
 
@@ -453,7 +453,7 @@ layout: two-cols
 
 > « Un rayon démonté libère ses livres, qui attendent un nouveau rangement. Un·e auteur·rice qui a encore des livres au catalogue ne peut pas être supprimé·e. »
 
-### La question
+### Question
 
 Quel mode pour `rayon_id`, lequel pour `auteur_id` ?
 
@@ -531,7 +531,7 @@ layout: two-cols
 
 > « On note la date de chaque emprunt et si le livre est rendu. Un·e lecteur·rice qui se désinscrit disparaît avec ses emprunts. »
 
-### La question
+### Question
 
 Quelle clé, quels modes de suppression ?
 
@@ -713,7 +713,7 @@ layout: two-cols
 
 > « Le script `bibliotheque.sql` doit pouvoir se relancer après chaque correction, sans erreur. »
 
-### La question
+### Question
 
 Que placer en tête du script ?
 
@@ -786,7 +786,7 @@ layout: two-cols
 
 > « Le téléphone ne nous sert plus. En revanche, on veut noter la date d'inscription de chaque lecteur·rice. »
 
-### La question
+### Question
 
 Quelles instructions, sans recréer la table ?
 

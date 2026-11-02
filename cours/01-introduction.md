@@ -433,7 +433,7 @@ layout: two-cols
 
 > « Je veux savoir quels livres sont empruntés, par quel·le lecteur·rice, et qui les a écrits. »
 
-### La question
+### Question
 
 Quels objets du domaine se cachent dans cette phrase ?
 
@@ -678,7 +678,7 @@ class: compact
 
 ::left::
 
-### La question
+### Question
 
 > « Quels objets, quels types de données ce musée doit-il stocker ? »
 

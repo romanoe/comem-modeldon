@@ -149,7 +149,7 @@ layout: two-cols
 
 > « Pour préparer l'inventaire, il nous faut la liste des titres avec leur année de parution. »
 
-### La question
+### Question
 
 Quelle requête ?
 
@@ -209,7 +209,7 @@ layout: two-cols
 
 > « Quel·le·s lecteur·rice·s ont emprunté au moins un livre ? On veut chaque numéro une seule fois. »
 
-### La question
+### Question
 
 Quelle requête ?
 
@@ -275,7 +275,7 @@ layout: two-cols
 
 > « On cherche les gros romans anciens : publiés avant 1900, et de plus de 500 pages. »
 
-### La question
+### Question
 
 Quelle condition ?
 
@@ -339,7 +339,7 @@ layout: two-cols
 
 > « Pour une vitrine sur le Second Empire, on veut les livres parus entre 1852 et 1870. Et, à part, tous les titres qui contiennent le mot "Terre". »
 
-### La question
+### Question
 
 Quelles deux requêtes ?
 
@@ -444,7 +444,7 @@ layout: two-cols
 
 > « Sur la page d'accueil, on affiche les trois livres les plus épais du catalogue. »
 
-### La question
+### Question
 
 Quel tri, quelle limite ?
 
@@ -505,7 +505,7 @@ layout: two-cols
 
 > « Chaque lundi, on relance les livres non rendus, en commençant par les plus anciens emprunts. »
 
-### La question
+### Question
 
 Quelle requête complète ?
 
@@ -575,7 +575,7 @@ layout: two-cols
 
 > « Nous venons de recevoir *Le Premier Homme* d'Albert Camus, paru en 1994. Il n'est pas encore rangé. »
 
-### La question
+### Question
 
 Quel `INSERT` ?
 
@@ -634,7 +634,7 @@ layout: two-cols
 
 > « Zoé Chappuis (lectrice 7) vient de rendre *La Peste* (livre 19). »
 
-### La question
+### Question
 
 Quel `UPDATE` ?
 
@@ -693,7 +693,7 @@ layout: two-cols
 
 > « Alix Rey (lectrice 9) se désinscrit de la bibliothèque. »
 
-### La question
+### Question
 
 Quel `DELETE`, et que deviennent ses emprunts ?
 

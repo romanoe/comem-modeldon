@@ -524,7 +524,7 @@ layout: two-cols
 
 > « Un auteur écrit des livres. Un rayon les range. Un adhérent les emprunte. »
 
-### La question
+### Question
 
 Quels verbes reliant deux boîtes se cachent dans cette phrase ?
 
@@ -591,7 +591,7 @@ layout: two-cols
 
 > « Un client peut passer plusieurs commandes. Une commande n'est passée que par un seul client. »
 
-### La question
+### Question
 
 Quelle cardinalité à chaque bout du trait ?
 
@@ -625,7 +625,7 @@ layout: two-cols
 
 > « Un étudiant suit plusieurs cours. Un cours est enseigné par un seul professeur. »
 
-### La question
+### Question
 
 Où se cache la relation N:M ?
 

@@ -184,7 +184,7 @@ layout: two-cols
 
 > « Un client peut passer plusieurs commandes. Une commande n'est passée que par un seul client. »
 
-### La question
+### Question
 
 Quelle table reçoit la clé étrangère ?
 
@@ -264,7 +264,7 @@ layout: two-cols
 
 > « Un étudiant suit plusieurs cours. Un cours est suivi par plusieurs étudiants. »
 
-### La question
+### Question
 
 Combien de tables pour ces deux entités ?
 
