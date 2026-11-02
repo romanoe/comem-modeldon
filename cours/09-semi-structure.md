@@ -8,7 +8,8 @@ email: "noemi.romano@heig-vd.ch"
 github: "https://github.com/romanoe/comem-modeldon"
 breadcrumb: "Modélisation de Données"
 logos:
-  - /images/logo-heig-vd.svg
+  - src: /images/logo-heig-vd.svg
+    height: 60px
   - src: /images/logo-hes-so.png
     height: 79px
 
