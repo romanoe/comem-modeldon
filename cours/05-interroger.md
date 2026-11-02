@@ -77,7 +77,7 @@ layout: default
 
 <Card title="Examen type" color="#e92528">
 <template #icon><pixelarticons-edit-box /></template>
-Pour s'entraîner : <a href="/revisions/examen-type.pdf" download>examen-type.pdf</a>, aussi disponible sur la page d'accueil du cours.
+Pour s'entraîner : <a href="https://comem-modeldon.onrender.com/revisions/examen-type.pdf" download>examen-type.pdf</a>, aussi disponible sur la page d'accueil du cours.
 </Card>
 
 ---
@@ -89,9 +89,10 @@ layout: two-cols
 
 ::left::
 
-- <a href="/exercices/bibliotheque.sql" download>bibliotheque.sql</a> : structure
-- <a href="/exercices/bibliotheque-donnees.sql" download>bibliotheque-donnees.sql</a> : données
-- Base créée au cours 04
+- Ouvrir <a href="https://github.com/romanoe/comem-modeldon-tp">comem-modeldon-tp</a> dans VS Code
+- Rouvrir dans le container : **Reopen in Container**
+- <a href="https://comem-modeldon.onrender.com/exercices/bibliotheque.sql" download>bibliotheque.sql</a> : structure
+- <a href="https://comem-modeldon.onrender.com/exercices/bibliotheque-donnees.sql" download>bibliotheque-donnees.sql</a> : données
 - Base absente : la recréer avec `.read`
 
 ::right::
@@ -781,9 +782,9 @@ routeAlias: tp
 
 ::left::
 
-1. Comparer son `musee.sql` au <a href="/exercices/musee.sql" download>corrigé</a>, le corriger
+1. Comparer son `musee.sql` au <a href="https://comem-modeldon.onrender.com/exercices/musee.sql" download>corrigé</a>, le corriger
 
-2. Télécharger <a href="/exercices/musee-donnees.sql" download>musee-donnees.sql</a>, exécuter les deux scripts avec `.read`
+2. Télécharger <a href="https://comem-modeldon.onrender.com/exercices/musee-donnees.sql" download>musee-donnees.sql</a>, exécuter les deux scripts avec `.read`
 
 3. Écrire `musee-requetes.sql`, avec `PRAGMA foreign_keys = ON;` en tête
 

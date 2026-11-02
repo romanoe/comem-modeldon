@@ -655,8 +655,8 @@ layout: two-cols
 
 ::left::
 
-- <a href="/exercices/bibliotheque.sql" download>bibliotheque.sql</a> : structure, relançable
-- <a href="/exercices/bibliotheque-donnees.sql" download>bibliotheque-donnees.sql</a> : livres, lecteur·rice·s, emprunts
+- <a href="https://comem-modeldon.onrender.com/exercices/bibliotheque.sql" download>bibliotheque.sql</a> : structure, relançable
+- <a href="https://comem-modeldon.onrender.com/exercices/bibliotheque-donnees.sql" download>bibliotheque-donnees.sql</a> : livres, lecteur·rice·s, emprunts
 - Fichiers glissés dans l'explorateur de VS Code
 - La structure d'abord, les données ensuite
 - Donnée refusée : contrainte à revoir
