@@ -180,7 +180,7 @@ a) Écrire tout ce qui précède le premier `CREATE TABLE`, pour les sept tables
 ::: {.zone .zone-m}
 :::
 
-b) Donner un ordre de création valide pour les sept tables sous forme de liste numerotée (2 points)
+b) Donner un ordre de création valide pour les sept tables sous forme de liste numérotée (2 points)
 
 ::: {.zone .zone-s}
 :::

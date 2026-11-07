@@ -75,7 +75,7 @@ L'examen intermédiaire porte sur la modélisation et la création des tables, c
 
 ### Révisions
 
-Un [examen type](https://comem-modeldon.onrender.com/revisions/examen-type.pdf) prépare l'examen intermédiaire. Il se télécharge aussi depuis la page d'accueil du cours.
+Un [examen type](https://comem-modeldon.onrender.com/revisions/examen-type.pdf) prépare l'examen intermédiaire. Son [corrigé](https://comem-modeldon.onrender.com/revisions/examen-type-corrige.pdf) est disponible. Les deux se téléchargent aussi depuis la page d'accueil du cours.
 
 ### Travaux pratiques
 

@@ -12,6 +12,11 @@
       "title": "Examen type · Intermédiaire",
       "pdf": "revisions/examen-type.pdf",
       "md": "revisions/examen-type.md"
+    },
+    {
+      "title": "Examen type · Corrigé",
+      "pdf": "revisions/examen-type-corrige.pdf",
+      "md": "revisions/examen-type-corrige.md"
     }
   ],
   "decks": [
