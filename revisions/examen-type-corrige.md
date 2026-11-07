@@ -13,23 +13,23 @@ lang: fr
 
 ![](images/mcd-forets.svg){.diagramme}
 
-Les noms de relation sont libres, tant que ce sont des verbes à l'infinitif. `forets_interventions` peut porter un autre nom. `date_classement` peut être `NOT NULL` si l'étudiant·e le justifie.
+Les noms de relation sont libres, tant que ce sont des verbes à l'infinitif. `heures` se pose sur la relation `concerner`, qu'elle décrit. `essence` reste un attribut de `arbres` : sa table de référence vient au MLD.
 
 | Critère | Points |
 |---|---|
-| 7 entités : `zones`, `forets`, `arbres`, `essences`, `agents`, `interventions`, `forets_interventions` | 3 |
-| Attributs complets, types cohérents (`DECIMAL` pour la surface, `BOOLEAN` pour `terminee`, `DATE` pour les dates) | 2 |
-| Contraintes : les `PK`, dont les deux `PK` de `arbres` et de `forets_interventions`, plus `NOT NULL` et `UNIQUE` | 2 |
-| Relations : un trait, un verbe à l'infinitif | 2 |
-| Multiplicités correctes et bien placées (0,5 par relation) | 3 |
+| 5 entités : `zones`, `forets`, `arbres`, `agents`, `interventions` (0,5 par entité) | 2,5 |
+| Attributs complets, dont `essence` et `heures`, types cohérents (`DECIMAL` pour la surface, `BOOLEAN` pour `terminee`, `DATE` pour les dates) | 2,5 |
+| Identifiants : une `PK` par entité, les deux `PK` de `arbres` | 2 |
+| Relations : un trait, un verbe à l'infinitif (0,5 par relation) | 2,5 |
+| Multiplicités correctes et bien placées (0,5 par relation) | 2,5 |
 
-Retirer 1 point pour toute colonne `FK`, toute notation Chen, Merise ou patte de corbeau, et tout attribut `nb_arbres`.
+Accepter aussi une entité associative `forets_interventions` qui porte `heures`, ou une entité `essences` reliée à `arbres`. Ne pas pénaliser les `NOT NULL` et `UNIQUE`, qui ne sont pas attendus.
 
 ### Question 1.2 · 3 points
 
 a) Entité faible : le numéro repart à 1 dans chaque forêt, il faut donc la forêt et le numéro pour identifier un arbre.
 
-b) Entité associative : le nombre d'heures ne tient ni dans la forêt ni dans l'intervention, il décrit leur lien.
+b) Entité associative : le nombre d'heures ne tient ni dans la forêt ni dans l'intervention, il décrit leur lien. Dans le MCD, `heures` se pose sur la relation `concerner`.
 
 c) Non : c'est un attribut dérivé. Il se calcule et ne se stocke pas, sinon il devient faux au prochain arbre recensé.
 
@@ -39,14 +39,16 @@ c) Non : c'est un attribut dérivé. Il se calcule et ne se stocke pas, sinon il
 
 ![](images/mld-forets.svg){.diagramme}
 
+En violet, la table de liaison de la relation N:M. En vert, la table de référence du champ à texte libre `essence`. `forets_interventions` peut porter un autre nom.
+
 | Critère | Points |
 |---|---|
 | `zone_id` dans `forets`, sans `NOT NULL` | 2 |
 | `agent_id` dans `interventions`, avec `NOT NULL` | 2 |
-| `essence_id` dans `arbres`, avec `NOT NULL` | 1 |
+| `essences` : table de référence du champ à texte libre `essence`, `essence_id` dans `arbres`, avec `NOT NULL` | 1 |
 | `arbres` : `PK` composite `foret_id`, `numero`, et `foret_id` aussi en `FK` | 2 |
-| `forets_interventions` : deux `PK, FK`, plus `heures` | 3 |
-| `PK`, `NOT NULL` et `UNIQUE` reportés du MCD | 1 |
+| `forets_interventions` : table de liaison de la relation N:M, deux `PK, FK`, plus `heures` | 3 |
+| `NOT NULL` et `UNIQUE` tirés du besoin (`nom` et `email` uniques, `surface` et `hauteur` obligatoires) | 1 |
 
 ### Question 2.2 · 9 points {.nouvelle-page}
 
@@ -145,8 +147,6 @@ CREATE TABLE forets_interventions (
   PRIMARY KEY (foret_id, intervention_id)
 );
 ```
-
-Sans clause `ON DELETE`, SQLite refuse comme `RESTRICT` : accepter son absence sur `agent_id` et `foret_id`.
 
 | Table | Critère | Points |
 |---|---|---|
