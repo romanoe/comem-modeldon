@@ -69,7 +69,8 @@
     {
       "src": "cours/08-optimiser.md",
       "out": "08-optimiser",
-      "title": "Indexer et optimiser"
+      "title": "Indexer et optimiser",
+      "tp": "08-optimiser/tp"
     },
     {
       "src": "cours/09-semi-structure.md",

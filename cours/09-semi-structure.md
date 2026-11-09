@@ -39,10 +39,11 @@ hide: true
 
 # Cours précédent
 
-- Index : accélérer la recherche sur une colonne
-- Lire un plan avec `EXPLAIN QUERY PLAN`
-- Coût d'un index à l'écriture
-- Dénormalisation raisonnée
+- `CREATE INDEX` : accélérer la recherche sur une colonne
+- `EXPLAIN QUERY PLAN` : `SCAN` ou `SEARCH`
+- Clé étrangère : index à poser soi-même
+- Coût d'un index : écritures, taille du fichier
+- Dénormalisation : après la mesure, jamais par confort
 
 <Card title="Aujourd'hui" color="#e92528">
 <template #icon><pixelarticons-braces /></template>

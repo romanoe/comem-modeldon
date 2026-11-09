@@ -48,7 +48,7 @@ Les fichiers d'exercice se téléchargent depuis les liens des slides, puis se g
 
 ## Cours
 
-Les trois niveaux de modèle structurent le semestre : **conceptuel** au cours 02, **logique** au cours 03, **physique** au cours 04. Les cours 08 et 09 sont en cours d'écriture et n'affichent pour l'instant qu'une page d'attente.
+Les trois niveaux de modèle structurent le semestre : **conceptuel** au cours 02, **logique** au cours 03, **physique** au cours 04. Le cours 09 est en cours d'écriture et n'affiche pour l'instant qu'une page d'attente.
 
 | # | Module | Contenu |
 |---|---|---|
@@ -59,7 +59,7 @@ Les trois niveaux de modèle structurent le semestre : **conceptuel** au cours 0
 | 05 | [Interroger les données](https://comem-modeldon.onrender.com/05-interroger/) | SELECT · FROM · DISTINCT · WHERE · BETWEEN · IN · LIKE · IS NULL · ORDER BY · LIMIT · INSERT · UPDATE · DELETE |
 | 06 | [Connecter les données](https://comem-modeldon.onrender.com/06-connecter/) | Donnée morcelée · INNER JOIN · LEFT JOIN · RIGHT JOIN · FULL OUTER JOIN · Alias de table · Sous-requêtes · NOT IN · CTE |
 | 07 | [Analyser les données](https://comem-modeldon.onrender.com/07-analyser/) | Indicateur · Agrégation · COUNT · SUM · AVG · MIN · MAX · COUNT DISTINCT · GROUP BY · COUNT et LEFT JOIN · HAVING · WHERE et HAVING · CREATE VIEW · Vue et CTE |
-| 08 | [Indexer et optimiser](https://comem-modeldon.onrender.com/08-optimiser/) | Parcours complet · Index · EXPLAIN QUERY PLAN · Coût d'un index · Dénormalisation |
+| 08 | [Indexer et optimiser](https://comem-modeldon.onrender.com/08-optimiser/) | Parcours complet · Index · CREATE INDEX · Index automatiques · EXPLAIN QUERY PLAN · Index composite · Coût d'un index · Dénormalisation |
 | 09 | [La donnée semi-structurée](https://comem-modeldon.onrender.com/09-semi-structure/) | JSON · Syntaxe · Comparaison avec le modèle relationnel |
 
 ---
