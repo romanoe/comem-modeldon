@@ -63,7 +63,8 @@
     {
       "src": "cours/07-analyser.md",
       "out": "07-analyser",
-      "title": "Analyser les données"
+      "title": "Analyser les données",
+      "tp": "07-analyser/tp"
     },
     {
       "src": "cours/08-optimiser.md",

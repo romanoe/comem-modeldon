@@ -38,9 +38,11 @@ hide: true
 
 # Cours précédent
 
-- Fonctions d'agrégation
-- Regrouper les résultats avec `GROUP BY`
-- Vues enregistrées comme requêtes réutilisables
+- `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`
+- `COUNT(*)`, `COUNT(colonne)`, `COUNT(DISTINCT colonne)`
+- `GROUP BY` : une ligne par groupe
+- `WHERE` avant, `HAVING` après le regroupement
+- `CREATE VIEW` : requête enregistrée, toujours à jour
 
 <Card title="Aujourd'hui" color="#e92528">
 <template #icon><pixelarticons-zap /></template>
