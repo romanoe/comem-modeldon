@@ -1218,7 +1218,7 @@ INNER JOIN artistes AS a
 layout: section
 ---
 
-# Cheff·es de projet: réunion
+# Chef·fes de projet : réunion
 
 ---
 layout: two-cols

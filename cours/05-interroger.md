@@ -185,7 +185,7 @@ layout: two-cols
 - `AS` : renomme une colonne du résultat
 - Nom d'origine inchangé dans la table
 - `DISTINCT` : élimine les lignes dupliquées (doublons) dans les résultats d'une requête
-- Plusieurs colonnes : la combinaison doit être identique
+- Plusieurs colonnes : doublon si toutes les valeurs sont identiques
 
 ::right::
 
@@ -197,7 +197,7 @@ FROM nom_table;
 SELECT DISTINCT colonne_1
 FROM nom_table;
 
--- Chaque combinaison une seule fois
+-- Chaque paire de valeurs une seule fois
 SELECT DISTINCT colonne_1, colonne_2
 FROM nom_table;
 ```
@@ -867,7 +867,7 @@ CREATE TABLE oeuvres (
 layout: section
 ---
 
-# Cheff·es de projet: réunion
+# Chef·fes de projet : réunion
 
 
 ---
