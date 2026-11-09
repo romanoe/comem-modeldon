@@ -75,7 +75,8 @@
     {
       "src": "cours/09-semi-structure.md",
       "out": "09-semi-structure",
-      "title": "La donnée semi-structurée"
+      "title": "La donnée semi-structurée",
+      "tp": "09-semi-structure/tp"
     }
   ]
 }
